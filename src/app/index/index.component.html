@@ -1,0 +1,17 @@
+<app-header></app-header>
+<app-main-menu></app-main-menu>
+<section id="content" class="content">
+
+	<app-breadcrumb></app-breadcrumb>
+			
+	<article *ngIf="sessionService.getIsLogin() == false">
+		<h3>Welcome Beaveys! :D</h3>
+		
+		<p>
+			This is the landing page for the application! Please sign up or log in to access more feature :D
+		</p>
+	</article>	
+	
+</section>
+
+<app-footer></app-footer>

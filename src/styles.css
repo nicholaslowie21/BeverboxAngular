@@ -1,1 +1,195 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+	margin: 0;
+	padding: 0;
+	font-family: verdana,arial;	
+}
+
+body {
+	display: block;
+	width: 99%;
+	margin: 0.5% 0.5% 0.5% 0.5%;
+}
+
+p {
+	padding: 5px 0px 5px 0px;
+}
+
+table {
+	border-style: solid; 
+	border-width: 1px;
+	font-size: smaller;
+}
+
+th, td {
+	border-style: solid; 
+	border-width: 1px;
+	border-spacing: 1px;
+	padding: 3px;
+}
+
+a {
+	text-decoration-line: none;	
+}
+
+a:hover {
+	text-decoration-line: underline;
+	cursor: pointer;
+}
+
+.header {
+	display: block;
+	padding: 3px 3px 3px 3px;
+	clear: both;
+	background-color: whitesmoke;
+}
+
+.loginbox {
+	display:block;
+	text-align: right;
+	padding: 3px 3px 3px 3px;
+}
+
+.mainmenu {
+	display: block;
+	width: 15%;
+	margin: 0.5% 0% 0.5% 0%;
+	padding: 3px 3px 3px 3px;
+	float: left;
+	background-color: whitesmoke;
+}
+
+.content {
+	display: block;
+	width: 83%;
+	margin: 0.5% 0.5% 0.5% 0.5%;
+	padding: 3px 3px 3px 3px;
+	float: left;
+}
+
+
+.footer {
+	display: block;
+	margin: 0.5% 0% 0% 0%;
+	padding: 3px 3px 3px 3px;
+	clear: both;
+	background-color: whitesmoke;
+}
+
+.menuHeader1 {
+	padding: 3px 3px 3px 3px;
+	color: white;
+	background-color: grey;
+}
+
+.menuHeader2 {
+	margin-top: 5px;
+	padding: 3px 3px 3px 3px;	
+	background-color: silver;
+}
+
+.secondaryMenu {
+	margin-left: 15px;
+	padding: 3px 3px 3px 3px;
+}
+
+.cellnumber {
+	text-align: right;
+}
+
+.rowheader {
+	font-weight: bold;
+}
+
+.infoText {
+    color: blue;
+}
+
+.errorText {
+    color: red;
+}
+
+.infoTexts {
+    list-style-type: none;
+    margin-left: 20px;
+    color: blue;
+}
+
+.errorTexts {
+    list-style-type: none;
+    margin-left: 20px;
+    color: red;
+}
+
+.errorTextsNoMarginLeft {
+    list-style-type: none;
+    color: red;
+}
+
+.infoTextsWithBullet {
+    margin-left: 20px;
+    color: blue;
+}
+
+.errorTextsWithBullet {
+    margin-left: 20px;
+    color: red;
+}
+
+.dataTable {
+    border-style: solid;
+    border-width: thin;
+}
+
+.dataTableLabel {
+    width: 20%;
+    border-style: solid;
+    border-width: thin;
+}
+
+.dataTableValue {
+    width: 80%;
+    border-style: solid;
+    border-width: thin;
+}
+
+.dataTable3Label {
+    width: 20%;
+    border-style: solid;
+    border-width: thin;
+}
+
+.dataTable3Value {
+    width: 60%;
+    border-style: solid;
+    border-width: thin;
+}
+
+.dataTable3Message {
+    width: 20%;
+    border-style: solid;
+    border-width: thin;
+}
+
+
+.breadcrumb {
+    display: block;
+    width: 100%;
+    margin: -2px 0% 10px 0%;
+    padding: 3px 3px 3px 3px;
+    float: left;
+    background-color: #484848;
+    color: white;    
+    font-size: smaller;
+}
+
+.logoutlink {
+	color: blue;
+	text-decoration-line: none;	
+	cursor: pointer;
+}
+
+.logoutlink:hover {
+	color: blue;
+	text-decoration-line: underline;
+	cursor: pointer;
+}
