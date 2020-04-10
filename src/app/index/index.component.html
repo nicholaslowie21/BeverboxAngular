@@ -11,6 +11,14 @@
 			This is the landing page for the application! Please sign up or log in to access more feature :D
 		</p>
 	</article>	
+
+	<article *ngIf="sessionService.getIsLogin() == true">
+		<h3>Welcome Beaveys! :D</h3>
+		
+		<p>
+			Log in is successful!
+		</p>
+	</article>
 	
 </section>
 

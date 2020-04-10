@@ -1,22 +1,22 @@
 export class Customer {
 	
 	customerId: number;
-	name: string;
+	customerName: string;
 	address: string;
-	email: string;
-	password: string;
+	customerEmail: string;
+	customerPassword: string;
 	accumulatedCashback: number;
-	ccNum: string;
-	cvv: number;
-	
-	constructor(customerId?: number, name?: string, address?: string,email?: string, password?: string,accumulatedCashback?: number,ccNum?: string,cvv?: number){
+	customerCCNum: string;
+	customerCVV: number;
+
+	constructor(customerId?: number, customerName?: string, address?: string, customerEmail?: string, customerPassword?: string, accumulatedCashback?: number,customerCCNum?: string,customerCVV?: number){
 			this.customerId = customerId;
-			this.name = name;
+			this.customerName = customerName;
 			this.address = address;
-			this.email = email;
-			this.password = password;
+			this.customerEmail = customerEmail;
+			this.customerPassword = customerPassword;
 			this.accumulatedCashback = accumulatedCashback;
-			this.ccNum = ccNum;
-			this.cvv = cvv;
+			this.customerCCNum = customerCCNum;
+			this.customerCVV = customerCVV;
 	}
 }
