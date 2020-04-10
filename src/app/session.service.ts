@@ -6,12 +6,12 @@ import { Customer } from './customer';
   providedIn: 'root'
 })
 export class SessionService {
-
-  constructor() { 
 	
-  }
+  	constructor() { 
+	
+  	}
   
-  getIsLogin(): boolean {
+  	getIsLogin(): boolean {
 		if(sessionStorage.isLogin == "true") {
 			return true;
 		} else {
@@ -19,7 +19,31 @@ export class SessionService {
 		}
 	}
 
+	getCurrentCustomer(): Customer {
+		return JSON.parse(sessionStorage.currentCustomer);
+	}
+
+	setCurrentCustomer(currentCustomer: Customer): void {		 
+		sessionStorage.currentCustomer = JSON.stringify(currentCustomer);
+	}
+
 	setIsLogin(isLogin: boolean): void {
 		sessionStorage.isLogin = isLogin;
+	}
+
+	getEmail(): string {
+		return sessionStorage.email;
+	}
+
+	setEmail(email: string): void {
+		sessionStorage.email = email;
+	}
+		
+	getPassword(): string {
+		return sessionStorage.password;
+	}
+
+	setPassword(password: string): void {
+		sessionStorage.password = password;
 	}
 }

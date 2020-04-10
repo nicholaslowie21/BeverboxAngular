@@ -3,27 +3,24 @@
 	<aside id="loginbox" class="loginbox">		
 	
 		<div *ngIf="sessionService.getIsLogin() == false">
-			<label for="username">Username </label>
-			<input type="text" [(ngModel)]="username" size="16" required maxlength="32" />
+			<label for="email">Email </label>
+			<input type="text" [(ngModel)]="email" size="16" required maxlength="32" />
 			&nbsp;
 			<label for="password">Password </label>
 			<input type="password" [(ngModel)]="password" size="16" required maxlength="32" />
 			&nbsp;
 			<input type="reset" value="Clear" />
 			&nbsp;
-			<input type="button" (click)="staffLogin()" value="Login" />					
+			<input type="button" (click)="customerLogin()" value="Login" />					
 		</div>
 		
-		<!--<div *ngIf="loginError == true" style="text-align: right; color: red;">
+		<div *ngIf="loginError == true" style="text-align: right; color: red;">
 			{{errorMessage}}
-		</div>-->
+		</div>
 		
-		<!--<div *ngIf="sessionService.getIsLogin() == true">
-			You are login as {{sessionService.getCurrentStaff().firstName}} {{sessionService.getCurrentStaff().lastName}} 
-			(Access Right: 
-			<span *ngIf="sessionService.getCurrentStaff().accessRightEnum == 0">CASHIER</span>
-			<span *ngIf="sessionService.getCurrentStaff().accessRightEnum == 1">MANAGER</span>)
-			<input type="button" (click)="staffLogout()" value="Logout" />
-		</div>-->
+		<div *ngIf="sessionService.getIsLogin() == true">
+			You are login as {{sessionService.getCurrentCustomer().customerEmail}}
+			<input type="button" (click)="customerLogout()" value="Logout" />
+		</div>
 	</aside>
 </header>
