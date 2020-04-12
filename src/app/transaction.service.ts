@@ -5,6 +5,7 @@ import { catchError } from 'rxjs/operators';
 
 import { SessionService } from './session.service';
 import { BevTransaction } from './bev-transaction';
+import { SubTransaction } from './sub-transaction';
 
 const httpOptions = {
 	headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,17 +16,23 @@ const httpOptions = {
 })
 export class TransactionService {
 
-  baseUrl: string = "/api/Transaction";
+  	baseUrl: string = "/api/Transaction";
 
-  constructor(private httpClient: HttpClient, private sessionService: SessionService) { }
+  	constructor(private httpClient: HttpClient, private sessionService: SessionService) { }
 
-  getBevTransactions(): Observable<any>
-	{				
+  	getBevTransactions(): Observable<any> {				
 		return this.httpClient.get<any>(this.baseUrl + "/bevTransactions?email=" + this.sessionService.getEmail() + "&password=" + this.sessionService.getPassword()).pipe
 		(
 			catchError(this.handleError)
 		);
-  }
+  	}
+
+  	getSubsTransactions(): Observable<any> {				
+		return this.httpClient.get<any>(this.baseUrl + "/subsTransactions?email=" + this.sessionService.getEmail() + "&password=" + this.sessionService.getPassword()).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
   
   private handleError(error: HttpErrorResponse) {
 		let errorMessage: string = "";
