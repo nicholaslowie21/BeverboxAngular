@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MenuModule} from 'primeng/menu';
 import {PanelMenuModule} from 'primeng/panelmenu';
 import {ButtonModule} from 'primeng/button';
+import {PanelModule} from 'primeng/panel';
+import {TableModule, Table} from 'primeng/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +18,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { AccessRightErrorComponent } from './access-right-error/access-right-error.component';
+import { BeverageTransactionComponent } from './transactionHistory/beverage-transaction/beverage-transaction.component';
 
 @NgModule({
   declarations: [
@@ -25,17 +28,20 @@ import { AccessRightErrorComponent } from './access-right-error/access-right-err
     FooterComponent,
     MainMenuComponent,
     BreadcrumbComponent,
-    AccessRightErrorComponent
+    AccessRightErrorComponent,
+    BeverageTransactionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-	FormsModule,
-	HttpClientModule,
-	BrowserAnimationsModule,
-	MenuModule,
-	PanelMenuModule,
-	ButtonModule
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MenuModule,
+    PanelMenuModule,
+    ButtonModule,
+    PanelModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
