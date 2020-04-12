@@ -33,7 +33,10 @@ export class MainMenuComponent implements OnInit
             ]
         },
         {
-            label: 'Edit'
+            label: 'Transaction',
+            items: [
+                {label: 'Beverage Transaction', icon: 'pi pi-home', url: ['beverageTransaction'] }
+            ]
         }];
 	}
 }

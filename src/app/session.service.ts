@@ -46,4 +46,18 @@ export class SessionService {
 	setPassword(password: string): void {
 		sessionStorage.password = password;
 	}
+
+	checkAccessRight(path): boolean
+	{
+		console.log("********** path: " + path);
+		
+		if(!this.getIsLogin()) {
+			if(path == "/index" || path == "/")
+				return true;
+			else
+				return false;
+		}
+
+		return true;
+	}
 }
