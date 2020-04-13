@@ -30,11 +30,32 @@
                     <h3> Beverages</h3>   
                     <li *ngFor="let beverage of box.beverages">{{beverage.beverageName}}</li>
                 </ul>
+                <p-button label="View" (onClick)="showDialog(box)"></p-button>
+                
             </div>
             </div>       
             </div>    
             </ng-template>
         </p-carousel>
+
+            <p-dialog *ngIf="display" header="View Reviews" modal="true" [(visible)]="display"  [style]="{width: '50vw'}">
+                <p-table [value]="boxToView.reviews">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Reviewer Name</th>
+                            <th>Review</th>                           
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-review>
+                        <tr>
+                            <td>{{review.customer.customerName}}</td>
+                            <td>{{review.reviewContent}}</td>				
+                            
+                    </ng-template>
+                </p-table>
+
+                
+            </p-dialog>
 
     </p-panel>
 
