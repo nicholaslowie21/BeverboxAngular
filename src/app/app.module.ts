@@ -12,6 +12,9 @@ import {TableModule} from 'primeng/table';
 import {CarouselModule} from 'primeng/carousel';
 import {CalendarModule} from 'primeng/calendar';
 
+
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
@@ -25,6 +28,8 @@ import { ViewAllBoxesComponent } from './products/view-all-boxes/view-all-boxes.
 import { ViewAllPromotionsComponent } from './view-all-promotions/view-all-promotions.component';
 import { ViewMySubscriptionHistoryComponent } from './transactionHistory/view-my-subscription-history/view-my-subscription-history.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,9 +40,7 @@ import { ViewMySubscriptionHistoryComponent } from './transactionHistory/view-my
     BreadcrumbComponent,
     AccessRightErrorComponent,
     BeverageTransactionComponent,
-    ViewAllBoxesComponent,
-    ViewAllPromotionsComponent,
-    ViewMySubscriptionHistoryComponent
+    ViewAllBoxesComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,16 @@ import { ViewMySubscriptionHistoryComponent } from './transactionHistory/view-my
     PanelModule,
     TableModule,
     CarouselModule,
-    CalendarModule
+    CalendarModule,
+	FormsModule,
+	HttpClientModule,
+	BrowserAnimationsModule,
+	MenuModule,
+	PanelMenuModule,
+  ButtonModule,
+  PanelModule,
+  TableModule,
+  CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
