@@ -11,6 +11,7 @@ import {PanelModule} from 'primeng/panel';
 import {TableModule} from 'primeng/table';
 import {CarouselModule} from 'primeng/carousel';
 import {CalendarModule} from 'primeng/calendar';
+import {DialogModule} from 'primeng/dialog';
 
 
 
@@ -55,7 +56,8 @@ import { ViewMySubscriptionHistoryComponent } from './transactionHistory/view-my
     PanelModule,
     TableModule,
     CarouselModule,
-    CalendarModule
+    CalendarModule,
+    DialogModule
 
 	],
   providers: [],

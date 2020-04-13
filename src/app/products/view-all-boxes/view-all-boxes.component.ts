@@ -91,6 +91,8 @@ encapsulation: ViewEncapsulation.None
 export class ViewAllBoxesComponent implements OnInit {
 
   boxes: Box[];
+  boxToView: Box;
+  display: boolean = false;
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
@@ -114,6 +116,12 @@ export class ViewAllBoxesComponent implements OnInit {
 
 
 
+  }
+
+  showDialog(boxToView: Box) {
+    this.display = true;
+    this.boxToView = boxToView;
+    console.log(boxToView);
   }
 
 }
