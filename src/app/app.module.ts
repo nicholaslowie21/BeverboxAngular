@@ -40,7 +40,9 @@ import { ViewMySubscriptionHistoryComponent } from './transactionHistory/view-my
     BreadcrumbComponent,
     AccessRightErrorComponent,
     BeverageTransactionComponent,
-    ViewAllBoxesComponent
+    ViewAllBoxesComponent,
+    ViewAllPromotionsComponent,
+    ViewMySubscriptionHistoryComponent
   ],
   imports: [
     BrowserModule,
