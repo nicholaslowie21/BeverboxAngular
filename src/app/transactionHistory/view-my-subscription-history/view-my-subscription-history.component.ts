@@ -35,6 +35,8 @@ export class ViewMySubscriptionHistoryComponent implements OnInit {
         }
       );
 
+      
+
     }
 
     onActivityChange(event) {
@@ -49,7 +51,7 @@ export class ViewMySubscriptionHistoryComponent implements OnInit {
     }
 
     onDateSelect(value) {
-        this.table.filter(this.formatDate(value), 'date', 'equals')
+        this.table.filter(this.formatDate(value), 'transDate', 'equals')
     }
 
     formatDate(date) {
