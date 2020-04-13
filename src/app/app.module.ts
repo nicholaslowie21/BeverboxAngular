@@ -14,7 +14,6 @@ import {CalendarModule} from 'primeng/calendar';
 
 
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
@@ -56,17 +55,9 @@ import { ViewMySubscriptionHistoryComponent } from './transactionHistory/view-my
     PanelModule,
     TableModule,
     CarouselModule,
-    CalendarModule,
-	FormsModule,
-	HttpClientModule,
-	BrowserAnimationsModule,
-	MenuModule,
-	PanelMenuModule,
-  ButtonModule,
-  PanelModule,
-  TableModule,
-  CarouselModule
-  ],
+    CalendarModule
+
+	],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -32,11 +32,14 @@
                         <input pInputText type="text" (input)="dt.filter($event.target.value, 'promoName', 'contains')" placeholder="Search by name" class="ui-column-filter">
                     </th>
                     <th>
-                        <!-- <p-dropdown [options]="types" (onChange)="dt.filter($event.value, 'type', 'equals')" styleClass="ui-column-filter" placeholder="Select a Type" [showClear]="true">
+                        <!-- <p-dropdown [options]="types" [virtualScroll]="false" (onChange)="dt.filter($event.value, 'type', 'equals')" styleClass="ui-column-filter" placeholder="Select a Type" [showClear]="true">
                             <ng-template let-option pTemplate="item">
                                 {{option.label}}
                             </ng-template>
                         </p-dropdown> -->
+                        <select [(ngModel)]="selectedType" (change)="valueSelected()" >
+                            <option *ngFor="let item of types">{{ item }}</option>
+                        </select>
                     </th>
                     <th>
                         <input pInputText type="text" (input)="onActivityChange($event)" placeholder="Minimum" class="ui-column-filter" >
