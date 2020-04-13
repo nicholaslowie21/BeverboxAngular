@@ -28,8 +28,7 @@ export class MainMenuComponent implements OnInit
 		this.items = [{
             label: 'Beverbox',
             items: [
-                {label: 'Home', icon: 'pi pi-home', url: ['index'] },
-                {label: 'Logout'}
+                {label: 'Home', icon: 'pi pi-home', url: ['index'] }
             ]
         },
         {

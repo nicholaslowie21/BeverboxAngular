@@ -1,0 +1,30 @@
+.ui-column-filter{
+    width: 100%;
+}
+
+.idColumn{
+    width: 100px;
+}
+
+.cost{
+    width: 100px;
+}
+
+.ui-column-calendar{
+    width: 100%;
+}
+
+.duration{
+    width: 100px;
+}
+
+::ng-deep body .ui-datepicker .ui-datepicker-header .ui-datepicker-title {
+    margin: 0;
+    padding: 0;
+    width: 300px;
+    line-height: 1;
+ }
+
+ .ui-table-globalfilter-container{
+     float: right;
+ }
