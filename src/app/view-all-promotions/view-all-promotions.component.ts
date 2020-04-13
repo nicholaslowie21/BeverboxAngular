@@ -36,7 +36,7 @@ export class ViewAllPromotionsComponent implements OnInit {
           }
         );
 
-        this.types = ["NEW MEMBER", "GENERAL"];
+        this.types = [null, "NEW MEMBER", "GENERAL"];
       }
 
       onActivityChange(event) {
