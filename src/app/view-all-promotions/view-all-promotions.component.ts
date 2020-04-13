@@ -16,6 +16,7 @@ export class ViewAllPromotionsComponent implements OnInit {
     promotions: Promotion[];
     loading: boolean = true;
     types: any[];
+    selectedType: string;
 
     @ViewChild("dt", { static: false }) public table: Table;
 
@@ -35,11 +36,7 @@ export class ViewAllPromotionsComponent implements OnInit {
           }
         );
 
-        this.types = [
-          {label: 'New Member', value: 'NEW MEMBER'},
-          {label: 'General', value: 'GENERAL'}
-        ]
-  
+        this.types = ["NEW MEMBER", "GENERAL"];
       }
 
       onActivityChange(event) {
@@ -51,6 +48,10 @@ export class ViewAllPromotionsComponent implements OnInit {
                 this.table.filter(activity, 'percentage', 'gte');
             }
         }
+      }
+
+      valueSelected() {
+        this.table.filter(this.selectedType, 'promoType', 'equals');
       }
 
 }
