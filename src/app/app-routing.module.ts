@@ -15,7 +15,8 @@ const routes: Routes = [
   { path: 'accessRightError', component: AccessRightErrorComponent },
   { path: 'viewAllBoxes', component: ViewAllBoxesComponent},
   { path: 'viewAllPromotions', component: ViewAllPromotionsComponent},
-  { path: 'viewSubsHistory', component: ViewMySubscriptionHistoryComponent}
+  { path: 'viewSubsHistory', component: ViewMySubscriptionHistoryComponent},
+  {path: 'viewAllBoxes', component: ViewAllBoxesComponent}
 
 ];
 
