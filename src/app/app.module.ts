@@ -12,6 +12,7 @@ import {TableModule} from 'primeng/table';
 import {CarouselModule} from 'primeng/carousel';
 import {CalendarModule} from 'primeng/calendar';
 import {DialogModule} from 'primeng/dialog';
+import {CardModule} from 'primeng/card';
 
 
 
@@ -27,6 +28,7 @@ import { BeverageTransactionComponent } from './transactionHistory/beverage-tran
 import { ViewAllBoxesComponent } from './products/view-all-boxes/view-all-boxes.component';
 import { ViewAllPromotionsComponent } from './view-all-promotions/view-all-promotions.component';
 import { ViewMySubscriptionHistoryComponent } from './transactionHistory/view-my-subscription-history/view-my-subscription-history.component';
+import { ViewBeverageComponent } from './products/view-beverage/view-beverage.component';
 
 
 
@@ -42,7 +44,8 @@ import { ViewMySubscriptionHistoryComponent } from './transactionHistory/view-my
     BeverageTransactionComponent,
     ViewAllBoxesComponent,
     ViewAllPromotionsComponent,
-    ViewMySubscriptionHistoryComponent
+    ViewMySubscriptionHistoryComponent,
+    ViewBeverageComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import { ViewMySubscriptionHistoryComponent } from './transactionHistory/view-my
     TableModule,
     CarouselModule,
     CalendarModule,
-    DialogModule
+    DialogModule,
+    CardModule
 
 	],
   providers: [],

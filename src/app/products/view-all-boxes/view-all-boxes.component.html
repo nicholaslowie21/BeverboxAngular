@@ -16,16 +16,16 @@
             </p-header>
             <ng-template let-box pTemplate="box">
                 
-                <div class="car-details">   
+                <div class="box-details">   
                     <div class="p-grid p-nogutter">
                         <div class="p-col-12 car-data">
                             <div class="p-col-12">
                                 <img src="assets/images/{{box.boxName}}.png" />
                             </div>
-                            Name: <div class="car-title">{{box.boxName}}</div><br>
-                            Description: <div class="car-subtitle">{{box.boxDesc}}</div><br>
+                            Name: <div class="box-title">{{box.boxName}}</div><br>
+                            Description: <div class="box-subtitle">{{box.boxDesc}}</div><br>
                             Origin: 
-                            <div class="car-subtitle">{{box.boxOrigin}}</div>
+                            <div class="box-subtitle">{{box.boxOrigin}}</div>
                 <ul style="list-style-type:none;">
                     <h3> Beverages</h3>   
                     <li *ngFor="let beverage of box.beverages">{{beverage.beverageName}}</li>
