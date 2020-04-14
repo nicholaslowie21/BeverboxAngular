@@ -7,6 +7,7 @@ import { AccessRightErrorComponent } from './access-right-error/access-right-err
 import { ViewAllBoxesComponent } from './products/view-all-boxes/view-all-boxes.component';
 import { ViewAllPromotionsComponent } from './view-all-promotions/view-all-promotions.component';
 import { ViewMySubscriptionHistoryComponent } from './transactionHistory/view-my-subscription-history/view-my-subscription-history.component';
+import { ViewBeverageComponent } from './products/view-beverage/view-beverage.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: '/index', pathMatch: 'full' },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'viewAllBoxes', component: ViewAllBoxesComponent},
   { path: 'viewAllPromotions', component: ViewAllPromotionsComponent},
   { path: 'viewSubsHistory', component: ViewMySubscriptionHistoryComponent},
-  {path: 'viewAllBoxes', component: ViewAllBoxesComponent}
+  {path: 'viewAllBoxes', component: ViewAllBoxesComponent},
+  {path: 'viewBeverage', component: ViewBeverageComponent}
 
 ];
 
