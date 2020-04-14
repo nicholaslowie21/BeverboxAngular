@@ -15,7 +15,6 @@ import {DialogModule} from 'primeng/dialog';
 import {CardModule} from 'primeng/card';
 
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
@@ -29,7 +28,8 @@ import { ViewAllBoxesComponent } from './products/view-all-boxes/view-all-boxes.
 import { ViewAllPromotionsComponent } from './view-all-promotions/view-all-promotions.component';
 import { ViewMySubscriptionHistoryComponent } from './transactionHistory/view-my-subscription-history/view-my-subscription-history.component';
 import { ViewBeverageComponent } from './products/view-beverage/view-beverage.component';
-
+import { ViewAllArticlesComponent } from './view-all-articles/view-all-articles.component';
+import { SafePipe } from './safe.pipe';
 
 
 @NgModule({
@@ -45,7 +45,9 @@ import { ViewBeverageComponent } from './products/view-beverage/view-beverage.co
     ViewAllBoxesComponent,
     ViewAllPromotionsComponent,
     ViewMySubscriptionHistoryComponent,
-    ViewBeverageComponent
+    ViewBeverageComponent,
+    ViewAllArticlesComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
