@@ -1,0 +1,44 @@
+
+<app-header></app-header>
+		
+<app-main-menu></app-main-menu>		
+
+<section id="content" class="content">
+
+<br/><br/>
+
+    <p-panel header="Beverage of the Week">
+        <p-card header="Beverage of the Week" [style]="{width: '1150px'}">
+            <p-carousel [value]="beverages" styleClass="custom-carousel" orientation="vertical" verticalViewPortHeight="350px" [numVisible]="1" [numScroll]="1" [circular]="true" [autoplayInterval]="5000" [responsiveOptions]="responsiveOptions">
+               
+                <ng-template let-beverage pTemplate="beverage">
+                    
+                    <div class="beverage-details">   
+                        <div class="p-grid p-nogutter">
+                            <div class="p-col-12 car-data">
+                                <div class="p-col-12">
+                                    <img src="assets/images/{{beverage.beverageId}}.png" />
+                                </div>
+                                <div class="beverage-title">{{beverage.beverageName}}</div><br>
+                                Description: <div class="beverage-subtitle">{{beverage.beverageDesc}}</div><br>
+                                Country: 
+                                <div class="beverage-subtitle">{{beverage.country}}</div>
+
+                    
+                </div>
+                </div>       
+                </div>    
+                </ng-template>
+            </p-carousel>
+
+        </p-card>
+
+    </p-panel>
+
+
+
+</section>
+
+
+
+<app-footer></app-footer>

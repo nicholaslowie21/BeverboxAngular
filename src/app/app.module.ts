@@ -27,9 +27,9 @@ import { BeverageTransactionComponent } from './transactionHistory/beverage-tran
 import { ViewAllBoxesComponent } from './products/view-all-boxes/view-all-boxes.component';
 import { ViewAllPromotionsComponent } from './view-all-promotions/view-all-promotions.component';
 import { ViewMySubscriptionHistoryComponent } from './transactionHistory/view-my-subscription-history/view-my-subscription-history.component';
+import { ViewBeverageComponent } from './products/view-beverage/view-beverage.component';
 import { ViewAllArticlesComponent } from './view-all-articles/view-all-articles.component';
 import { SafePipe } from './safe.pipe';
-
 
 
 @NgModule({
@@ -45,6 +45,7 @@ import { SafePipe } from './safe.pipe';
     ViewAllBoxesComponent,
     ViewAllPromotionsComponent,
     ViewMySubscriptionHistoryComponent,
+    ViewBeverageComponent,
     ViewAllArticlesComponent,
     SafePipe
   ],
@@ -62,7 +63,7 @@ import { SafePipe } from './safe.pipe';
     CarouselModule,
     CalendarModule,
     DialogModule,
-	CardModule
+    CardModule
 
 	],
   providers: [],

@@ -7,18 +7,21 @@ import { AccessRightErrorComponent } from './access-right-error/access-right-err
 import { ViewAllBoxesComponent } from './products/view-all-boxes/view-all-boxes.component';
 import { ViewAllPromotionsComponent } from './view-all-promotions/view-all-promotions.component';
 import { ViewMySubscriptionHistoryComponent } from './transactionHistory/view-my-subscription-history/view-my-subscription-history.component';
+import { ViewBeverageComponent } from './products/view-beverage/view-beverage.component';
 import { ViewAllArticlesComponent } from './view-all-articles/view-all-articles.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: '/index', pathMatch: 'full' },
-	{ path: 'index', component: IndexComponent },
-	{ path: 'beverageTransaction', component: BeverageTransactionComponent },
-	{ path: 'accessRightError', component: AccessRightErrorComponent },
-	{ path: 'viewAllBoxes', component: ViewAllBoxesComponent},
-	{ path: 'viewAllPromotions', component: ViewAllPromotionsComponent},
-	{ path: 'viewSubsHistory', component: ViewMySubscriptionHistoryComponent},
-	{ path: 'viewAllBoxes', component: ViewAllBoxesComponent},
-	{ path: 'viewAllArticles', component: ViewAllArticlesComponent}
+  { path: 'index', component: IndexComponent },
+  { path: 'beverageTransaction', component: BeverageTransactionComponent },
+  { path: 'accessRightError', component: AccessRightErrorComponent },
+  { path: 'viewAllBoxes', component: ViewAllBoxesComponent},
+  { path: 'viewAllPromotions', component: ViewAllPromotionsComponent},
+  { path: 'viewSubsHistory', component: ViewMySubscriptionHistoryComponent},
+  { path: 'viewAllBoxes', component: ViewAllBoxesComponent},
+  { path: 'viewBeverage', component: ViewBeverageComponent},
+  { path: 'viewAllArticles', component: ViewAllArticlesComponent}
+  
 ];
 
 @NgModule({
