@@ -9,6 +9,7 @@ import { ViewAllPromotionsComponent } from './view-all-promotions/view-all-promo
 import { ViewMySubscriptionHistoryComponent } from './transactionHistory/view-my-subscription-history/view-my-subscription-history.component';
 import { ViewBeverageComponent } from './products/view-beverage/view-beverage.component';
 import { ViewAllArticlesComponent } from './view-all-articles/view-all-articles.component';
+import { ViewMyReviewsComponent } from './view-my-reviews/view-my-reviews.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: '/index', pathMatch: 'full' },
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'viewSubsHistory', component: ViewMySubscriptionHistoryComponent},
   { path: 'viewAllBoxes', component: ViewAllBoxesComponent},
   { path: 'viewBeverage', component: ViewBeverageComponent},
-  { path: 'viewAllArticles', component: ViewAllArticlesComponent}
+  { path: 'viewAllArticles', component: ViewAllArticlesComponent},
+  { path: 'viewMyReviews', component: ViewMyReviewsComponent}
   
 ];
 
