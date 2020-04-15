@@ -27,7 +27,7 @@
 					<td>{{bevTran.bevName}}</td>				
 					<td class="cellnumber">{{bevTran.qty}}</td>
 					<td class="cellnumber">{{bevTran.transAmt | currency}}</td>
-					<td>{{bevTran.transDate}}</td>
+					<td>{{parseDate(bevTran.transDate)}}</td>
 					<td>{{bevTran.ccNum}}</td>
                 </tr>
 			</ng-template>

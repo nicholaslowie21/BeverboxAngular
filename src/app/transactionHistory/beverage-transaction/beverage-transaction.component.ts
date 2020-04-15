@@ -19,8 +19,8 @@ export class BeverageTransactionComponent implements OnInit {
     public sessionService: SessionService,
     private transactionService: TransactionService) { }
 
-  ngOnInit() {
-    this.checkAccessRight();		
+  	ngOnInit() {
+    	this.checkAccessRight();		
 		
 		this.transactionService.getBevTransactions().subscribe(
 			response => {
@@ -30,10 +30,16 @@ export class BeverageTransactionComponent implements OnInit {
 				console.log('********** BeverageTransactionComponent.ts: ' + error);
 			}
 		);
-  }
+  	}
 
-  checkAccessRight()
-	{
+  	parseDate(d: Date) {		
+      let temp = d.toString().replace('[UTC]', '');
+      let idx = temp.indexOf("T");
+      temp = temp.substring(0,idx);
+      return temp;
+	}
+
+  	checkAccessRight() {
 		if(!this.sessionService.checkAccessRight(this.router.url))
 		{
 			this.router.navigate(["/accessRightError"]);
