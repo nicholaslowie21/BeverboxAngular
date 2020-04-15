@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DatePipe } from '@angular/common';
 
 import {MenuModule} from 'primeng/menu';
 import {PanelMenuModule} from 'primeng/panelmenu';
@@ -13,6 +14,8 @@ import {CarouselModule} from 'primeng/carousel';
 import {CalendarModule} from 'primeng/calendar';
 import {DialogModule} from 'primeng/dialog';
 import {CardModule} from 'primeng/card';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +35,8 @@ import { ViewAllArticlesComponent } from './view-all-articles/view-all-articles.
 import { SafePipe } from './safe.pipe';
 import { ViewAllOptionsComponent } from './view-all-options/view-all-options.component';
 import { CreateSubscriptionComponent } from './create-subscription/create-subscription.component';
+import { ViewMyReviewsComponent } from './view-my-reviews/view-my-reviews.component';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +55,8 @@ import { CreateSubscriptionComponent } from './create-subscription/create-subscr
     ViewAllArticlesComponent,
     SafePipe,
     ViewAllOptionsComponent,
-    CreateSubscriptionComponent
+    CreateSubscriptionComponent,
+    ViewMyReviewsComponent
   ],
   imports: [
     BrowserModule,
@@ -66,10 +72,12 @@ import { CreateSubscriptionComponent } from './create-subscription/create-subscr
     CarouselModule,
     CalendarModule,
     DialogModule,
-    CardModule
+    CardModule,
+	MessagesModule,
+	MessageModule
 
 	],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -11,6 +11,7 @@ import { ViewBeverageComponent } from './products/view-beverage/view-beverage.co
 import { ViewAllArticlesComponent } from './view-all-articles/view-all-articles.component';
 import { ViewAllOptionsComponent } from './view-all-options/view-all-options.component';
 import { CreateSubscriptionComponent } from './create-subscription/create-subscription.component';
+import { ViewMyReviewsComponent } from './view-my-reviews/view-my-reviews.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: '/index', pathMatch: 'full' },
@@ -26,6 +27,8 @@ const routes: Routes = [
   { path: 'viewAllOptions', component: ViewAllOptionsComponent},
   { path: 'createSubscription', component: CreateSubscriptionComponent}
 
+  { path: 'viewMyReviews', component: ViewMyReviewsComponent}
+  
 ];
 
 @NgModule({

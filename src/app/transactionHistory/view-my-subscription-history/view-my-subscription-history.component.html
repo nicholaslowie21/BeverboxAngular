@@ -23,8 +23,8 @@
                     <th pSortableColumn="transId" class="idColumn">Trans Id <p-sortIcon field="transId"></p-sortIcon></th>
                     <th pSortableColumn="ccNum">CC Number <p-sortIcon field="ccNum"></p-sortIcon></th>
                     <th pSortableColumn="transDate">Trans Date <p-sortIcon field="transDate"></p-sortIcon></th>
-                    <th pSortableColumn="startDate" class="date">Start Date <p-sortIcon field="startDate"></p-sortIcon></th>
-                    <th pSortableColumn="startDate" class="date">End Date <p-sortIcon field="startDate"></p-sortIcon></th>
+                    <th pSortableColumn="startDate">Start Date <p-sortIcon field="startDate"></p-sortIcon></th>
+                    <th pSortableColumn="endDate">End Date <p-sortIcon field="endDate"></p-sortIcon></th>
                     <th pSortableColumn="transAmt" class="cost">Cost <p-sortIcon field="transAmt"></p-sortIcon></th>
                     <th pSortableColumn="monthDuration" class="duration">Duration (months) <p-sortIcon field="monthDuration"></p-sortIcon></th>
                 </tr>
@@ -39,16 +39,20 @@
                         <input pInputText type="text" (input)="dt.filter($event.target.value, 'ccNum', 'contains')" placeholder="Search by CCNum" class="ui-column-filter">
                     </th>
                     <th>
-                        <p-calendar [inputStyle]="{'width':'100%'}" styleClass="ui-column-calendar" (onSelect)="onDateSelect($event)" (onClearClick)="dt.filter('', 'transDate', 'equals')" [showButtonBar]="true" class="date-input" placeholder="Trans Date" [readonlyInput]="true" dateFormat="yy-mm-dd"></p-calendar>
+                        <p-calendar [inputStyle]="{'width':'100%'}" styleClass="ui-column-calendar" (onSelect)="onDateSelect($event)" (onClearClick)="dt.filter('', 'transDate', 'contains')" [showButtonBar]="true" class="date-input" placeholder="Trans Date" [readonlyInput]="true" dateFormat="yy-mm-dd"></p-calendar>
                     </th>
                     <th>
+                        <p-calendar [inputStyle]="{'width':'100%'}" styleClass="ui-column-calendar" (onSelect)="onStartDateSelect($event)" (onClearClick)="dt.filter('', 'startDate', 'contains')" [showButtonBar]="true" class="date-input" placeholder="Start Date" [readonlyInput]="true" dateFormat="yy-mm-dd"></p-calendar>                        
                     </th>
                     <th>
+                        <p-calendar [inputStyle]="{'width':'100%'}" styleClass="ui-column-calendar" (onSelect)="onEndDateSelect($event)" (onClearClick)="dt.filter('', 'endDate', 'contains')" [showButtonBar]="true" class="date-input" placeholder="End Date" [readonlyInput]="true" dateFormat="yy-mm-dd"></p-calendar>
                     </th>
                     <th>
                         <input pInputText type="text" (input)="onActivityChange($event)" placeholder="Minimum" class="ui-column-filter" >
                     </th>
-                    <th></th>
+                    <th>
+                        <input pInputText type="text" (input)="onDurationChange($event)" placeholder="Minimum" class="ui-column-filter" >
+                    </th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-subTransaction>
@@ -63,13 +67,13 @@
                         {{subTransaction.ccNum}}
                     </td>
                     <td>
-                        {{subTransaction.transDate}}
+                        {{parseDate(subTransaction.transDate)}}
                     </td>
                     <td>
-                        {{subTransaction.startDate}}
+                        {{parseDate(subTransaction.startDate)}}
                     </td>
                     <td>
-                        {{subTransaction.endDate}}
+                        {{parseDate(subTransaction.endDate)}}
                     </td>
                     <td>
                         {{subTransaction.transAmt|currency}}
