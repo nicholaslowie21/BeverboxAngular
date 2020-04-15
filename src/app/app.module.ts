@@ -14,6 +14,8 @@ import {CarouselModule} from 'primeng/carousel';
 import {CalendarModule} from 'primeng/calendar';
 import {DialogModule} from 'primeng/dialog';
 import {CardModule} from 'primeng/card';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -66,7 +68,9 @@ import { ViewMyReviewsComponent } from './view-my-reviews/view-my-reviews.compon
     CarouselModule,
     CalendarModule,
     DialogModule,
-    CardModule
+    CardModule,
+	MessagesModule,
+	MessageModule
 
 	],
   providers: [DatePipe],

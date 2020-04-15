@@ -4,12 +4,16 @@
 
 <section id="content" class="content">
 
+	<p-messages [(value)]="msgs"></p-messages>
+	
 	<p-panel header="View My Reviews">
 		<div *ngFor="let review of reviews">
 		<p-panel header="Review #{{review.reviewId}}" [toggleable]="true" [style]="{'margin-bottom':'20px'}">
-			{{review.reviewContent}}
+			<div class="boxDetails">Box ID #{{review.boxId}} {{review.boxName}}</div>
+
+			<div class="reviewStyle">{{review.reviewContent}}</div>
 			<p-footer>
-				<button pButton type="button" icon="pi pi-trash" label="Delete Review" class="ui-button-danger"></button>
+				<button pButton type="button" icon="pi pi-trash" (click)="deleteReview(review.reviewId)" label="Delete Review" class="ui-button-danger"></button>
 			</p-footer>
 		</p-panel>
 		</div>

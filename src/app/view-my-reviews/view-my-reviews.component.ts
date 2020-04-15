@@ -5,6 +5,8 @@ import { ReviewService } from '../review.service';
 import { SessionService } from '../session.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { Message } from 'primeng/api';
+
 @Component({
   selector: 'app-view-my-reviews',
   templateUrl: './view-my-reviews.component.html',
@@ -15,6 +17,7 @@ export class ViewMyReviewsComponent implements OnInit {
 
 	
 	reviews: Review[];
+	msgs: Message[] = [];
 
 
 	constructor(private router: Router,
@@ -32,10 +35,23 @@ export class ViewMyReviewsComponent implements OnInit {
 		this.reviewService.getReviewsByEmail().subscribe(
 			response => {
 				this.reviews = response.reviews;
-				//console.log("Box: " + this.reviews[0].box.boxId);
 			},
 			error => {
 				console.log('********** ViewMyReviewsComponent.ts: ' + error);
+			}
+		);
+	}
+	
+	
+	deleteReview(reviewId: number)
+	{
+		this.reviewService.deleteReview(reviewId).subscribe(
+			response => {
+				location.reload();
+			},
+			error => {
+				console.log("Error deleting review");
+				this.msgs.push({severity:'error', summary:'Error Message: ', detail:'Unable to delete review'});
 			}
 		);
 	}
