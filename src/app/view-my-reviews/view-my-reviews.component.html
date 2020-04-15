@@ -1,0 +1,20 @@
+<app-header></app-header>
+		
+<app-main-menu></app-main-menu>
+
+<section id="content" class="content">
+
+	<p-panel header="View My Reviews">
+		<div *ngFor="let review of reviews">
+		<p-panel header="Review #{{review.reviewId}}" [toggleable]="true" [style]="{'margin-bottom':'20px'}">
+			{{review.reviewContent}}
+			<p-footer>
+				<button pButton type="button" icon="pi pi-trash" label="Delete Review" class="ui-button-danger"></button>
+			</p-footer>
+		</p-panel>
+		</div>
+	</p-panel>
+
+</section>
+
+<app-footer></app-footer>

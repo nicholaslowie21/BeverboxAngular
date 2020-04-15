@@ -29,7 +29,7 @@ export class MainMenuComponent implements OnInit
             label: 'Beverbox',
             items: [
                 {label: 'Home', icon: 'pi pi-home', url: ['index'] },
-				{label: 'Article', icon: 'pi pi-home', url: ['viewAllArticles'] }
+				{label: 'My Reviews', icon: 'pi pi-home', url: ['viewMyReviews'] }
             ]
         },
         {
@@ -42,7 +42,8 @@ export class MainMenuComponent implements OnInit
         {
             label: 'Other',
             items: [
-                {label: 'Promotions', icon: 'pi pi-home', url: ['viewAllPromotions'] }
+                {label: 'Promotions', icon: 'pi pi-home', url: ['viewAllPromotions'] },
+				{label: 'Article', icon: 'pi pi-home', url: ['viewAllArticles'] }
             ]
         }];
 	}

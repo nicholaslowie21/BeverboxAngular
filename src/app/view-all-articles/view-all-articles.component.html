@@ -4,6 +4,8 @@
 
 <section id="content" class="content">
 	
+	<p-panel header="View All Articles">
+	
 	<div *ngFor="let article of articles" class="block-div">
 	<p-card header={{article.articleTitle}} class="cardStyle" styleClass="ui-card-shadow">
 		<p-header>
@@ -22,6 +24,8 @@
 		</p-footer>
 	</p-card>
 	</div>
+	
+	</p-panel>
 	
 </section>
 
