@@ -13,21 +13,22 @@ export class ViewAllOptionsComponent implements OnInit {
     
     options: Option[];
 
-
     constructor(private router: Router,
                 private activatedRoute: ActivatedRoute,
                 private optionService: OptionService) 
-      { }
+      {}
 
     ngOnInit() {
 		this.optionService.retrieveAllOptions().subscribe(
 			response => {
-				this.options = response.options;
+        this.options = response.options;
+        console.log('************* ViewAllOptionsComponent.ts is loaded');
+        console.log(this.options[0]);
 			},
 			error => {
 				console.log('********** ViewAllArticlesComponent.ts: ' + error);
 			}
-		);
+    );
 	}
 
 }

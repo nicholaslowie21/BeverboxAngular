@@ -1,1 +1,47 @@
-<p>create-subscription works!</p>
+<app-header></app-header>
+		
+<app-main-menu></app-main-menu>		
+
+<section id="content" class="content">
+
+	<app-breadcrumb [pageName]="'createNewSubscription'"></app-breadcrumb>
+			
+	<h3>Create New Subscription</h3>
+	<br/>
+	
+	<div *ngIf="resultSuccess == true" style="color:blue;">
+		{{message}}
+	</div>
+	
+	<div *ngIf="resultError == true" style="color:red;">
+		{{message}}
+    </div>
+    
+    <article>
+        <p>This is where the selected option details will be shown and hooked up through routing</p>
+    </article>
+		
+    <form #createSubscriptionForm="ngForm" (ngSubmit)="create(createProductForm)" >
+    <!-- Change the table to some other UI instead. Only need the inputs of 
+        PromoCode, Cashback usage, and sharing option -->
+		<table width="100%">			
+			<tr>
+				<td width="20%" style="font-weight: bold;">Promo Code</td>
+				<td><input id="promoCode" name="promoCode" #promoCode="ngModel" type="text" [(ngModel)]="promoCode" /></td>
+			</tr>
+
+			<tr>
+				<td colspan="3" style="text-align: center;">
+					<button (click)="clear()">Clear</button>
+					&nbsp;
+					<input type="submit" value="Create New Product" />
+				</td>
+			</tr>
+			
+		</table>
+		
+	</form>
+	
+</section>
+
+<app-footer></app-footer>
