@@ -1,0 +1,19 @@
+<app-header></app-header>
+
+<app-main-menu></app-main-menu>
+
+<section id="content" class="content">
+    <div *ngFor="let option of options" class="block-div">
+        <p-card header={{option.optionName}} class="cardStyle" styleClass="ui-card-shadow">
+            <p-header>
+                <img src="Card" src="assets/images/drink1.jpg">
+            </p-header>
+            
+            <p-footer>
+                <button type="button" pButton label="Subscribe"></button>            
+            </p-footer>
+        </p-card>
+        </div>
+</section>
+
+<app-footer></app-footer>

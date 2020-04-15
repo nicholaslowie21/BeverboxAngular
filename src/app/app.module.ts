@@ -30,7 +30,8 @@ import { ViewMySubscriptionHistoryComponent } from './transactionHistory/view-my
 import { ViewBeverageComponent } from './products/view-beverage/view-beverage.component';
 import { ViewAllArticlesComponent } from './view-all-articles/view-all-articles.component';
 import { SafePipe } from './safe.pipe';
-
+import { ViewAllOptionsComponent } from './view-all-options/view-all-options.component';
+import { CreateSubscriptionComponent } from './create-subscription/create-subscription.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,9 @@ import { SafePipe } from './safe.pipe';
     ViewMySubscriptionHistoryComponent,
     ViewBeverageComponent,
     ViewAllArticlesComponent,
-    SafePipe
+    SafePipe,
+    ViewAllOptionsComponent,
+    CreateSubscriptionComponent
   ],
   imports: [
     BrowserModule,

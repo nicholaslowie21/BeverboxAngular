@@ -33,6 +33,15 @@ export class MainMenuComponent implements OnInit
             ]
         },
         {
+            label: 'Product',
+            items: [
+                {label: 'Subscription Options', icon: 'pi pi-home', url: ['viewAllOptions'] },
+                {label: 'Box', icon: 'pi pi-home', url: ['viewAllBoxes'] },
+                {label: 'Beverage', icon: 'pi pi-home', url: ['viewBeverage'] }
+                
+            ]
+        },
+        {
             label: 'Transaction History',
             items: [
                 {label: 'Beverage', icon: 'pi pi-home', url: ['beverageTransaction'] },
