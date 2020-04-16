@@ -16,6 +16,8 @@ import {DialogModule} from 'primeng/dialog';
 import {CardModule} from 'primeng/card';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
+import {InputTextModule} from 'primeng/inputtext';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -74,7 +76,9 @@ import { ViewMyReviewsComponent } from './view-my-reviews/view-my-reviews.compon
     DialogModule,
     CardModule,
 	MessagesModule,
-	MessageModule
+	MessageModule,
+	InputTextModule,
+	InputTextareaModule
 
 	],
   providers: [DatePipe],
