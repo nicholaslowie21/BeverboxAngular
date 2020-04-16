@@ -14,11 +14,11 @@ import { Subscription } from 'rxjs';
 export class CreateSubscriptionComponent implements OnInit {
 
   submitted: boolean;
-  newSubscription: Subscription;
+//   newSubscription: Subscription;
   promoCode: string;
-  cashback: boolean;
+  cashback: boolean = false;
   optId: number;
-  // Might need to remove but not sure
+//   currentLogs
 	
 	resultSuccess: boolean;
 	resultError: boolean;
@@ -37,16 +37,17 @@ export class CreateSubscriptionComponent implements OnInit {
     
     }
 
-  ngOnInit() {
-  }
+  	ngOnInit() {
+		this.checkAccessRight();
+  	}
 
 	clear()
 	{
 		this.submitted = false;
 		// this.newSubscription = new Subscription();
-  }
+  	}
   
-  create(createSubscriptionForm: NgForm)
+  	create(createSubscriptionForm: NgForm)
 	{	
 		this.submitted = true;
 		
@@ -58,7 +59,7 @@ export class CreateSubscriptionComponent implements OnInit {
 					this.resultSuccess = true;
 					this.resultError = false;
 					this.message = "New subscription " + newSubscriptionId + " created successfully";
-          // Navigate to a diff page: use activated Route?
+        //   Navigate to a diff page: use activated Route?
         },
 				error => {
 					this.resultError = true;
@@ -71,7 +72,7 @@ export class CreateSubscriptionComponent implements OnInit {
 		}
 	}
 
-  checkAccessRight()
+  	checkAccessRight()
 	{
 		if(!this.sessionService.checkAccessRight(this.router.url))
 		{

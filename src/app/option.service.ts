@@ -16,11 +16,17 @@ export class OptionService {
 
   constructor(private httpClient: HttpClient) { }
 
-  retrieveAllOptions(): Observable<any> {
+  retrieveAllActiveOptions(): Observable<any> {
     return this.httpClient.get<any>(this.baseUrl).pipe
     (
       catchError(this.handleError)
     );
+  }
+
+  retrieveOptionByOptionId(optionId: number): Observable<any> {
+	  return this.httpClient.get<any>(this.baseUrl + "/retrieveOption/" + optionId).pipe (
+		catchError(this.handleError)
+	  );
   }
 
   private handleError(error: HttpErrorResponse)
