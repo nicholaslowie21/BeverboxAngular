@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {MenuItem} from 'primeng/api';
+import { MenuItem } from 'primeng/api';
 
 import { SessionService } from '../session.service';
 
@@ -30,6 +30,15 @@ export class MainMenuComponent implements OnInit
             items: [
                 {label: 'Home', icon: 'pi pi-home', url: ['index'] },
 				{label: 'My Reviews', icon: 'pi pi-home', url: ['viewMyReviews'] }
+            ]
+        },
+        {
+            label: 'Product',
+            items: [
+                {label: 'Subscription Options', icon: 'pi pi-home', url: ['viewAllOptions'] },
+                {label: 'Box', icon: 'pi pi-home', url: ['viewAllBoxes'] },
+                {label: 'Beverage', icon: 'pi pi-home', url: ['viewBeverage'] }
+                
             ]
         },
         {

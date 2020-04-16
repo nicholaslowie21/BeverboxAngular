@@ -1,0 +1,8 @@
+.block-div {
+    display: inline-flex;
+  }
+  
+  .cardStyle {
+     width: 324px;
+     margin: 0 10px 10px 10px;
+  }

@@ -35,6 +35,8 @@ import { ViewMySubscriptionHistoryComponent } from './transactionHistory/view-my
 import { ViewBeverageComponent } from './products/view-beverage/view-beverage.component';
 import { ViewAllArticlesComponent } from './view-all-articles/view-all-articles.component';
 import { SafePipe } from './safe.pipe';
+import { ViewAllOptionsComponent } from './view-all-options/view-all-options.component';
+import { CreateSubscriptionComponent } from './create-subscription/create-subscription.component';
 import { ViewMyReviewsComponent } from './view-my-reviews/view-my-reviews.component';
 
 
@@ -54,6 +56,8 @@ import { ViewMyReviewsComponent } from './view-my-reviews/view-my-reviews.compon
     ViewBeverageComponent,
     ViewAllArticlesComponent,
     SafePipe,
+    ViewAllOptionsComponent,
+    CreateSubscriptionComponent,
     ViewMyReviewsComponent
   ],
   imports: [
