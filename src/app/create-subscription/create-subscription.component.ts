@@ -15,10 +15,11 @@ export class CreateSubscriptionComponent implements OnInit {
 
   submitted: boolean;
 //   newSubscription: Subscription;
-  promoCode: string;
+  promoCode: string = "";
   cashback: boolean = false;
   optId: number;
-//   currentLogs
+  optId1: number;
+  currentLogs: number;
 	
 	resultSuccess: boolean;
 	resultError: boolean;
@@ -29,16 +30,22 @@ export class CreateSubscriptionComponent implements OnInit {
               public sessionService: SessionService,
               public subscriptionService: SubscriptionService) 
   {
-    this.submitted = false;
+    	this.submitted = false;
 		// this.newSubscription = new Subscription();
 		
 		this.resultSuccess = false;
 		this.resultError = false;
+
+		this.currentLogs = this.sessionService.getCurrentCustomer().accumulatedCashback;
     
     }
 
   	ngOnInit() {
 		this.checkAccessRight();
+
+		this.optId1 = parseInt(this.activatedRoute.snapshot.paramMap.get('optId1'));
+		// console.log(this.optId1);
+		// Add a this.optId2 when we have
   	}
 
 	clear()
@@ -50,16 +57,18 @@ export class CreateSubscriptionComponent implements OnInit {
   	create(createSubscriptionForm: NgForm)
 	{	
 		this.submitted = true;
-		
+
+		// Will change this after setting up the other stuff
+		this.optId = this.optId1;
 		if (createSubscriptionForm.valid) 
 		{
 			this.subscriptionService.createSubscription(this.promoCode, this.cashback, this.optId).subscribe(
 				response => {
-					let newSubscriptionId: number = response.subscriptionId;
+					let newSubscriptionId: number = response.subsId;
 					this.resultSuccess = true;
 					this.resultError = false;
 					this.message = "New subscription " + newSubscriptionId + " created successfully";
-        //   Navigate to a diff page: use activated Route?
+       				//   Navigate to a diff page: use activated Route?
         },
 				error => {
 					this.resultError = true;

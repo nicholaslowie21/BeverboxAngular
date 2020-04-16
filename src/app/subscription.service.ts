@@ -36,8 +36,9 @@ export class SubscriptionService {
 			"optId": optId,
       		"custId": this.sessionService.getCurrentCustomer().customerId
 		};
-    
-		return this.httpClient.put<any>(this.baseUrl + + "/createSubscription", createSubReq, httpOptions).pipe
+	
+		console.log(createSubReq);
+		return this.httpClient.put<any>(this.baseUrl + "/createSubscription", createSubReq, httpOptions).pipe
 		(
 			catchError(this.handleError)
 		);
