@@ -5,22 +5,21 @@
 <section id="content" class="content">
 
 	<app-breadcrumb [pageName]="'createNewSubscription'"></app-breadcrumb>
-			
-	<h3>Create Your New Subscription</h3>
-	<br/>
-	
-	<div *ngIf="resultSuccess == true" style="color:blue;">
-		{{message}}
-	</div>
-	
-	<div *ngIf="resultError == true" style="color:red;">
-		{{message}}
-    </div>
-    
-    <article>
-        <p>This is where the selected option details will be shown and hooked up through routing</p>
-    </article>
+
+	<br>
+	<p-panel header="Create Your New Subscription">
+		<div *ngIf="resultSuccess == true" style="color:blue;">
+			{{message}}
+		</div>
 		
+		<div *ngIf="resultError == true" style="color:red;">
+			{{message}}
+		</div>
+		
+		<article>
+			<p>This is where the selected option details will be shown and hooked up through routing</p>
+		</article>
+
     <form #createSubscriptionForm="ngForm" (ngSubmit)="create(createSubscriptionForm)" >
 	
 	
@@ -30,7 +29,7 @@
 			<label for="promoCode">Promo Code: </label>
 			<input name="promoCode" type="text" [(ngModel)]="promoCode" size="32"/> <br><br>
 			
-			<h4>Use your existing Logs Cashback to pay less? </h4>
+			<h4>You have an existing Logs Cashback of ${{currentLogs}}. Use it?</h4>
 			<p-inputSwitch name="cashback" [(ngModel)]="cashback"></p-inputSwitch><br><br>
 			
 			<button (click)="clear()">Clear</button>
@@ -55,6 +54,8 @@
 		</table>  -->
 		
 	</form>
+
+	</p-panel>
 	
 </section>
 
