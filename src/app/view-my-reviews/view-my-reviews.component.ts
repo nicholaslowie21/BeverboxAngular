@@ -6,11 +6,13 @@ import { SessionService } from '../session.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Message } from 'primeng/api';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-view-my-reviews',
   templateUrl: './view-my-reviews.component.html',
-  styleUrls: ['./view-my-reviews.component.css']
+  styleUrls: ['./view-my-reviews.component.css'],
+  providers: [ConfirmationService]
 })
 
 export class ViewMyReviewsComponent implements OnInit {
@@ -23,7 +25,8 @@ export class ViewMyReviewsComponent implements OnInit {
 	constructor(private router: Router,
 				private activatedRoute: ActivatedRoute,
 				public sessionService: SessionService,
-				private reviewService: ReviewService)
+				private reviewService: ReviewService,
+				private confirmationService: ConfirmationService)
 	{	  
 	}
 
@@ -35,12 +38,28 @@ export class ViewMyReviewsComponent implements OnInit {
 		this.reviewService.getReviewsByEmail().subscribe(
 			response => {
 				this.reviews = response.reviews;
+				console.log("Customer Name: " + this.reviews[0].customerName);
 			},
 			error => {
 				console.log('********** ViewMyReviewsComponent.ts: ' + error);
 			}
 		);
 	}
+	
+	
+	confirmDialog(reviewId: number) {
+        this.confirmationService.confirm({
+            message: 'Do you want to delete this review?',
+            header: 'Delete Confirmation',
+            icon: 'pi pi-info-circle',
+            accept: () => {
+                this.deleteReview(reviewId);
+            },
+            reject: () => {
+				console.log('Canceled');
+            }
+        });
+    }
 	
 	
 	deleteReview(reviewId: number)

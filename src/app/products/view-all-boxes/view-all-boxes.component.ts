@@ -3,7 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { SessionService } from '../../session.service';
 import { BoxService } from '../../box.service';
+import { ReviewService } from '../../review.service';
 import { Box } from '../../box';
+import { Review } from '../../review';
 
 
 @Component({
@@ -52,13 +54,15 @@ export class ViewAllBoxesComponent implements OnInit {
   boxes: Box[];
   boxToView: Box;
   display: boolean = false;
+  newReview: Review;
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
               public sessionService: SessionService,
-              private boxService: BoxService) 
+              private boxService: BoxService,
+			  private reviewService: ReviewService) 
   {
-  
+	this.newReview = new Review();
   
   }
 
@@ -82,5 +86,21 @@ export class ViewAllBoxesComponent implements OnInit {
     this.boxToView = boxToView;
     console.log(boxToView);
   }
+  
+  
+	createReview()
+	{
+		this.display = false;
+		this.reviewService.createNewReview(this.newReview, this.boxToView.boxId, this.sessionService.getCurrentCustomer().customerId).subscribe(
+			response => {
+				this.newReview.reviewId = response.reviewId;
+				console.log('New review Id: ' + this.newReview.reviewId);
+				location.reload();
+			},
+			error => {
+				console.log('Error creating new review');
+			}
+		);	
+	}
 
 }
