@@ -6,7 +6,7 @@
 
 	<app-breadcrumb [pageName]="'createNewSubscription'"></app-breadcrumb>
 			
-	<h3>Create New Subscription</h3>
+	<h3>Create Your New Subscription</h3>
 	<br/>
 	
 	<div *ngIf="resultSuccess == true" style="color:blue;">
@@ -22,13 +22,27 @@
     </article>
 		
     <form #createSubscriptionForm="ngForm" (ngSubmit)="create(createSubscriptionForm)" >
-    <!-- Change the table to some other UI instead. Only need the inputs of 
-        PromoCode, Cashback usage, and sharing option -->
-		<table width="100%">			
-			<!-- <tr>
+	
+	
+		<!-- Change the table to some other UI instead. Only need the inputs of 
+		PromoCode, Cashback usage, and sharing option -->
+			<h4>Enter Promotion Code to accumulate your Logs Cashback!</h4>
+			<label for="promoCode">Promo Code: </label>
+			<input name="promoCode" type="text" [(ngModel)]="promoCode" size="32"/> <br><br>
+			
+			<h4>Use your existing Logs Cashback to pay less? </h4>
+			<p-inputSwitch name="cashback" [(ngModel)]="cashback"></p-inputSwitch><br><br>
+			
+			<button (click)="clear()">Clear</button>
+			&nbsp;
+			<input type="submit" value="Create New Subscription" />
+		
+			<!-- <table width="100%">
+			 			
+			<tr>
 				<td width="20%" style="font-weight: bold;">Promo Code</td>
-				<td><input id="promoCode" name="promoCode" #promoCode="ngModel" type="text" [(ngModel)]="promoCode" /></td>
-			</tr> -->
+				<td><input id="promoCodeInput" name="promoCodeInput" #promoCodeInput="ngModel" type="text" [(ngModel)]="promoCode" /></td>
+			</tr>
 
 			<tr>
 				<td colspan="3" style="text-align: center;">
@@ -38,7 +52,7 @@
 				</td>
 			</tr>
 			
-		</table>
+		</table>  -->
 		
 	</form>
 	

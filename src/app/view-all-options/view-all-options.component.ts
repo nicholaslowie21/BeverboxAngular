@@ -12,15 +12,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ViewAllOptionsComponent implements OnInit {
     
     options: Option[];
-    // uniqueOptions: Option[];
+    uniqueOptions: Option[];
+    priceSharing: number;
 
     constructor(private router: Router,
                 private activatedRoute: ActivatedRoute,
                 private optionService: OptionService) 
-      {}
+      {
+        this.priceSharing = 0;
+      }
 
     ngOnInit() {
-		this.optionService.retrieveAllOptions().subscribe(
+		this.optionService.retrieveAllActiveOptions().subscribe(
 			response => {
         this.options = response.options;
         console.log('************* ViewAllOptionsComponent.ts is loaded');
@@ -29,6 +32,16 @@ export class ViewAllOptionsComponent implements OnInit {
 				console.log('********** ViewAllArticlesComponent.ts: ' + error);
 			}
     );
-	}
+    }
 
+    // KIV: To print unique options, and inside has sharing and non sharing price
+    // for (var i = 0; i < this.options.length; i++) {
+    //   this.options
+    // };
+    
+
+    createSub(optionId: number): void {
+      this.router.navigate(["/createSubscription/" + optionId]);
+    }
 }
+

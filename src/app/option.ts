@@ -9,6 +9,7 @@ export class Option {
     price: number;
     type: string;
     subscriptions: Subscription[];
+    priceSharing: number;
 
     constructor(optionId?: number, name?: string, duration?: number, sharing?: boolean, description?: string, price?: number, type?: string){
         this.optionId = optionId;
@@ -18,5 +19,13 @@ export class Option {
         this.description = description;
         this.price = price;
         this.type = type;
+    }
+
+    getPriceSharing(): number {
+        return this.priceSharing;
+    }
+
+    setPriceSharing(priceSharing: number) {
+        this.priceSharing = priceSharing;
     }
 }
