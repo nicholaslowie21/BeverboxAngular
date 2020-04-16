@@ -37,7 +37,8 @@
             </div>    
             </ng-template>
         </p-carousel>
-
+		
+		
             <p-dialog *ngIf="display" header="View Reviews" modal="true" [(visible)]="display"  [style]="{width: '50vw'}">
                 <p-table [value]="boxToView.reviews">
                     <ng-template pTemplate="header">
@@ -53,10 +54,13 @@
                             
                     </ng-template>
                 </p-table>
-
-                
-            </p-dialog>
-
+				<br />
+				
+				<textarea [rows]="1" [cols]="30" style="width: 80%;" autoResize="autoResize" pInputTextarea [(ngModel)]="newReview.reviewContent" placeholder="Leave a review"></textarea>
+				&nbsp;
+				<button pButton type="button" style="float: right;" label="Submit" (click)="createReview()"></button>
+			</p-dialog>
+		
     </p-panel>
 
 </section>
