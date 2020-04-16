@@ -15,13 +15,22 @@
 		<div *ngIf="resultError == true" style="color:red;">
 			{{message}}
 		</div>
-		
-		<article>
-			<p>This is where the selected option details will be shown and hooked up through routing</p>
-		</article>
 
     <form #createSubscriptionForm="ngForm" (ngSubmit)="create(createSubscriptionForm)" >
-	
+			<!-- <p-card header={{option1.name}} subheader={{option1.description}} class="cardStyle" styleClass="ui-card-shadow">
+				<p-header>
+					<img src="Card" src="assets/images/drink1.jpg">
+				</p-header>
+				<div>
+					Duration: {{option1.duration}}<br>
+					Price: ${{option1.price}}<br>
+					Type: {{option1.type}}
+					<div *ngIf="option1.sharing == true">THIS IS THE SHARING OPTION: You get more beverages for less price!</div>
+				</div>
+				<p-footer>
+					<button type="button" pButton label="This one"></button>            
+				</p-footer>
+			</p-card> -->
 	
 		<!-- Change the table to some other UI instead. Only need the inputs of 
 		PromoCode, Cashback usage, and sharing option -->
@@ -29,29 +38,13 @@
 			<label for="promoCode">Promo Code: </label>
 			<input name="promoCode" type="text" [(ngModel)]="promoCode" size="32"/> <br><br>
 			
-			<h4>You have an existing Logs Cashback of ${{currentLogs}}. Use it?</h4>
+			<h4>You have an existing Logs Cashback of ${{currentLogs}}. not updating tho Use it?</h4>
 			<p-inputSwitch name="cashback" [(ngModel)]="cashback"></p-inputSwitch><br><br>
 			
 			<button (click)="clear()">Clear</button>
 			&nbsp;
 			<input type="submit" value="Create New Subscription" />
 		
-			<!-- <table width="100%">
-			 			
-			<tr>
-				<td width="20%" style="font-weight: bold;">Promo Code</td>
-				<td><input id="promoCodeInput" name="promoCodeInput" #promoCodeInput="ngModel" type="text" [(ngModel)]="promoCode" /></td>
-			</tr>
-
-			<tr>
-				<td colspan="3" style="text-align: center;">
-					<button (click)="clear()">Clear</button>
-					&nbsp;
-					<input type="submit" value="Create New Subscription" />
-				</td>
-			</tr>
-			
-		</table>  -->
 		
 	</form>
 

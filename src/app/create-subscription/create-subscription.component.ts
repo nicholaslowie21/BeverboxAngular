@@ -5,21 +5,26 @@ import { NgForm } from '@angular/forms';
 import { SessionService } from '../session.service';
 import { SubscriptionService } from '../subscription.service';
 import { Subscription } from 'rxjs';
+import { Option } from '../option';
+import { OptionService } from '../option.service';
 
 @Component({
   selector: 'app-create-subscription',
   templateUrl: './create-subscription.component.html',
   styleUrls: ['./create-subscription.component.css']
 })
+
 export class CreateSubscriptionComponent implements OnInit {
 
-  submitted: boolean;
-//   newSubscription: Subscription;
-  promoCode: string = "";
-  cashback: boolean = false;
-  optId: number;
-  optId1: number;
-  currentLogs: number;
+	submitted: boolean;
+	promoCode: string = "";
+	cashback: boolean = false;
+	optId: number;
+	optId1: number;
+	optId2: number;
+	option1: Option;
+	option2: Option;
+	currentLogs: number;
 	
 	resultSuccess: boolean;
 	resultError: boolean;
@@ -27,12 +32,11 @@ export class CreateSubscriptionComponent implements OnInit {
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
-              public sessionService: SessionService,
+			  public sessionService: SessionService,
+			  public optionService: OptionService,
               public subscriptionService: SubscriptionService) 
   {
     	this.submitted = false;
-		// this.newSubscription = new Subscription();
-		
 		this.resultSuccess = false;
 		this.resultError = false;
 
@@ -44,14 +48,36 @@ export class CreateSubscriptionComponent implements OnInit {
 		this.checkAccessRight();
 
 		this.optId1 = parseInt(this.activatedRoute.snapshot.paramMap.get('optId1'));
-		// console.log(this.optId1);
-		// Add a this.optId2 when we have
+		this.optId2 = parseInt(this.activatedRoute.snapshot.paramMap.get('optId2'));
+
+		if (this.optId1!= null) {
+			this.optionService.retrieveOptionByOptionId(this.optId1).subscribe(
+				response => {
+					this.option1 = response.option;
+					console.log('Option 1' + this.option1);
+				},
+				error => {
+					console.log('********** CreateSubscriptionComponent.ts: ' + error);
+				}
+			);
+		}
+		
+		if (this.optId2!= 0) {
+			this.optionService.retrieveOptionByOptionId(this.optId2).subscribe(
+				response => {
+					this.option2 = response.option;
+					console.log('Option 2' + this.option2);
+				},
+				error => {
+					console.log('********** CreateSubscriptionComponent.ts: ' + error);
+				}
+			);
+		}
   	}
 
 	clear()
 	{
 		this.submitted = false;
-		// this.newSubscription = new Subscription();
   	}
   
   	create(createSubscriptionForm: NgForm)
@@ -60,6 +86,7 @@ export class CreateSubscriptionComponent implements OnInit {
 
 		// Will change this after setting up the other stuff
 		this.optId = this.optId1;
+
 		if (createSubscriptionForm.valid) 
 		{
 			this.subscriptionService.createSubscription(this.promoCode, this.cashback, this.optId).subscribe(

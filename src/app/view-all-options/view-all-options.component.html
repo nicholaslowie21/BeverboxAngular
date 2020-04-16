@@ -4,6 +4,8 @@
 
 <section id="content" class="content">
 
+    <app-breadcrumb [pageName]="'viewAllOptions'"></app-breadcrumb>
+
     <div *ngFor="let option of options" class="block-div">
         <p-card header={{option.name}} subheader={{option.description}} class="cardStyle" styleClass="ui-card-shadow">
             <p-header>

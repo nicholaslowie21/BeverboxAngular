@@ -41,7 +41,9 @@ export class ViewAllOptionsComponent implements OnInit {
     
 
     createSub(optionId: number): void {
-      this.router.navigate(["/createSubscription/" + optionId]);
+      // Will assign a diff value to this
+      let option2 = 0;
+      this.router.navigate(["/createSubscription/" + optionId + "/" + option2]);
     }
 }
 
