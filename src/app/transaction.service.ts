@@ -33,6 +33,25 @@ export class TransactionService {
 			catchError(this.handleError)
 		);
 	}
+
+	createBevTransaction(beverageId: number, promoCode: string, qty: number, cashback: boolean): Observable<any>
+	{
+		console.log(beverageId + "in trans service");
+		let buyBevReq = {
+			"email": this.sessionService.getEmail(),
+			"password": this.sessionService.getPassword(),
+			"bevId": beverageId,
+			"promoCode": promoCode,
+			"qty": qty,
+			"cashback": cashback,
+			"custId": this.sessionService.getCurrentCustomer().customerId
+		};
+		
+		return this.httpClient.put<any>(this.baseUrl, buyBevReq, httpOptions).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
   
   private handleError(error: HttpErrorResponse) {
 		let errorMessage: string = "";
