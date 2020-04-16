@@ -21,20 +21,20 @@
         <p>This is where the selected option details will be shown and hooked up through routing</p>
     </article>
 		
-    <form #createSubscriptionForm="ngForm" (ngSubmit)="create(createProductForm)" >
+    <form #createSubscriptionForm="ngForm" (ngSubmit)="create(createSubscriptionForm)" >
     <!-- Change the table to some other UI instead. Only need the inputs of 
         PromoCode, Cashback usage, and sharing option -->
 		<table width="100%">			
-			<tr>
+			<!-- <tr>
 				<td width="20%" style="font-weight: bold;">Promo Code</td>
 				<td><input id="promoCode" name="promoCode" #promoCode="ngModel" type="text" [(ngModel)]="promoCode" /></td>
-			</tr>
+			</tr> -->
 
 			<tr>
 				<td colspan="3" style="text-align: center;">
 					<button (click)="clear()">Clear</button>
 					&nbsp;
-					<input type="submit" value="Create New Product" />
+					<input type="submit" value="Create New Subscription" />
 				</td>
 			</tr>
 			

@@ -25,8 +25,7 @@ const routes: Routes = [
   { path: 'viewBeverage', component: ViewBeverageComponent},
   { path: 'viewAllArticles', component: ViewAllArticlesComponent},
   { path: 'viewAllOptions', component: ViewAllOptionsComponent},
-  { path: 'createSubscription', component: CreateSubscriptionComponent}
-
+  { path: 'createSubscription', component: CreateSubscriptionComponent},
   { path: 'viewMyReviews', component: ViewMyReviewsComponent}
   
 ];

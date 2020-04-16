@@ -31,10 +31,10 @@ export class SubscriptionService {
 		let createSubReq = {
 			"email": this.sessionService.getEmail(),
 			"password": this.sessionService.getPassword(),
-      "promoCode": promoCode,
-      "cashback": cashback,
+      		"promoCode": promoCode,
+      		"cashback": cashback,
 			"optId": optId,
-      "custId": this.sessionService.getCurrentCustomer().customerId
+      		"custId": this.sessionService.getCurrentCustomer().customerId
 		};
     
 		return this.httpClient.put<any>(this.baseUrl + + "/createSubscription", createSubReq, httpOptions).pipe

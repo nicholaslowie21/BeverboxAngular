@@ -12,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ViewAllOptionsComponent implements OnInit {
     
     options: Option[];
+    // uniqueOptions: Option[];
 
     constructor(private router: Router,
                 private activatedRoute: ActivatedRoute,
@@ -23,7 +24,6 @@ export class ViewAllOptionsComponent implements OnInit {
 			response => {
         this.options = response.options;
         console.log('************* ViewAllOptionsComponent.ts is loaded');
-        console.log(this.options[0]);
 			},
 			error => {
 				console.log('********** ViewAllArticlesComponent.ts: ' + error);

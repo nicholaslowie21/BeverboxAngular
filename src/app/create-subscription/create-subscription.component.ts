@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
 })
 export class CreateSubscriptionComponent implements OnInit {
 
-	submitted: boolean;
+  submitted: boolean;
   newSubscription: Subscription;
   promoCode: string;
   cashback: boolean;
