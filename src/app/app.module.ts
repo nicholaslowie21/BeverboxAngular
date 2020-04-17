@@ -39,6 +39,7 @@ import { SafePipe } from './safe.pipe';
 import { ViewAllOptionsComponent } from './view-all-options/view-all-options.component';
 import { CreateSubscriptionComponent } from './create-subscription/create-subscription.component';
 import { ViewMyReviewsComponent } from './view-my-reviews/view-my-reviews.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { ViewMyReviewsComponent } from './view-my-reviews/view-my-reviews.compon
     AppComponent,
     IndexComponent,
     HeaderComponent,
+    SidebarComponent,
     FooterComponent,
     MainMenuComponent,
     BreadcrumbComponent,
@@ -59,7 +61,8 @@ import { ViewMyReviewsComponent } from './view-my-reviews/view-my-reviews.compon
     SafePipe,
     ViewAllOptionsComponent,
     CreateSubscriptionComponent,
-    ViewMyReviewsComponent
+    ViewMyReviewsComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

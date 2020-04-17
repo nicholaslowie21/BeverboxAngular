@@ -1,0 +1,20 @@
+<p-carousel [value]="promotions" orientation="vertical" [style]="{'max-width':'15%'}" verticalViewPortHeight="250px" [circular]="true" [autoplayInterval]="3500" [numVisible]="1" [numScroll]="1">
+    <p-header>
+        <h2 class="theHeader"><b>Promotions</b></h2>
+    </p-header>
+    <ng-template let-promotion pTemplate="item">
+        <div class="promotion-details">
+            <div class="p-grid p-nogutter">
+                <div class="p-col-12">
+                    <img src="../../assets/images/1.png" />
+                </div>
+                <div class="p-col-12 promotion-data">
+                    <div class="promotion-title" style="height: 20%;">{{promotion.promoName}}</div>
+                    <div class="promotion-subtitle">{{promotion.promoType}} </div>
+                    <div class="promotion-subtitle">{{promotion.promoPercentage}}%</div>
+                    <div class="promotion-subtitle">{{promotion.promoCode}}</div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-carousel>

@@ -60,12 +60,19 @@ a:hover {
 
 .content {
 	display: block;
-	width: 83%;
+	width: 67.5%;
 	margin: 0.5% 0.5% 0.5% 0.5%;
 	padding: 3px 3px 3px 3px;
 	float: left;
 }
 
+.sidebar {
+	display: block;
+	width: 15%;
+	float: right;
+	background-color: silver;
+	text-align: center;
+}
 
 .footer {
 	display: block;
@@ -193,3 +200,5 @@ a:hover {
 	text-decoration-line: underline;
 	cursor: pointer;
 }
+
+
