@@ -15,16 +15,35 @@
 		<div *ngIf="resultError == true" style="color:red;">
 			{{message}}
 		</div>
-		
-		<article>
-			<p>This is where the selected option details will be shown and hooked up through routing</p>
-		</article>
 
+		<button (onClick) = "print()">PRINT</button>
     <form #createSubscriptionForm="ngForm" (ngSubmit)="create(createSubscriptionForm)" >
-	
-	
-		<!-- Change the table to some other UI instead. Only need the inputs of 
-		PromoCode, Cashback usage, and sharing option -->
+		<h4>CHOOSE YOUR SUBSCRIPTION SHARING OPTION</h4>
+        <div class="block-div">
+            <p-card header={{option1.name}} subheader={{option1.description}} class="cardStyle" styleClass="ui-card-shadow">
+                <p-header>
+                    <img src="../../assets/images/{{option1.type}}.jpg" style="width:324 px">
+                </p-header>
+                <div>
+                    Duration: {{option1.duration}}<br>
+					Price: ${{option1.price}}<br>
+					Sharing: {{option1.sharing}}
+                </div>
+			</p-card>
+			<div *ngIf="option2 == null">
+				<p-card header={{option2.name}} subheader={{option2.description}} class="cardStyle" styleClass="ui-card-shadow">
+					<p-header>
+						<img src="../../assets/images/{{option2.type}}.jpg" style="width:324 px">
+					</p-header>
+					<div>
+						Duration: {{option2.duration}}<br>
+						Price: ${{option2.price}}<br>
+						Sharing: {{option2.sharing}}
+					</div>
+				</p-card>
+			</div>
+		</div>
+			
 			<h4>Enter Promotion Code to accumulate your Logs Cashback!</h4>
 			<label for="promoCode">Promo Code: </label>
 			<input name="promoCode" type="text" [(ngModel)]="promoCode" size="32"/> <br><br>
@@ -36,22 +55,6 @@
 			&nbsp;
 			<input type="submit" value="Create New Subscription" />
 		
-			<!-- <table width="100%">
-			 			
-			<tr>
-				<td width="20%" style="font-weight: bold;">Promo Code</td>
-				<td><input id="promoCodeInput" name="promoCodeInput" #promoCodeInput="ngModel" type="text" [(ngModel)]="promoCode" /></td>
-			</tr>
-
-			<tr>
-				<td colspan="3" style="text-align: center;">
-					<button (click)="clear()">Clear</button>
-					&nbsp;
-					<input type="submit" value="Create New Subscription" />
-				</td>
-			</tr>
-			
-		</table>  -->
 		
 	</form>
 
