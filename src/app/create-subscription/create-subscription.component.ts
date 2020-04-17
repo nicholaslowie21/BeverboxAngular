@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SystemJsNgModuleLoader } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
@@ -35,18 +35,19 @@ export class CreateSubscriptionComponent implements OnInit {
 			  public sessionService: SessionService,
 			  public optionService: OptionService,
               public subscriptionService: SubscriptionService) 
-  {
+  	{
     	this.submitted = false;
 		this.resultSuccess = false;
 		this.resultError = false;
 
-		this.currentLogs = this.sessionService.getCurrentCustomer().accumulatedCashback;
-    
+		this.option1 = new Option();
+		this.option2 = new Option();
     }
 
   	ngOnInit() {
 		this.checkAccessRight();
 
+		this.currentLogs = this.sessionService.getCurrentCustomer().accumulatedCashback;
 		this.optId1 = parseInt(this.activatedRoute.snapshot.paramMap.get('optId1'));
 		this.optId2 = parseInt(this.activatedRoute.snapshot.paramMap.get('optId2'));
 
@@ -54,7 +55,7 @@ export class CreateSubscriptionComponent implements OnInit {
 			this.optionService.retrieveOptionByOptionId(this.optId1).subscribe(
 				response => {
 					this.option1 = response.option;
-					console.log('Option 1' + this.option1);
+					console.log('Option 1' + this.option1.name);
 				},
 				error => {
 					console.log('********** CreateSubscriptionComponent.ts: ' + error);
@@ -62,7 +63,7 @@ export class CreateSubscriptionComponent implements OnInit {
 			);
 		}
 		
-		if (this.optId2!= 0) {
+		if (this.optId2 != 0) {
 			this.optionService.retrieveOptionByOptionId(this.optId2).subscribe(
 				response => {
 					this.option2 = response.option;
@@ -72,8 +73,15 @@ export class CreateSubscriptionComponent implements OnInit {
 					console.log('********** CreateSubscriptionComponent.ts: ' + error);
 				}
 			);
+		} else {
+			this.option2 = null;
 		}
-  	}
+	  }
+	  
+	  print() {
+		console.log(this.option1.name + " is Option1 Name");
+		console.log(this.option2.name + " is Option2 Name");
+	  }
 
 	clear()
 	{

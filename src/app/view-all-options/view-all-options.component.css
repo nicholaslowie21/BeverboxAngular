@@ -3,6 +3,39 @@
   }
   
   .cardStyle {
-     width: 324px;
+     width: 240px;
      margin: 0 10px 10px 10px;
   }
+
+.option-details > .p-grid {
+   border: 1px solid #b3c2ca;
+   border-radius: 3px;
+   margin: 0.3em;
+   text-align: center;
+   padding: 2em 0 2.25em 0;
+}
+.option-data .option-title {
+   font-weight: 700;
+   font-size: 20px;
+   margin-top: 24px;
+   }
+.option-data .option-subtitle {
+   margin: 0.25em 0 2em 0;
+}
+.option-data button {
+   margin-left: 0.5em;
+}
+.option-data button:first-child {
+   margin-left: 0;
+}
+/* .carousel-demo .ui-carousel.custom-carousel .ui-carousel-dot-icon {
+   width: 16px !important;
+   height: 16px !important;
+   border-radius: 50%;
+}
+.carousel-demo .ui-carousel.ui-carousel-horizontal .ui-carousel-content .ui-carousel-item.ui-carousel-item-start .option-details > .p-grid {
+   margin-left: 0.6em;
+}
+.carousel-demo .ui-carousel.ui-carousel-horizontal .ui-carousel-content .ui-carousel-item.ui-carousel-item-end .option-details > .p-grid {
+   margin-right: 0.6em; */
+/* } */

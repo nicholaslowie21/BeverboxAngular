@@ -6,21 +6,96 @@
 
     <app-breadcrumb [pageName]="'viewAllOptions'"></app-breadcrumb>
 
-    <div *ngFor="let option of options" class="block-div">
-        <p-card header={{option.name}} subheader={{option.description}} class="cardStyle" styleClass="ui-card-shadow">
-            <p-header>
-                <img src="Card" src="assets/images/drink1.jpg">
-            </p-header>
-            <div>
-                Duration: {{option.duration}}<br>
-                Price: ${{option.price}}<br>
-                Type: {{option.type}}
+    <p-carousel [value]="regularOptions" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true" [responsiveOptions]="responsiveOptions">
+        <p-header>
+            <h3>Regular</h3>
+        </p-header>
+        <ng-template let-option pTemplate="item">
+            <div class="option-details">   
+                <div class="p-grid p-nogutter">
+                    <div class="p-col-12">
+                        <img src="../../assets/images/REGULAR.jpg" style="width:240px">
+                    </div>
+                    <div class="p-col-12 option-data">
+                        <div class="option-title">{{option.name}}</div>
+                        <div class="option-subtitle">{{option.description}}</div>
+                        
+                        Duration: {{option.duration}}<br>
+                        Price: ${{option.price}}
+                        <div *ngIf="checkSharing(option) == true">Sharing Price: ${{option.priceSharing}}</div><br>
+                        <button type="button" (click)="createSub(option)" pButton label="Subscribe"></button>
+                    </div>
+                </div>
             </div>
-            <p-footer>
-                <button type="button" (click)="createSub(option.optionId)" pButton label="Subscribe"></button>            
-            </p-footer>
-        </p-card>
+        </ng-template>
+    </p-carousel>
+
+    <p-carousel [value]="healthyOptions" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true" [responsiveOptions]="responsiveOptions">
+        <p-header>
+            <h3>Healthy</h3>
+        </p-header>
+        <ng-template let-option pTemplate="item">
+            <div class="option-details">   
+                <div class="p-grid p-nogutter">
+                    <div class="p-col-12">
+                        <img src="../../assets/images/HEALTHY.jpg" style="width:240px">
+                    </div>
+                    <div class="p-col-12 option-data">
+                        <div class="option-title">{{option.name}}</div>
+                        <div class="option-subtitle">{{option.description}}</div>
+                        
+                        Duration: {{option.duration}}<br>
+                        Price: ${{option.price}}
+                        <div *ngIf="checkSharing(option) == true">Sharing Price: ${{option.priceSharing}}</div><br>
+                        <button type="button" (click)="createSub(option)" pButton label="Subscribe"></button>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-carousel>
+    <p-carousel [value]="alcoholOptions" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true" [responsiveOptions]="responsiveOptions">
+        <p-header>
+            <h3>Alcohol</h3>
+        </p-header>
+        <ng-template let-option pTemplate="item">
+            <div class="option-details">   
+                <div class="p-grid p-nogutter">
+                    <div class="p-col-12">
+                        <img src="../../assets/images/ALCOHOL.jpg" style="width:240px">
+                    </div>
+                    <div class="p-col-12 option-data">
+                        <div class="option-title">{{option.name}}</div>
+                        <div class="option-subtitle">{{option.description}}</div>
+                        
+                        Duration: {{option.duration}}<br>
+                        Price: ${{option.price}}
+                        <div *ngIf="checkSharing(option) == true">Sharing Price: ${{option.priceSharing}}</div><br>
+                        <button type="button" (click)="createSub(option)" pButton label="Subscribe"></button>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-carousel>
+
+
+    <!-- <p-panel header="Regular">
+        <div *ngFor="let option of regularOptions" class="block-div">
+            <p-card header={{option.name}} subheader={{option.description}} class="cardStyle" styleClass="ui-card-shadow">
+                <p-header>
+                    <img src="Card" src="../../assets/images/regular.jpg">
+                </p-header>
+                <div>
+                    Duration: {{option.duration}}<br>
+                    Price: ${{option.price}}
+                    <div *ngIf="checkSharing(option) == true">Sharing Price: ${{option.priceSharing}}</div>
+                </div>
+                <p-footer>
+                    <button type="button" (click)="createSub(option)" pButton label="Subscribe"></button>            
+                </p-footer>
+            </p-card>
         </div>
+    </p-panel> -->
+
 </section>
 
 <app-footer></app-footer>

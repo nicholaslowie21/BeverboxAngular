@@ -29,6 +29,11 @@ export class OptionService {
 	  );
   }
 
+  retrieveOptionByType(type: string): Observable<any> {
+	return this.httpClient.get<any>(this.baseUrl + "/retrieveOptionByType/" + type).pipe (
+	  catchError(this.handleError)
+	);
+}
   private handleError(error: HttpErrorResponse)
 	{
 		let errorMessage: string = "";

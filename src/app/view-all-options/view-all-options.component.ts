@@ -11,39 +11,62 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ViewAllOptionsComponent implements OnInit {
     
-    options: Option[];
-    uniqueOptions: Option[];
-    priceSharing: number;
+    regularOptions: Option[];
+    healthyOptions: Option[];
+    alcoholOptions: Option[];
 
     constructor(private router: Router,
                 private activatedRoute: ActivatedRoute,
                 private optionService: OptionService) 
       {
-        this.priceSharing = 0;
       }
 
     ngOnInit() {
-		this.optionService.retrieveAllActiveOptions().subscribe(
-			response => {
-        this.options = response.options;
-        console.log('************* ViewAllOptionsComponent.ts is loaded');
-			},
-			error => {
-				console.log('********** ViewAllArticlesComponent.ts: ' + error);
-			}
-    );
+      this.optionService.retrieveOptionByType("REGULAR").subscribe(
+        response => {
+          this.regularOptions = response.options;
+          console.log('************* ViewAllOptionsComponent.ts is loaded');
+        },
+        error => {
+          console.log('********** ViewAllArticlesComponent.ts: ' + error);
+        }
+      );
+
+      this.optionService.retrieveOptionByType("HEALTHY").subscribe(
+        response => {
+          this.healthyOptions = response.options;
+          console.log('************* ViewAllOptionsComponent.ts is loaded');
+        },
+        error => {
+          console.log('********** ViewAllArticlesComponent.ts: ' + error);
+        }
+      );
+
+      this.optionService.retrieveOptionByType("ALCOHOL").subscribe(
+        response => {
+          this.alcoholOptions = response.options;
+          console.log('************* ViewAllOptionsComponent.ts is loaded');
+        },
+        error => {
+          console.log('********** ViewAllArticlesComponent.ts: ' + error);
+        }
+      );
+
+    }
+    
+    checkSharing(option: Option): boolean {
+      // console.log(option.name + " with priceSharing as " + option.priceSharing)
+      if (option.priceSharing == 0) {
+        return false;
+      } else {
+        return true;
+      }
     }
 
-    // KIV: To print unique options, and inside has sharing and non sharing price
-    // for (var i = 0; i < this.options.length; i++) {
-    //   this.options
-    // };
-    
-
-    createSub(optionId: number): void {
-      // Will assign a diff value to this
-      let option2 = 0;
-      this.router.navigate(["/createSubscription/" + optionId + "/" + option2]);
+    createSub(option: Option): void {
+      let option1 = option.optionId;
+      let option2 = option.sharingOptionId;
+      this.router.navigate(["/createSubscription/" + option1 + "/" + option2]);
     }
 }
 
