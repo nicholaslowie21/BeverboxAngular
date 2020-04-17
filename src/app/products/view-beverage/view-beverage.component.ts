@@ -1,9 +1,12 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 import { SessionService } from '../../session.service';
+import { TransactionService } from '../../transaction.service';
 import { BeverageService } from '../../beverage.service';
 import { Beverage } from '../../beverage';
+import { BevTransaction } from 'src/app/bev-transaction';
 
 
 @Component({
@@ -48,14 +51,33 @@ encapsulation: ViewEncapsulation.None
 })
 export class ViewBeverageComponent implements OnInit {
   beverages: Beverage[];
+  resultSuccess: boolean;
+	resultError: boolean;
+  submitted: boolean;
+  promoCode: string = "";
+  cashback: boolean = false;
+  beverageId: number;
+  qty: number;
+  newBevTransaction: BevTransaction;
+  message: string;
+  beverageToBuy: Beverage;
+  display: Boolean;
+  custCashback: number;
 
   constructor(private router: Router,
     private activatedRoute: ActivatedRoute,
     public sessionService: SessionService,
-    private beverageService: BeverageService) { }
+    private beverageService: BeverageService,
+    public transactionService: TransactionService) { 
+
+      this.newBevTransaction = new BevTransaction();
+      this.submitted = false;
+      this.resultSuccess = false;
+      this.resultError = false;
+    }
 
   ngOnInit() {
-
+    this.checkAccessRight();
     this.beverageService.retrieveLimitedBeverage().subscribe(
       response => {
         this.beverages = response.beverages;
@@ -65,6 +87,56 @@ export class ViewBeverageComponent implements OnInit {
       }
     )
   }
+
+  clear()
+	{
+		this.submitted = false;
+  	}
+
+  showDialog(beverageToBuy: Beverage) {
+    this.display = true;
+    this.beverageToBuy = beverageToBuy;
+    this.custCashback = this.sessionService.getCurrentCustomer().accumulatedCashback;
+    console.log(this.sessionService.getCurrentCustomer().accumulatedCashback);
+
+  }
+
+  getCashback(): number {
+    this.custCashback = this.sessionService.getCurrentCustomer().accumulatedCashback;
+    return this.custCashback;
+  }
+
+  create(buyBevForm: NgForm) {
+    this.submitted = true;
+    console.log(buyBevForm.valid);
+    if(buyBevForm.valid) {
+      console.log(this.beverageToBuy.beverageId);
+      this.transactionService.createBevTransaction(this.beverageToBuy.beverageId, this.promoCode, this.newBevTransaction.qty, this.cashback).subscribe(
+        response => {
+            this.newBevTransaction.transId = response.bevTransactionId;
+            this.resultSuccess = true;
+            this.resultError = false;
+            this.message = "New Beverage Transaction " + response.bevTransactionId + " created successfully";
+          },
+          
+          error => {
+            this.resultError = true;
+					  this.resultSuccess = false;
+					  this.message = error;
+					
+					console.log('********** (Buy beverage)ViewBeverageComponent.ts: ' + error);
+          }
+      )
+    }
+  }
+
+  checkAccessRight()
+	{
+		if(!this.sessionService.checkAccessRight(this.router.url))
+		{
+			this.router.navigate(["/accessRightError"]);
+		}
+	}
 
 
 
