@@ -1,0 +1,23 @@
+.promotion-title {
+    font-weight: bold;
+}
+
+.theHeader{
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.promotion-details{
+    width: 100%;
+    text-align: center;
+    margin-top: 15%;
+    margin-bottom: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border: 2px dashed;
+}

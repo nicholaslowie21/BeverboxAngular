@@ -1,11 +1,8 @@
-
 <app-header></app-header>
 		
 <app-main-menu></app-main-menu>		
 
 <section id="content" class="content">
-
-<br/><br/>
 
     <p-panel header="Beverage of the Week">
         <div *ngIf="resultSuccess == true" style="color:blue;">
@@ -15,8 +12,8 @@
         <div *ngIf="resultError == true" style="color:red;">
             {{message}}
         </div>
-        <p-card header="Beverage of the Week" [style]="{width: '1150px'}">
-            <p-carousel [value]="beverages" styleClass="custom-carousel" orientation="vertical" verticalViewPortHeight="350px" [numVisible]="1" [numScroll]="1" [circular]="true" [autoplayInterval]="5000" [responsiveOptions]="responsiveOptions">
+        <p-card header="Beverage of the Week" [style]="{width: '100%'}">
+            <p-carousel [value]="beverages" [style]="{'max-width':'100%'}" orientation="vertical" verticalViewPortHeight="350px" [numVisible]="1" [numScroll]="1" [circular]="true" [autoplayInterval]="5000" [responsiveOptions]="responsiveOptions">
                
                 <ng-template let-beverage pTemplate="beverage">
                     
@@ -113,5 +110,5 @@
 </section>
 
 
-
+<app-sidebar></app-sidebar>
 <app-footer></app-footer>
