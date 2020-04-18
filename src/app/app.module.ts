@@ -18,6 +18,7 @@ import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {InputTextModule} from 'primeng/inputtext';
 import {InputTextareaModule} from 'primeng/inputtextarea';
+import {RatingModule} from 'primeng/rating';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -74,7 +75,8 @@ import { ViewMyReviewsComponent } from './view-my-reviews/view-my-reviews.compon
 	MessagesModule,
 	MessageModule,
 	InputTextModule,
-	InputTextareaModule
+  InputTextareaModule,
+  RatingModule
 
 	],
   providers: [DatePipe],

@@ -40,7 +40,18 @@
 		
 		
             <p-dialog *ngIf="display" header="View Reviews" modal="true" [(visible)]="display"  [style]="{width: '50vw'}">
-                <p-table [value]="boxToView.reviews">
+                <p-messages [(value)]="msgs"></p-messages>
+
+                <div *ngFor="let review of boxToView.reviews">
+                    {{review.customer.customerName}}
+                    <div *ngFor="let i of createList(review.reviewRating)" style="display: inline-block; color:gold">
+                        <i class="pi pi-star"></i>
+                    </div> <br />
+                    {{review.reviewContent}} 
+                    <br /><br />
+                </div>
+
+                <!--<p-table [value]="boxToView.reviews">
                     <ng-template pTemplate="header">
                         <tr>
                             <th>Reviewer Name</th>
@@ -53,9 +64,12 @@
                             <td>{{review.reviewContent}}</td>				
                             
                     </ng-template>
-                </p-table>
+                </p-table>-->
 				<br />
-				
+                
+                <div>
+                    Rate this box: <p-rating [(ngModel)]="newReviewRating" [cancel]="false"></p-rating>
+                </div>
 				<textarea [rows]="1" [cols]="30" style="width: 80%;" autoResize="autoResize" pInputTextarea [(ngModel)]="newReview.reviewContent" placeholder="Leave a review"></textarea>
 				&nbsp;
 				<button pButton type="button" style="float: right;" label="Submit" (click)="createReview()"></button>

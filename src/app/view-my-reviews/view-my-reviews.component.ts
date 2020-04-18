@@ -38,12 +38,17 @@ export class ViewMyReviewsComponent implements OnInit {
 		this.reviewService.getReviewsByEmail().subscribe(
 			response => {
 				this.reviews = response.reviews;
-				console.log("Customer Name: " + this.reviews[0].customerName);
 			},
 			error => {
 				console.log('********** ViewMyReviewsComponent.ts: ' + error);
 			}
 		);
+	}
+
+
+	createList(rating: number) {
+		let arr = new Array<number>(rating);
+		return arr;
 	}
 	
 	

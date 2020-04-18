@@ -12,6 +12,11 @@
 			<div class="boxDetails">Box ID #{{review.boxId}} {{review.boxName}}</div>
 
 			<div class="reviewStyle">{{review.reviewContent}}</div>
+			<div style="margin-left:5px;">
+			<div *ngFor="let i of createList(review.reviewRating)" class="rating">
+				<i class="pi pi-star"></i>
+			</div>
+			</div>
 			<p-footer>
 				<button pButton type="button" icon="pi pi-trash" (click)="deleteReview(review.reviewId)" label="Delete Review" class="ui-button-danger"></button>
 			</p-footer>

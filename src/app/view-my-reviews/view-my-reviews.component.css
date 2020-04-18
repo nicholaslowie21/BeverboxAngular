@@ -8,3 +8,9 @@
 	margin-left: 10px;
 	font-size: 15px;
 }
+
+.rating {
+	display: inline-block;
+	color: gold;
+	font-size: 20px;
+}
