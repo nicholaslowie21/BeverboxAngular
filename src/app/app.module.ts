@@ -18,6 +18,7 @@ import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {InputTextModule} from 'primeng/inputtext';
 import {InputTextareaModule} from 'primeng/inputtextarea';
+import {RatingModule} from 'primeng/rating';
 import {InputSwitchModule} from 'primeng/inputswitch';
 
 
@@ -79,10 +80,11 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     CalendarModule,
     DialogModule,
     CardModule,
-    MessagesModule,
-    MessageModule,
-    InputTextModule,
+	  MessagesModule,
+	  MessageModule,
+	  InputTextModule,
     InputTextareaModule,
+    RatingModule,
     InputSwitchModule
 
 	],

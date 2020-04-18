@@ -44,6 +44,14 @@ export class ViewAllArticlesComponent implements OnInit {
 		this.displayDialog = true;
 		this.viewArticleDetail(articleId);
 	}
+
+	parseDate(d: Date) 
+	{	
+		let temp = d.toString().replace('[UTC]', '');
+		let idx = temp.indexOf("T");
+		temp = temp.substring(0,idx);
+		return temp;
+	}
 	
 	viewArticleDetail(articleId: number)
 	{

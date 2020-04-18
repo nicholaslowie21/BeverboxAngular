@@ -7,6 +7,8 @@ import { ReviewService } from '../../review.service';
 import { Box } from '../../box';
 import { Review } from '../../review';
 
+import { Message } from 'primeng/api';
+
 
 @Component({
   selector: 'app-view-all-boxes',
@@ -55,6 +57,8 @@ export class ViewAllBoxesComponent implements OnInit {
   boxToView: Box;
   display: boolean = false;
   newReview: Review;
+  newReviewRating: number = 0;
+  msgs: Message[] = [];
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
@@ -62,7 +66,8 @@ export class ViewAllBoxesComponent implements OnInit {
               private boxService: BoxService,
 			  private reviewService: ReviewService) 
   {
-	this.newReview = new Review();
+  this.newReview = new Review();
+  this.newReview.reviewContent = '';
   
   }
 
@@ -77,8 +82,6 @@ export class ViewAllBoxesComponent implements OnInit {
         }
     )
 
-
-
   }
 
   showDialog(boxToView: Box) {
@@ -86,11 +89,26 @@ export class ViewAllBoxesComponent implements OnInit {
     this.boxToView = boxToView;
     console.log(boxToView);
   }
+
+
+  createList(rating: number) {
+		let arr = new Array<number>(rating);
+		return arr;
+	}
   
   
 	createReview()
 	{
-		this.display = false;
+    console.log('Content: '+this.newReview.reviewContent);
+    if(this.newReviewRating == 0) {
+      this.msgs.push({severity:'error', summary:'Error Message: ', detail:'Rating is required!'});
+      return;
+    }
+    if(this.newReview.reviewContent == '') {
+      this.msgs.push({severity:'error', summary:'Error Message: ', detail:'Review is required!'});
+      return;
+    }
+    this.newReview.reviewRating = this.newReviewRating;
 		this.reviewService.createNewReview(this.newReview, this.boxToView.boxId, this.sessionService.getCurrentCustomer().customerId).subscribe(
 			response => {
 				this.newReview.reviewId = response.reviewId;
