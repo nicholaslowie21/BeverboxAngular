@@ -11,7 +11,7 @@ import { Customer } from '../customer';
 })
 export class HeaderComponent implements OnInit {
 
-  email: string;
+  	email: string;
 	password: string;
 	loginError: boolean;
 	errorMessage: string;

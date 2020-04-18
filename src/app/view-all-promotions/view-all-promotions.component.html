@@ -11,10 +11,8 @@
             [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
             [filterDelay]="0" [globalFilterFields]="['name','type','code']">
             <ng-template pTemplate="caption">
-                All Promotions
-                <div class="ui-table-globalfilter-container">
+                <h2>All Promotions</h2>
                     <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Global Search" />
-                </div>
             </ng-template>
             <ng-template pTemplate="header">
                 <tr>

@@ -73,7 +73,7 @@ export class ViewAllBoxesComponent implements OnInit {
 
   ngOnInit() {
 
-    this.boxService.retreiveAllBoxes().subscribe(
+    this.boxService.retrieveAllBoxes().subscribe(
         response => {
             this.boxes = response.boxes;
         },

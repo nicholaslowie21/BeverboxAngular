@@ -1,21 +1,25 @@
-
 <app-header></app-header>
 		
 <app-main-menu></app-main-menu>		
 
 <section id="content" class="content">
 
-<br/><br/>
-
     <p-panel header="Beverage of the Week">
-        <p-card header="Beverage of the Week" [style]="{width: '1150px'}">
-            <p-carousel [value]="beverages" styleClass="custom-carousel" orientation="vertical" verticalViewPortHeight="350px" [numVisible]="1" [numScroll]="1" [circular]="true" [autoplayInterval]="5000" [responsiveOptions]="responsiveOptions">
+        <div *ngIf="resultSuccess == true" style="color:blue;">
+            {{message}}
+        </div>
+        
+        <div *ngIf="resultError == true" style="color:red;">
+            {{message}}
+        </div>
+        <p-card header="Beverage of the Week" [style]="{width: '100%'}">
+            <p-carousel [value]="beverages" [style]="{'max-width':'100%'}" orientation="vertical" verticalViewPortHeight="350px" [numVisible]="1" [numScroll]="1" [circular]="true" [autoplayInterval]="5000" [responsiveOptions]="responsiveOptions">
                
                 <ng-template let-beverage pTemplate="beverage">
                     
                     <div class="beverage-details">   
                         <div class="p-grid p-nogutter">
-                            <div class="p-col-12 car-data">
+                            <div class="p-col-12 option-data">
                                 <div class="p-col-12">
                                     <img src="assets/images/{{beverage.beverageId}}.png" />
                                 </div>
@@ -23,14 +27,80 @@
                                 Description: <div class="beverage-subtitle">{{beverage.beverageDesc}}</div><br>
                                 Country: 
                                 <div class="beverage-subtitle">{{beverage.country}}</div>
-
+                                <p-button label="Buy now!" (onClick)="showDialog(beverage)"></p-button>
                     
-                </div>
-                </div>       
-                </div>    
+                            </div>
+                        </div>       
+                    </div>    
                 </ng-template>
             </p-carousel>
 
+
+
+
+            <p-dialog *ngIf="display" header="Buy Beverage of the Week" modal="true" [(visible)]="display"  [style]="{width: '50vw'}">
+                <form #buyBevForm="ngForm" (ngSubmit)="create(buyBevForm)">
+                    <table width="100%">
+                        <tr>
+                        <td width="20%" style="font-weight: bold;background-color: #f4f4f4;">Beverage Name</td>
+                            <td>{{beverageToBuy.beverageName}}</td>
+                            
+                        </tr>
+                        <tr>
+                            <td width="20%" style="font-weight: bold;background-color: #f4f4f4;">Max Purchase</td>
+                            <td>{{beverageToBuy.maxPurchase}}</td>
+                        </tr>
+                        <tr>
+                            <td width="20%" style="font-weight: bold;background-color: #f4f4f4;">Quantity To Purchase</td>
+                            <td> <input id="qty" name="qty" #qty="ngModel" type="number" max="{{beverageToBuy.maxPurchase}}" [(ngModel)]="newBevTransaction.qty" required="true" /></td>
+                             
+                                <div *ngIf="qty.invalid && (qty.dirty || qty.touched || submitted)" class="errorText">
+                                        <div *ngIf="qty.errors.required">
+                                            Qty is required.
+                                        </div>
+                                </div>
+                                
+                            
+                        </tr>
+
+                        <tr>
+                            <td width="20%" style="font-weight: bold;background-color: #f4f4f4;">Promo Code</td>
+                            <td> <input id="promoCode" name="promoCode" #promoCod="ngModel" type="text" [(ngModel)]="promoCode"/></td>
+                             
+                                <div *ngIf="promoCod.invalid && (promoCod.dirty || promoCod.touched || submitted)" class="errorText">
+                                        <div *ngIf="promoCod.errors">
+                                            something is wrong here
+                                        </div>
+                                </div>
+                        </tr>
+                        <tr>
+                            <td width="20%" style="font-weight: bold;background-color: #f4f4f4;">My Cashback</td>
+                            <td>
+                                {{getCashback()}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="20%" style="font-weight: bold;background-color: #f4f4f4;">Use your existing Logs Cashback to pay less?</td>
+                            <td> <p-inputSwitch id="cashback" name="cashback" #cashbac="ngModel" [(ngModel)]="cashback"></p-inputSwitch> </td>
+                             
+                                <div *ngIf="cashbac.invalid && (cashbac.dirty || cashbac.touched || submitted)" class="errorText">
+                                        <div *ngIf="cashbac.errors">
+                                           something is wrong here
+                                        </div>
+                                </div>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <button (click)="clear()">Clear</button>
+                                &nbsp;
+                                <input type="submit" value="Buy" />
+                            </td>
+
+                        </tr>
+
+                    </table>
+                </form>  
+            </p-dialog>
         </p-card>
 
     </p-panel>
@@ -40,5 +110,5 @@
 </section>
 
 
-
+<app-sidebar></app-sidebar>
 <app-footer></app-footer>

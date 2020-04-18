@@ -3,29 +3,37 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { Box } from './box';
-
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
-
-
+	headers: new HttpHeaders({'Content-Type': 'application/json'})
+} 
 
 @Injectable({
   providedIn: 'root'
 })
-export class BoxService {
+export class OptionService {
 
-  baseUrl: string ="/api/Box";
+  baseUrl: string ="/api/Option";
+
   constructor(private httpClient: HttpClient) { }
 
-  retrieveAllBoxes(): Observable<any> {
-    return this.httpClient.get<any>(this.baseUrl + "/retrieveAllBoxes").pipe
+  retrieveAllActiveOptions(): Observable<any> {
+    return this.httpClient.get<any>(this.baseUrl).pipe
     (
       catchError(this.handleError)
     );
   }
 
+  retrieveOptionByOptionId(optionId: number): Observable<any> {
+	  return this.httpClient.get<any>(this.baseUrl + "/retrieveOption/" + optionId).pipe (
+		catchError(this.handleError)
+	  );
+  }
+
+  retrieveOptionByType(type: string): Observable<any> {
+	return this.httpClient.get<any>(this.baseUrl + "/retrieveOptionByType/" + type).pipe (
+	  catchError(this.handleError)
+	);
+}
   private handleError(error: HttpErrorResponse)
 	{
 		let errorMessage: string = "";

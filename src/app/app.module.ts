@@ -19,6 +19,7 @@ import {MessageModule} from 'primeng/message';
 import {InputTextModule} from 'primeng/inputtext';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {RatingModule} from 'primeng/rating';
+import {InputSwitchModule} from 'primeng/inputswitch';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -36,7 +37,10 @@ import { ViewMySubscriptionHistoryComponent } from './transactionHistory/view-my
 import { ViewBeverageComponent } from './products/view-beverage/view-beverage.component';
 import { ViewAllArticlesComponent } from './view-all-articles/view-all-articles.component';
 import { SafePipe } from './safe.pipe';
+import { ViewAllOptionsComponent } from './view-all-options/view-all-options.component';
+import { CreateSubscriptionComponent } from './create-subscription/create-subscription.component';
 import { ViewMyReviewsComponent } from './view-my-reviews/view-my-reviews.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 @NgModule({
@@ -44,6 +48,7 @@ import { ViewMyReviewsComponent } from './view-my-reviews/view-my-reviews.compon
     AppComponent,
     IndexComponent,
     HeaderComponent,
+    SidebarComponent,
     FooterComponent,
     MainMenuComponent,
     BreadcrumbComponent,
@@ -55,7 +60,10 @@ import { ViewMyReviewsComponent } from './view-my-reviews/view-my-reviews.compon
     ViewBeverageComponent,
     ViewAllArticlesComponent,
     SafePipe,
-    ViewMyReviewsComponent
+    ViewAllOptionsComponent,
+    CreateSubscriptionComponent,
+    ViewMyReviewsComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -72,11 +80,12 @@ import { ViewMyReviewsComponent } from './view-my-reviews/view-my-reviews.compon
     CalendarModule,
     DialogModule,
     CardModule,
-	MessagesModule,
-	MessageModule,
-	InputTextModule,
-  InputTextareaModule,
-  RatingModule
+	  MessagesModule,
+	  MessageModule,
+	  InputTextModule,
+    InputTextareaModule,
+    RatingModule,
+    InputSwitchModule
 
 	],
   providers: [DatePipe],

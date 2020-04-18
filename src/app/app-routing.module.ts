@@ -9,6 +9,8 @@ import { ViewAllPromotionsComponent } from './view-all-promotions/view-all-promo
 import { ViewMySubscriptionHistoryComponent } from './transactionHistory/view-my-subscription-history/view-my-subscription-history.component';
 import { ViewBeverageComponent } from './products/view-beverage/view-beverage.component';
 import { ViewAllArticlesComponent } from './view-all-articles/view-all-articles.component';
+import { ViewAllOptionsComponent } from './view-all-options/view-all-options.component';
+import { CreateSubscriptionComponent } from './create-subscription/create-subscription.component';
 import { ViewMyReviewsComponent } from './view-my-reviews/view-my-reviews.component';
 
 const routes: Routes = [
@@ -22,6 +24,8 @@ const routes: Routes = [
   { path: 'viewAllBoxes', component: ViewAllBoxesComponent},
   { path: 'viewBeverage', component: ViewBeverageComponent},
   { path: 'viewAllArticles', component: ViewAllArticlesComponent},
+  { path: 'viewAllOptions', component: ViewAllOptionsComponent},
+  { path: 'createSubscription/:optId1/:optId2', component: CreateSubscriptionComponent},
   { path: 'viewMyReviews', component: ViewMyReviewsComponent}
   
 ];

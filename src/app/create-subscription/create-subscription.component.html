@@ -1,0 +1,65 @@
+<app-header></app-header>
+		
+<app-main-menu></app-main-menu>		
+
+<section id="content" class="content">
+
+	<app-breadcrumb [pageName]="'createNewSubscription'"></app-breadcrumb>
+
+	<br>
+	<p-panel header="Create Your New Subscription">
+		<div *ngIf="resultSuccess == true" style="color:blue;">
+			{{message}}
+		</div>
+		
+		<div *ngIf="resultError == true" style="color:red;">
+			{{message}}
+		</div>
+
+		<button (onClick) = "print()">PRINT</button>
+    <form #createSubscriptionForm="ngForm" (ngSubmit)="create(createSubscriptionForm)" >
+		<h4>CHOOSE YOUR SUBSCRIPTION SHARING OPTION</h4>
+        <div class="block-div">
+            <p-card header={{option1.name}} subheader={{option1.description}} class="cardStyle" styleClass="ui-card-shadow">
+                <p-header>
+                    <img src="../../assets/images/{{option1.type}}.jpg" style="width:324 px">
+                </p-header>
+                <div>
+                    Duration: {{option1.duration}}<br>
+					Price: ${{option1.price}}<br>
+					Sharing: {{option1.sharing}}
+                </div>
+			</p-card>
+			<div *ngIf="option2 == null">
+				<p-card header={{option2.name}} subheader={{option2.description}} class="cardStyle" styleClass="ui-card-shadow">
+					<p-header>
+						<img src="../../assets/images/{{option2.type}}.jpg" style="width:324 px">
+					</p-header>
+					<div>
+						Duration: {{option2.duration}}<br>
+						Price: ${{option2.price}}<br>
+						Sharing: {{option2.sharing}}
+					</div>
+				</p-card>
+			</div>
+		</div>
+			
+			<h4>Enter Promotion Code to accumulate your Logs Cashback!</h4>
+			<label for="promoCode">Promo Code: </label>
+			<input name="promoCode" type="text" [(ngModel)]="promoCode" size="32"/> <br><br>
+			
+			<h4>You have an existing Logs Cashback of ${{currentLogs}}. Use it?</h4>
+			<p-inputSwitch name="cashback" [(ngModel)]="cashback"></p-inputSwitch><br><br>
+			
+			<button (click)="clear()">Clear</button>
+			&nbsp;
+			<input type="submit" value="Create New Subscription" />
+		
+		
+	</form>
+
+	</p-panel>
+	
+</section>
+
+<app-footer></app-footer>
