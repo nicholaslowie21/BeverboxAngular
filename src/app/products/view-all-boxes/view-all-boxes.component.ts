@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 import { SessionService } from '../../session.service';
 import { BoxService } from '../../box.service';
@@ -57,7 +58,6 @@ export class ViewAllBoxesComponent implements OnInit {
   boxToView: Box;
   display: boolean = false;
   newReview: Review;
-  newReviewRating: number = 0;
   msgs: Message[] = [];
 
   constructor(private router: Router,
@@ -67,6 +67,7 @@ export class ViewAllBoxesComponent implements OnInit {
 			  private reviewService: ReviewService) 
   {
   this.newReview = new Review();
+  this.newReview.reviewRating = 0;
   this.newReview.reviewContent = '';
   
   }
@@ -91,6 +92,11 @@ export class ViewAllBoxesComponent implements OnInit {
   }
 
 
+  clear(reviewForm: NgForm) {
+    this.msgs = [];
+    reviewForm.reset();
+  }
+
   parseDate(d: Date) 
 	{	
     let temp = d.toString().replace('[UTC]', '');
@@ -113,19 +119,19 @@ export class ViewAllBoxesComponent implements OnInit {
 	}
   
   
-	createReview()
+	createReview(reviewForm: NgForm)
 	{
-    if(this.newReviewRating == 0) {
+    if(this.newReview.reviewRating == 0 || this.newReview.reviewRating == null) {
       this.msgs = [];
       this.msgs.push({severity:'error', summary:'Error Message: ', detail:'Rating is required!'});
       return;
     }
-    if(this.newReview.reviewContent == '') {
+    if(this.newReview.reviewContent == '' || this.newReview.reviewContent == null) {
       this.msgs = [];
       this.msgs.push({severity:'error', summary:'Error Message: ', detail:'Review is required!'});
       return;
     }
-    this.newReview.reviewRating = this.newReviewRating;
+    console.log(this.newReview.reviewContent);
     this.newReview.reviewDate = new Date();
 		this.reviewService.createNewReview(this.newReview, this.boxToView.boxId, this.sessionService.getCurrentCustomer().customerId).subscribe(
 			response => {
