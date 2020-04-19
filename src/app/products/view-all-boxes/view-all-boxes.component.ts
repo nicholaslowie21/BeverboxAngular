@@ -57,7 +57,7 @@ export class ViewAllBoxesComponent implements OnInit {
   boxToView: Box;
   display: boolean = false;
   newReview: Review;
-  newReviewRating: number = 0;
+  newReviewRating: number;
   msgs: Message[] = [];
 
   constructor(private router: Router,
