@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 
 import { Customer } from './customer';
+import { CustomerService } from './customer.service';
+import { catchError } from 'rxjs/operators';
+import { HttpErrorResponse } from '@angular/common/http';
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SessionService {
 	
-  	constructor() { 
+  	constructor(private customerService: CustomerService) { 
 	
   	}
   
@@ -60,4 +64,23 @@ export class SessionService {
 
 		return true;
 	}
+
+	updateCustomer(): void {
+		
+		this.customerService.updateCustomer(this.getEmail(), this.getPassword()).subscribe(
+				response => {										
+					let customer: Customer = response.customer;				
+					
+					if(customer != null)
+					{
+						this.setCurrentCustomer(customer)
+						
+					}
+				},
+				error => {
+					console.log("Something went wrong while updating customer! The error is " + error);
+				}
+			);
+	}
+
 }
