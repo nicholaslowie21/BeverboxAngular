@@ -55,7 +55,6 @@ export class ViewAllOptionsComponent implements OnInit {
     }
     
     checkSharing(option: Option): boolean {
-      // console.log(option.name + " with priceSharing as " + option.priceSharing)
       if (option.priceSharing == 0) {
         return false;
       } else {
