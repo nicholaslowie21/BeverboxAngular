@@ -39,7 +39,7 @@
         </p-carousel>
 		
 		
-            <p-dialog *ngIf="display" header="View Reviews" modal="true" (onHide)="reviewForm.reset()" [(visible)]="display"  [style]="{width: '50vw'}">
+            <p-dialog *ngIf="display" header="View Reviews" modal="true" (visibleChange)="clear(reviewForm)" [(visible)]="display"  [style]="{width: '50vw'}">
                 <p-messages [(value)]="msgs"></p-messages>
 
                 <div *ngFor="let review of boxToView.reviews">
@@ -81,13 +81,14 @@
                 </p-table>-->
                 
                 <br />
-                <form #reviewForm="ngForm">
+                <form #reviewForm="ngForm" (ngSubmit)="createReview(reviewForm)" >
                     <div>
-                        Rate this box: <p-rating [(ngModel)]="newReviewRating" [cancel]="false"></p-rating>
+                        Rate this box: <p-rating id="reviewRating" name="reviewRating" #reviewRating="ngModel" [(ngModel)]="newReview.reviewRating" [cancel]="false"></p-rating>
                     </div>
-                    <textarea [rows]="1" [cols]="30" style="width: 80%;" autoResize="autoResize" pInputTextarea [(ngModel)]="newReview.reviewContent" placeholder="Leave a review"></textarea>
+                    <textarea [rows]="1" [cols]="30" style="width: 80%;" autoResize="autoResize" pInputTextarea 
+                        #reviewContent="ngModel" [(ngModel)]="newReview.reviewContent" id="reviewContent" name="reviewContent" placeholder="Leave a review"></textarea>
                     &nbsp;
-                    <button pButton type="button" style="float: right;" label="Submit" (click)="createReview()"></button>
+                    <button pButton type="submit" style="float: right;" label="Submit"></button>
                 </form>
             </p-dialog>
 		
