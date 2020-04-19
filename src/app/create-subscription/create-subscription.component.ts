@@ -103,6 +103,7 @@ export class CreateSubscriptionComponent implements OnInit {
 					this.resultSuccess = true;
 					this.resultError = false;
 					this.message = "New subscription " + newSubscriptionId + " created successfully";
+					this.sessionService.updateCustomer();
 					this.router.navigate(["/viewSubsHistory/"]);
         },
 				error => {

@@ -117,6 +117,7 @@ export class ViewBeverageComponent implements OnInit {
             this.resultSuccess = true;
             this.resultError = false;
             this.message = "New Beverage Transaction " + response.bevTransactionId + " created successfully";
+            this.sessionService.updateCustomer();
           },
           
           error => {

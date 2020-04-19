@@ -27,6 +27,13 @@ export class CustomerService {
 			catchError(this.handleError)
 		);
   }
+
+  updateCustomer(email: string, password: string): Observable<any> {
+	return this.httpClient.get<any>(this.baseUrl + "/updateCustomer?email=" + email + "&password=" + password).pipe
+	(
+		catchError(this.handleError)
+	);
+}
   
   private handleError(error: HttpErrorResponse)
 	{
