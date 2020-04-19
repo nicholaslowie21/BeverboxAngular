@@ -39,16 +39,30 @@
         </p-carousel>
 		
 		
-            <p-dialog *ngIf="display" header="View Reviews" modal="true" [(visible)]="display"  [style]="{width: '50vw'}">
+            <p-dialog *ngIf="display" header="View Reviews" modal="true" (onHide)="reviewForm.reset()" [(visible)]="display"  [style]="{width: '50vw'}">
                 <p-messages [(value)]="msgs"></p-messages>
 
                 <div *ngFor="let review of boxToView.reviews">
-                    {{review.customer.customerName}}
+                    <p-card>
+                        <div style="font-weight:bold;">
+                            <p-header>
+                                {{review.customer.customerName}}
+                                <div *ngFor="let i of createList(review.reviewRating)" style="display: inline-block; color:gold">
+                                    <i class="pi pi-star"></i>
+                                </div>
+                            </p-header>
+                        </div>
+                        <div style="float: right; font-size: 12px;">{{parseDate(review.reviewDate) | date:'d MMM y, HH:mm'}}</div>
+                        {{review.reviewContent}} 
+                        <br />
+                    </p-card>
+                    <!--{{review.customer.customerName}}
+                    <div style="float: right; font-size: 12px;">{{parseDate(review.reviewDate) | date:'d MMM y, HH:mm'}}</div>
                     <div *ngFor="let i of createList(review.reviewRating)" style="display: inline-block; color:gold">
                         <i class="pi pi-star"></i>
                     </div> <br />
                     {{review.reviewContent}} 
-                    <br /><br />
+                    <br /><br />-->
                 </div>
 
                 <!--<p-table [value]="boxToView.reviews">
@@ -65,15 +79,17 @@
                             
                     </ng-template>
                 </p-table>-->
-				<br />
                 
-                <div>
-                    Rate this box: <p-rating [(ngModel)]="newReviewRating" [cancel]="false"></p-rating>
-                </div>
-				<textarea [rows]="1" [cols]="30" style="width: 80%;" autoResize="autoResize" pInputTextarea [(ngModel)]="newReview.reviewContent" placeholder="Leave a review"></textarea>
-				&nbsp;
-				<button pButton type="button" style="float: right;" label="Submit" (click)="createReview()"></button>
-			</p-dialog>
+                <br />
+                <form #reviewForm="ngForm">
+                    <div>
+                        Rate this box: <p-rating [(ngModel)]="newReviewRating" [cancel]="false"></p-rating>
+                    </div>
+                    <textarea [rows]="1" [cols]="30" style="width: 80%;" autoResize="autoResize" pInputTextarea [(ngModel)]="newReview.reviewContent" placeholder="Leave a review"></textarea>
+                    &nbsp;
+                    <button pButton type="button" style="float: right;" label="Submit" (click)="createReview()"></button>
+                </form>
+            </p-dialog>
 		
     </p-panel>
 

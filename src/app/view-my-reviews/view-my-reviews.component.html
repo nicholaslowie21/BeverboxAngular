@@ -10,7 +10,7 @@
 		<div *ngFor="let review of reviews">
 		<p-panel header="Review #{{review.reviewId}}" [toggleable]="true" [style]="{'margin-bottom':'20px'}">
 			<div class="boxDetails">Box ID #{{review.boxId}} {{review.boxName}}</div>
-
+			<div style="float: right;">{{parseDate(review.reviewDate) | date:'d MMM y, HH:mm'}}</div>
 			<div class="reviewStyle">{{review.reviewContent}}</div>
 			<div style="margin-left:5px;">
 			<div *ngFor="let i of createList(review.reviewRating)" class="rating">

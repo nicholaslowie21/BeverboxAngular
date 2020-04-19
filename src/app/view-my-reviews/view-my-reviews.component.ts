@@ -46,6 +46,22 @@ export class ViewMyReviewsComponent implements OnInit {
 	}
 
 
+	parseDate(d: Date) 
+	{	
+		let temp = d.toString().replace('[UTC]', '');
+		let idx = temp.indexOf("Z");
+		temp = temp.substring(0,idx);
+		let hIdx = temp.indexOf("T");
+		let col = temp.indexOf(":");
+		let hour = ''+(parseInt(temp.substring(hIdx+1,col))+8);
+		if (hour.length == 1) {
+			hour = '0'+hour;
+		}
+		let newTemp = temp.substring(0,hIdx+1)+(hour)+temp.substring(col,temp.length);
+		return newTemp;
+	}
+
+
 	createList(rating: number) {
 		let arr = new Array<number>(rating);
 		return arr;
