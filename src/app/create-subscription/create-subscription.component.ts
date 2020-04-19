@@ -67,7 +67,7 @@ export class CreateSubscriptionComponent implements OnInit {
 			this.optionService.retrieveOptionByOptionId(this.optId2).subscribe(
 				response => {
 					this.option2 = response.option;
-					console.log('Option 2' + this.option2);
+					console.log('Option 2' + this.option2.name);
 				},
 				error => {
 					console.log('********** CreateSubscriptionComponent.ts: ' + error);
@@ -77,11 +77,14 @@ export class CreateSubscriptionComponent implements OnInit {
 			this.option2 = null;
 		}
 	  }
-	  
-	  print() {
-		console.log(this.option1.name + " is Option1 Name");
-		console.log(this.option2.name + " is Option2 Name");
-	  }
+
+	checkOption2(): boolean {
+		if (this.option2 == null){
+			return false
+		} else {
+			return true;
+		}
+	}
 
 	clear()
 	{
@@ -92,9 +95,6 @@ export class CreateSubscriptionComponent implements OnInit {
 	{	
 		this.submitted = true;
 
-		// Will change this after setting up the other stuff
-		this.optId = this.optId1;
-
 		if (createSubscriptionForm.valid) 
 		{
 			this.subscriptionService.createSubscription(this.promoCode, this.cashback, this.optId).subscribe(
@@ -103,7 +103,7 @@ export class CreateSubscriptionComponent implements OnInit {
 					this.resultSuccess = true;
 					this.resultError = false;
 					this.message = "New subscription " + newSubscriptionId + " created successfully";
-       				//   Navigate to a diff page: use activated Route?
+					this.router.navigate(["/viewSubsHistory/"]);
         },
 				error => {
 					this.resultError = true;
