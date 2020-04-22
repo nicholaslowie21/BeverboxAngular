@@ -4,21 +4,25 @@
 
 	<app-breadcrumb></app-breadcrumb>
 			
+	<div>
+		<h3>About Beverbox</h3>
+		Beverbox is a beverage subscription box introducing local beverages from different regions around the world every month. Here in Beverbox, we believe cultures of the world are most accessible through cuisines, and beverage is the best packaged medium where authenticity is preserved. Lovingly and thoughtfully curated with our customers in mind, Beverbox delivers a box that strives to capture the key essence of a culture with our selection of uniquely traditional and local favorite drinks. We also include tidbits of knowledge in the form of description cards about the origin of the beverages, fun facts, along with ingredients, nutrition and the best way to enjoy the drink. Not having the chance to travel is no longer a barrier to experience and explore the world! 
+		<br><br>
+		<p style="font-weight: bold;">"Beverages from around the world, now at your doorstep" has never been more easy!</p>
+		<p-steps [model]="steps"></p-steps>
+
+	</div>
 	<article *ngIf="sessionService.getIsLogin() == false">
-		<h3>Welcome Beaveys! :D</h3>
-		
 		<p>
-			This is the landing page for the application! Please sign up or log in to access more feature :D
+			Please complete Step 1 to kickstart your Beverbox journey :D
 		</p>
 	</article>	
 
 	<article *ngIf="sessionService.getIsLogin() == true">
 		<h3>Welcome Beaveys! :D</h3>
-		
 		<p>
-			Log in is successful!
+			Log in is successful! You are 1 step closer to your Beverbox journey. Do browse our selection of products!
 		</p>
-
 	</article>
 	
 </section>

@@ -38,9 +38,11 @@ a:hover {
 
 .header {
 	display: block;
-	padding: 3px 3px 3px 3px;
+	padding: 5px 5px 0px 5px;
 	clear: both;
-	background-color: whitesmoke;
+	/* background-color: whitesmoke; */
+	color: whitesmoke;
+	background-image: url("assets/images/banner2.jpg");
 }
 
 .loginbox {
@@ -55,7 +57,7 @@ a:hover {
 	margin: 0.5% 0% 0.5% 0%;
 	padding: 3px 3px 3px 3px;
 	float: left;
-	background-color: whitesmoke;
+	/* background-color: whitesmoke; */
 }
 
 .content {

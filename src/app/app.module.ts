@@ -21,6 +21,8 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
 import {RatingModule} from 'primeng/rating';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {RadioButtonModule} from 'primeng/radiobutton';
+import {StepsModule} from 'primeng/steps';
+// import {MenuItem} from 'primeng/api';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -87,6 +89,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     RatingModule,
     InputSwitchModule,
     RadioButtonModule,
+    StepsModule,
+    // MenuItem,
 	],
   providers: [DatePipe],
   bootstrap: [AppComponent]
