@@ -13,6 +13,7 @@ import { ViewAllOptionsComponent } from './view-all-options/view-all-options.com
 import { CreateSubscriptionComponent } from './create-subscription/create-subscription.component';
 import { ViewMyReviewsComponent } from './view-my-reviews/view-my-reviews.component';
 import { ViewMyProfileComponent } from './view-my-profile/view-my-profile.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: '/index', pathMatch: 'full' },
@@ -28,7 +29,8 @@ const routes: Routes = [
   { path: 'viewAllOptions', component: ViewAllOptionsComponent},
   { path: 'createSubscription/:optId1/:optId2', component: CreateSubscriptionComponent},
   { path: 'viewMyReviews', component: ViewMyReviewsComponent},
-  { path: 'viewMyProfile', component: ViewMyProfileComponent}
+  { path: 'viewMyProfile', component: ViewMyProfileComponent},
+  { path: 'createAccount', component: CreateAccountComponent}
   
 ];
 
