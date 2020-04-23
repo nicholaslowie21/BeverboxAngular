@@ -1,0 +1,148 @@
+<app-header></app-header>
+  
+<app-main-menu></app-main-menu>  
+
+<section id="content" class="content">
+
+    <app-breadcrumb [pageName]="'ViewMyProfile'"></app-breadcrumb>
+
+    <br/><br/>
+
+    <div *ngIf="sessionService.getIsLogin() == true">
+    
+        <p-panel header="My Profile">
+
+            <table width="100%">
+                <tr>
+                    <td class="rowheader" width="30%">Customer ID:</td>
+                    <td>{{customer.customerId}}</td>
+                </tr>
+                <tr>
+                    <td class="rowheader">Name:</td>
+                    <td>{{customer.customerName}}</td>
+                </tr>
+                <tr>
+                    <td class="rowheader">Email:</td>
+                    <td>{{customer.customerEmail}}</td>
+                </tr>
+                <tr>
+                    <td class="rowheader">Password:</td>
+                    <td>{{customer.customerPassword}}</td>
+                </tr>
+                <tr>
+                    <td class="rowheader">Address:</td>
+                    <td>{{customer.address}}</td>
+                </tr>
+                <tr>
+                    <td class="rowheader">Credit Card Number:</td>
+                    <td>{{customer.customerCCNum}}</td>
+                </tr>
+                <tr>
+                    <td class="rowheader">Credit Card CVV:</td>
+                    <td>{{customer.customerCVV}}</td>
+                </tr>
+                <tr>
+                    <td class="rowheader">Accumulated Cashback:</td>
+                    <td>{{customer.accumulatedCashback}}</td>
+                </tr>
+            </table>
+
+            <p-button label="Update My Particulars" (onClick)="showDialog()"></p-button>
+
+            <p-dialog *ngIf="display" header="My Particulars" modal="true" [(visible)]="display"  [style]="{width: '50vw'}">
+                
+                <div *ngIf="resultSuccess == true" style="color:blue;">
+                    {{message}}
+                </div>
+                
+                <div *ngIf="resultError == true" style="color:red;">
+                    {{message}}
+                </div>
+
+                <form #profileForm="ngForm" (ngSubmit)="updateProfile(profileForm)" >
+                    <table width="100%">
+                        <tr>
+                            <td width="20%" class="rowheader">Customer ID</td>
+                            <td>{{customer.customerId}}</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td width="20%" class="rowheader">Name</td>
+                            <td><input id="name" name="name" #name="ngModel" type="text" [(ngModel)]="customer.customerName" required="true" /></td>
+                            <td>
+                                <div *ngIf="name.invalid && (name.dirty || name.touched || submitted)" class="errorText">
+                                    <div *ngIf="name.errors.required">
+                                        Name is required.
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="20%" class="rowheader">Email</td>
+                            <td><input id="email" name="email" #email="ngModel" type="text" [(ngModel)]="customer.customerEmail" required="true" /></td>
+                            <td>
+                                <div *ngIf="email.invalid && (email.dirty || email.touched || submitted)" class="errorText">
+                                    <div *ngIf="email.errors.required">
+                                        Email is required.
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="20%" class="rowheader">Password</td>
+                            <td><input id="password" name="password" #password="ngModel" type="text" [(ngModel)]="customer.customerPassword" required="true" /></td>
+                            <td>
+                                <div *ngIf="password.invalid && (password.dirty || password.touched || submitted)" class="errorText">
+                                    <div *ngIf="password.errors.required">
+                                        Password is required.
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="20%" class="rowheader">Address</td>
+                            <td><input id="address" name="address" #address="ngModel" type="text" [(ngModel)]="customer.address" required="true" /></td>
+                            <td>
+                                <div *ngIf="address.invalid && (address.dirty || address.touched || submitted)" class="errorText">
+                                    <div *ngIf="address.errors.required">
+                                        Address is required.
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="20%" class="rowheader">Credit Card Number</td>
+                            <td><input id="ccnum" name="ccnum" #ccnum="ngModel" type="text" [(ngModel)]="customer.customerCCNum" required="true" /></td>
+                            <td>
+                                <div *ngIf="ccnum.invalid && (ccnum.dirty || ccnum.touched || submitted)" class="errorText">
+                                    <div *ngIf="ccnum.errors.required">
+                                        Credit Card Number is required.
+                                        <!-- should probably put more validation checks such as length of ccnum -->
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="20%" class="rowheader">Credit Card CVV</td>
+                            <td><input id="cvv" name="cvv" #cvv="ngModel" type="text" [(ngModel)]="customer.customerCVV" required="true" /></td>
+                            <td>
+                                <div *ngIf="cvv.invalid && (cvv.dirty || cvv.touched || submitted)" class="errorText">
+                                    <div *ngIf="cvv.errors.required">
+                                        Credit Card CVV is required.
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>   
+                    <button pButton type="submit" style="float: right;" label="Submit"></button>
+                </form>
+
+            </p-dialog>
+
+        </p-panel>
+    </div>
+</section>
+
+<app-sidebar></app-sidebar>
+
+<app-footer></app-footer>

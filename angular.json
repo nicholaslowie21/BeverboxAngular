@@ -24,9 +24,9 @@
               "src/assets"
             ],
             "styles": [
-				"./node_modules/primeicons/primeicons.css",
-				"./node_modules/primeng/resources/themes/rhea/theme.css",
-				"./node_modules/primeng/resources/primeng.min.css",
+              "./node_modules/primeicons/primeicons.css",
+              "./node_modules/primeng/resources/themes/rhea/theme.css",
+              "./node_modules/primeng/resources/primeng.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -71,7 +71,7 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "BeverboxAngular:build:production"              
+              "browserTarget": "BeverboxAngular:build:production"
             }
           }
         },
@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "BeverboxAngular"
+    }
+  },
+  "defaultProject": "BeverboxAngular",
+  "cli": {
+    "analytics": false
+  }
 }

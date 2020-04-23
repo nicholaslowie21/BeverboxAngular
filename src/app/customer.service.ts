@@ -17,23 +17,34 @@ const httpOptions = {
 })
 export class CustomerService {
 
-  baseUrl: string = "/api/Customer";
+  	baseUrl: string = "/api/Customer";
 
-  constructor(private httpClient: HttpClient) { }
+	constructor(private httpClient: HttpClient) { }
 
-  customerLogin(email: string, password: string): Observable<any> {
+  	customerLogin(email: string, password: string): Observable<any> {
 		return this.httpClient.get<any>(this.baseUrl + "/customerLogin?email=" + email + "&password=" + password).pipe
 		(
 			catchError(this.handleError)
 		);
-  }
+  	}
 
-  updateCustomer(email: string, password: string): Observable<any> {
-	return this.httpClient.get<any>(this.baseUrl + "/updateCustomer?email=" + email + "&password=" + password).pipe
-	(
-		catchError(this.handleError)
-	);
-}
+  	updateCustomer(email: string, password: string): Observable<any> {
+		return this.httpClient.get<any>(this.baseUrl + "/updateCustomer?email=" + email + "&password=" + password).pipe
+		(
+			catchError(this.handleError)
+		);
+	}	
+
+	updateProfile(customerToUpdate: Customer): Observable<any>
+	{
+		let updateProfileReq = {
+			"customer": customerToUpdate
+		};
+		return this.httpClient.post<any>(this.baseUrl, updateProfileReq, httpOptions).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
   
   private handleError(error: HttpErrorResponse)
 	{

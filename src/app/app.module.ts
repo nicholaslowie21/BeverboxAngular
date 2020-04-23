@@ -43,6 +43,7 @@ import { ViewAllOptionsComponent } from './view-all-options/view-all-options.com
 import { CreateSubscriptionComponent } from './create-subscription/create-subscription.component';
 import { ViewMyReviewsComponent } from './view-my-reviews/view-my-reviews.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ViewMyProfileComponent } from './view-my-profile/view-my-profile.component';
 
 
 @NgModule({
@@ -66,6 +67,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     CreateSubscriptionComponent,
     ViewMyReviewsComponent,
     SidebarComponent,
+    ViewMyProfileComponent,
   ],
   imports: [
     BrowserModule,
