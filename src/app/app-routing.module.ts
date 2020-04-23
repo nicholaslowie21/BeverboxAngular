@@ -12,6 +12,7 @@ import { ViewAllArticlesComponent } from './view-all-articles/view-all-articles.
 import { ViewAllOptionsComponent } from './view-all-options/view-all-options.component';
 import { CreateSubscriptionComponent } from './create-subscription/create-subscription.component';
 import { ViewMyReviewsComponent } from './view-my-reviews/view-my-reviews.component';
+import { ViewMyProfileComponent } from './view-my-profile/view-my-profile.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: '/index', pathMatch: 'full' },
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'viewAllArticles', component: ViewAllArticlesComponent},
   { path: 'viewAllOptions', component: ViewAllOptionsComponent},
   { path: 'createSubscription/:optId1/:optId2', component: CreateSubscriptionComponent},
-  { path: 'viewMyReviews', component: ViewMyReviewsComponent}
+  { path: 'viewMyReviews', component: ViewMyReviewsComponent},
+  { path: 'viewMyProfile', component: ViewMyProfileComponent}
   
 ];
 
