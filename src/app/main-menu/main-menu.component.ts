@@ -29,6 +29,7 @@ export class MainMenuComponent implements OnInit
             label: 'Beverbox',
             items: [
                 {label: 'Home', icon: 'pi pi-home', url: ['index'] },
+                {label: 'Create Account', icon: 'pi pi-home', url: ['createAccount'] },
                 {label: 'My Profile', icon: 'pi pi-home', url: ['viewMyProfile'] },
 				{label: 'My Reviews', icon: 'pi pi-home', url: ['viewMyReviews'] }
             ]
