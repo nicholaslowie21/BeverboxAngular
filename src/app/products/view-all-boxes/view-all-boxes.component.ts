@@ -59,6 +59,7 @@ export class ViewAllBoxesComponent implements OnInit {
   display: boolean = false;
   newReview: Review;
   msgs: Message[] = [];
+  login: boolean;
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
@@ -88,6 +89,7 @@ export class ViewAllBoxesComponent implements OnInit {
   showDialog(boxToView: Box) {
     this.display = true;
     this.boxToView = boxToView;
+    this.login = (this.sessionService.getCurrentCustomer() != null);
     console.log(boxToView);
   }
 
@@ -121,6 +123,11 @@ export class ViewAllBoxesComponent implements OnInit {
   
 	createReview(reviewForm: NgForm)
 	{
+    if(this.sessionService.getCurrentCustomer() == null) {
+      this.msgs = [];
+      this.msgs.push({severity:'error', summary:'Error Message: ', detail:'Login is required to leave a review!'});
+      return;
+    }
     if(this.newReview.reviewRating == 0 || this.newReview.reviewRating == null) {
       this.msgs = [];
       this.msgs.push({severity:'error', summary:'Error Message: ', detail:'Rating is required!'});
