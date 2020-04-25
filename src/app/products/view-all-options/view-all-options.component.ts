@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Option } from '../option';
-import { OptionService } from '../option.service';
+import { Option } from '../../option';
+import { OptionService } from '../../option.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

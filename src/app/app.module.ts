@@ -22,7 +22,7 @@ import {RatingModule} from 'primeng/rating';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {StepsModule} from 'primeng/steps';
-// import {MenuItem} from 'primeng/api';
+import {BreadcrumbModule} from 'primeng/breadcrumb';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,7 +30,6 @@ import { IndexComponent } from './index/index.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
-import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { AccessRightErrorComponent } from './access-right-error/access-right-error.component';
 import { BeverageTransactionComponent } from './transactionHistory/beverage-transaction/beverage-transaction.component';
 import { ViewAllBoxesComponent } from './products/view-all-boxes/view-all-boxes.component';
@@ -39,7 +38,7 @@ import { ViewMySubscriptionHistoryComponent } from './transactionHistory/view-my
 import { ViewBeverageComponent } from './products/view-beverage/view-beverage.component';
 import { ViewAllArticlesComponent } from './view-all-articles/view-all-articles.component';
 import { SafePipe } from './safe.pipe';
-import { ViewAllOptionsComponent } from './view-all-options/view-all-options.component';
+import { ViewAllOptionsComponent } from './products/view-all-options/view-all-options.component';
 import { CreateSubscriptionComponent } from './create-subscription/create-subscription.component';
 import { ViewMyReviewsComponent } from './view-my-reviews/view-my-reviews.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -55,7 +54,6 @@ import { CreateAccountComponent } from './create-account/create-account.componen
     SidebarComponent,
     FooterComponent,
     MainMenuComponent,
-    BreadcrumbComponent,
     AccessRightErrorComponent,
     BeverageTransactionComponent,
     ViewAllBoxesComponent,
@@ -94,7 +92,7 @@ import { CreateAccountComponent } from './create-account/create-account.componen
     InputSwitchModule,
     RadioButtonModule,
     StepsModule,
-    // MenuItem,
+    BreadcrumbModule,
 	],
   providers: [DatePipe],
   bootstrap: [AppComponent]

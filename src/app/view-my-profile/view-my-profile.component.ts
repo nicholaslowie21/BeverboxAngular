@@ -19,6 +19,7 @@ export class ViewMyProfileComponent implements OnInit {
   resultSuccess: boolean;
   resultError: boolean;
   message: String;
+  items:any[];
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, public sessionService: SessionService,
     private customerService: CustomerService) {
@@ -32,6 +33,11 @@ export class ViewMyProfileComponent implements OnInit {
     this.checkAccessRight();  
     
     this.customer = this.sessionService.getCurrentCustomer();
+
+    this.items = [
+      {icon: 'pi pi-home', routerLink:['/index']},
+      {label: 'My Profile'},
+    ];
 
   }
 

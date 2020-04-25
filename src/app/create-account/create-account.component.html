@@ -1,115 +1,100 @@
-<app-header></app-header>
-  
-<app-main-menu></app-main-menu>  
+<h3>Create Account</h3>
 
-<section id="content" class="content">
-
-    <app-breadcrumb [pageName]="'ViewMyProfile'"></app-breadcrumb>
-
-    <br/><br/>
-
-    <h3>Create Account</h3>
-
-    <form #newAccountForm="ngForm" (ngSubmit)="createAccount(newAccountForm)">
-        
-        <table width="100%">
-            <tr>
-                <td width="20%" class="rowheader">Name</td>
-                <td><input id="name" name="name" #name="ngModel" type="text" [(ngModel)]="newCustomer.customerName" required="true" /></td>
-                <td>
-                    <div *ngIf="name.invalid && (name.dirty || name.touched || submitted)" class="errorText">
-                        <div *ngIf="name.errors.required">
-                            Name is required.
-                        </div>
+<form #newAccountForm="ngForm" (ngSubmit)="createAccount(newAccountForm)">
+    
+    <table width="100%">
+        <tr>
+            <td width="20%" class="rowheader">Name</td>
+            <td><input id="name" name="name" #name="ngModel" type="text" [(ngModel)]="newCustomer.customerName" required="true" /></td>
+            <td>
+                <div *ngIf="name.invalid && (name.dirty || name.touched || submitted)" class="errorText">
+                    <div *ngIf="name.errors.required">
+                        Name is required.
                     </div>
-                </td>
-            </tr>
-            <tr>
-                <td width="20%" class="rowheader">Email</td>
-                <td><input id="email" name="email" #email="ngModel" type="text" [(ngModel)]="newCustomer.customerEmail" required="true" /></td>
-                <td>
-                    <div *ngIf="email.invalid && (email.dirty || email.touched || submitted)" class="errorText">
-                        <div *ngIf="email.errors.required">
-                            Email is required.
-                        </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="20%" class="rowheader">Email</td>
+            <td><input id="email" name="email" #email="ngModel" type="text" [(ngModel)]="newCustomer.customerEmail" required="true" /></td>
+            <td>
+                <div *ngIf="email.invalid && (email.dirty || email.touched || submitted)" class="errorText">
+                    <div *ngIf="email.errors.required">
+                        Email is required.
                     </div>
-                </td>
-            </tr>
-            <tr>
-                <td width="20%" class="rowheader">Password</td>
-                <td><input id="password" name="password" #password="ngModel" type="text" [(ngModel)]="newCustomer.customerPassword" required="true" /></td>
-                <td>
-                    <div *ngIf="password.invalid && (password.dirty || password.touched || submitted)" class="errorText">
-                        <div *ngIf="password.errors.required">
-                            Password is required.
-                        </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="20%" class="rowheader">Password</td>
+            <td><input id="password" name="password" #password="ngModel" type="text" [(ngModel)]="newCustomer.customerPassword" required="true" /></td>
+            <td>
+                <div *ngIf="password.invalid && (password.dirty || password.touched || submitted)" class="errorText">
+                    <div *ngIf="password.errors.required">
+                        Password is required.
                     </div>
-                </td>
-            </tr>
-            <tr>
-                <td width="20%" class="rowheader">Address</td>
-                <td><input id="address" name="address" #address="ngModel" type="text" [(ngModel)]="newCustomer.address" required="true" /></td>
-                <td>
-                    <div *ngIf="address.invalid && (address.dirty || address.touched || submitted)" class="errorText">
-                        <div *ngIf="address.errors.required">
-                            Address is required.
-                        </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="20%" class="rowheader">Address</td>
+            <td><input id="address" name="address" #address="ngModel" type="text" [(ngModel)]="newCustomer.address" required="true" /></td>
+            <td>
+                <div *ngIf="address.invalid && (address.dirty || address.touched || submitted)" class="errorText">
+                    <div *ngIf="address.errors.required">
+                        Address is required.
                     </div>
-                </td>
-            </tr>
-            <tr>
-                <td width="20%" class="rowheader">
-                    Credit Card Number <br />
-                    (with spaces)
-                </td>
-                <td><input id="ccnum" name="ccnum" #ccnum="ngModel" type="text" [(ngModel)]="newCustomer.customerCCNum" required="true" /></td>
-                <td>
-                    <div *ngIf="ccnum.invalid && (ccnum.dirty || ccnum.touched || submitted)" class="errorText">
-                        <div *ngIf="ccnum.errors.required">
-                            Credit Card Number is required.
-                            <!-- should probably put more validation checks such as length and format of ccnum -->
-                        </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="20%" class="rowheader">
+                Credit Card Number <br />
+                (with spaces)
+            </td>
+            <td><input id="ccnum" name="ccnum" #ccnum="ngModel" type="text" [(ngModel)]="newCustomer.customerCCNum" required="true" /></td>
+            <td>
+                <div *ngIf="ccnum.invalid && (ccnum.dirty || ccnum.touched || submitted)" class="errorText">
+                    <div *ngIf="ccnum.errors.required">
+                        Credit Card Number is required.
+                        <!-- should probably put more validation checks such as length and format of ccnum -->
                     </div>
-                </td>
-            </tr>
-            <tr>
-                <td width="20%" class="rowheader">Credit Card CVV</td>
-                <td><input id="cvv" name="cvv" #cvv="ngModel" type="text" [(ngModel)]="newCustomer.customerCVV" required="true" /></td>
-                <td>
-                    <!-- p-button label="What is this?" (onClick)="showDialog()"></p-button -->
-                    The CVV is a 3-digit code found on the back of your credit card.
-                    <div *ngIf="cvv.invalid && (cvv.dirty || cvv.touched || submitted)" class="errorText">
-                        <div *ngIf="cvv.errors.required">
-                            CVV is required.
-                        </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="20%" class="rowheader">Credit Card CVV</td>
+            <td><input id="cvv" name="cvv" #cvv="ngModel" type="text" [(ngModel)]="newCustomer.customerCVV" required="true" /></td>
+            <td>
+                <!-- p-button label="What is this?" (onClick)="showDialog()"></p-button -->
+                The CVV is a 3-digit code found on the back of your credit card.
+                <div *ngIf="cvv.invalid && (cvv.dirty || cvv.touched || submitted)" class="errorText">
+                    <div *ngIf="cvv.errors.required">
+                        CVV is required.
                     </div>
-                </td>
-            </tr>
+                </div>
+            </td>
+        </tr>
 
-            <button pButton type="submit" label="Submit"></button>
+        <button pButton type="submit" label="Submit"></button>
 
-        </table>
+    </table>
 
-        <!--
-        <p-dialog *ngIf="display" header="CVV" modal="true" [(visible)]="display"  [style]="{width: '50vw'}">
-            The CVV is a 3-digit code found on the back of your credit card.
-        </p-dialog>
-        -->
+    <!--
+    <p-dialog *ngIf="display" header="CVV" modal="true" [(visible)]="display"  [style]="{width: '50vw'}">
+        The CVV is a 3-digit code found on the back of your credit card.
+    </p-dialog>
+    -->
 
-        <div *ngIf="resultSuccess == true" style="color:blue;">
-            {{message}} <br />
-            You will be redirected to the home page. Login there to begin shopping!
-            <p-button label="Ok" (onClick)="redirect()"></p-button>
-        </div>
-        
-        <div *ngIf="resultError == true" style="color:red;">
-            {{message}}
-        </div>
+    <div *ngIf="resultSuccess == true" style="color:blue;">
+        {{message}} <br />
+        Do sign in in the header!
+        <!-- You will be redirected to the home page. Login there to begin shopping!
+        <p-button label="Ok" (onClick)="redirect()"></p-button> -->
+    </div>
+    
+    <div *ngIf="resultError == true" style="color:red;">
+        {{message}}
+    </div>
 
-    </form>
-
-</section>
-
-<app-sidebar></app-sidebar>
-
-<app-footer></app-footer>
+</form>

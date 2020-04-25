@@ -1,7 +1,10 @@
 <header class="header">
-	<div style="display:inline-flex">
-		<img src="../../assets/images/Beverbox Logo (thin).png" class="logo">
-		<h1>Beverbox Angular Customer App</h1>
+	<div style="display:inline-flex; margin-bottom:0px">
+		<a href="/index" style="margin:0px">
+			<img src="../../assets/images/Beverbox Logo (thin).png" class="logo">
+		</a>
+			<h1 style="margin-bottom:0px">Beverbox Angular Customer App</h1>
+		
 	</div>
 	
 	<aside id="loginbox" class="loginbox">		
@@ -22,9 +25,11 @@
 			{{errorMessage}}
 		</div>
 		
-		<div *ngIf="sessionService.getIsLogin() == true" style="display:inline-flex; align-items:center;">
-			<img src="../../assets/images/profilepic.png" style="width:40px; margin-right: 10px;" />
-			You are login as {{sessionService.getCurrentCustomer().customerEmail}}
+		<div *ngIf="sessionService.getIsLogin() == true" style="display:inline-flex; align-items:center; margin-top:0px;">
+			<a href="/viewMyProfile">
+				<img src="../../assets/images/profilepic.png" style="width:50px; margin-right: 10px;" />
+			</a>
+			You are logged in as {{sessionService.getCurrentCustomer().customerEmail}}
 			<input type="button" (click)="customerLogout()" value="Logout" style="margin-left: 10px;"/>
 		</div>
 	</aside>

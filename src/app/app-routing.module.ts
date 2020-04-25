@@ -9,7 +9,7 @@ import { ViewAllPromotionsComponent } from './view-all-promotions/view-all-promo
 import { ViewMySubscriptionHistoryComponent } from './transactionHistory/view-my-subscription-history/view-my-subscription-history.component';
 import { ViewBeverageComponent } from './products/view-beverage/view-beverage.component';
 import { ViewAllArticlesComponent } from './view-all-articles/view-all-articles.component';
-import { ViewAllOptionsComponent } from './view-all-options/view-all-options.component';
+import { ViewAllOptionsComponent } from './products/view-all-options/view-all-options.component';
 import { CreateSubscriptionComponent } from './create-subscription/create-subscription.component';
 import { ViewMyReviewsComponent } from './view-my-reviews/view-my-reviews.component';
 import { ViewMyProfileComponent } from './view-my-profile/view-my-profile.component';

@@ -3,8 +3,6 @@
 <app-main-menu></app-main-menu>
 
 <section id="content" class="content">
-    <app-breadcrumb [pageName]="'viewAllPromotions'"></app-breadcrumb>
-    <br/><br/>
 
     <p-table #dt [value]="promotions" dataKey="id" styleClass="ui-table-customers" [rowHover]="true"
             [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading"
