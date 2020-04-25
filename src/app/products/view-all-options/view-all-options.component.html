@@ -4,8 +4,7 @@
 
 <section id="content" class="content">
 
-    <app-breadcrumb [pageName]="'viewAllOptions'"></app-breadcrumb>
-
+    <p-panel header="All Subscription Options">
     <p-carousel [value]="regularOptions" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true" [responsiveOptions]="responsiveOptions">
         <p-header>
             <h3>Regular</h3>
@@ -76,25 +75,8 @@
             </div>
         </ng-template>
     </p-carousel>
-
-
-    <!-- <p-panel header="Regular">
-        <div *ngFor="let option of regularOptions" class="block-div">
-            <p-card header={{option.name}} subheader={{option.description}} class="cardStyle" styleClass="ui-card-shadow">
-                <p-header>
-                    <img src="Card" src="../../assets/images/regular.jpg">
-                </p-header>
-                <div>
-                    Duration: {{option.duration}}<br>
-                    Price: ${{option.price}}
-                    <div *ngIf="checkSharing(option) == true">Sharing Price: ${{option.priceSharing}}</div>
-                </div>
-                <p-footer>
-                    <button type="button" (click)="createSub(option)" pButton label="Subscribe"></button>            
-                </p-footer>
-            </p-card>
-        </div>
-    </p-panel> -->
+    
+    </p-panel>
 
 </section>
 

@@ -4,11 +4,9 @@
 
 <section id="content" class="content">
 
-	<app-breadcrumb [pageName]="'BevTransaction'"></app-breadcrumb>
+	<p-breadcrumb [model]="items"></p-breadcrumb>
 
-	<br/><br/>
-			
-	<p-panel header="Your beverage transaction history">
+	<br/>
 	
 		<p-table [value]="bevTrans">
 			<ng-template pTemplate="header">
@@ -32,10 +30,6 @@
                 </tr>
 			</ng-template>
 		</p-table>
-		
-		
-	
-	</p-panel>
 </section>
 
 <app-sidebar></app-sidebar>

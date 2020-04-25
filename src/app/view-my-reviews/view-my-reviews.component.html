@@ -4,9 +4,12 @@
 
 <section id="content" class="content">
 
+	<p-breadcrumb [model]="items"></p-breadcrumb>
+
+	<br/>
+
 	<p-messages [(value)]="msgs"></p-messages>
-	
-	<p-panel header="View My Reviews">
+
 		<div *ngFor="let review of reviews">
 		<p-panel header="Review #{{review.reviewId}}" [toggleable]="true" [style]="{'margin-bottom':'20px'}">
 			<div class="boxDetails">Box ID #{{review.boxId}} {{review.boxName}}</div>
@@ -22,7 +25,6 @@
 			</p-footer>
 		</p-panel>
 		</div>
-	</p-panel>
 
 </section>
 

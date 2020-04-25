@@ -20,6 +20,7 @@ export class ViewMyReviewsComponent implements OnInit {
 	
 	reviews: Review[];
 	msgs: Message[] = [];
+	items: any[];
 
 
 	constructor(private router: Router,
@@ -43,6 +44,12 @@ export class ViewMyReviewsComponent implements OnInit {
 				console.log('********** ViewMyReviewsComponent.ts: ' + error);
 			}
 		);
+
+		this.items = [
+			{icon: 'pi pi-home', routerLink:['/index']},
+			{label: 'My Profile', routerLink:['/viewMyProfile']},
+			{label: 'My Reviews'}
+		  ];
 	}
 
 

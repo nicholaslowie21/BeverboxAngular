@@ -4,13 +4,14 @@
 
 <section id="content" class="content">
 
-    <app-breadcrumb [pageName]="'ViewMyProfile'"></app-breadcrumb>
+    <p-breadcrumb [model]="items"></p-breadcrumb>
 
     <br/><br/>
 
     <div *ngIf="sessionService.getIsLogin() == true">
     
         <p-panel header="My Profile">
+            <img src="../../assets/images/profilepic.png" style="width:50px; margin-right: 10px;" />
 
             <table width="100%">
                 <tr>

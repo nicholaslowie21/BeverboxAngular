@@ -29,9 +29,8 @@ export class MainMenuComponent implements OnInit
             label: 'Beverbox',
             items: [
                 {label: 'Home', icon: 'pi pi-home', url: ['index'] },
-                {label: 'Create Account', icon: 'pi pi-home', url: ['createAccount'] },
-                {label: 'My Profile', icon: 'pi pi-home', url: ['viewMyProfile'] },
-				{label: 'My Reviews', icon: 'pi pi-home', url: ['viewMyReviews'] }
+                {label: 'Article', icon: 'pi pi-home', url: ['viewAllArticles'] },
+                {label: 'Promotions', icon: 'pi pi-home', url: ['viewAllPromotions'] },
             ]
         },
         {
@@ -41,20 +40,6 @@ export class MainMenuComponent implements OnInit
                 {label: 'Box', icon: 'pi pi-home', url: ['viewAllBoxes'] },
                 {label: 'Beverage', icon: 'pi pi-home', url: ['viewBeverage'] }
                 
-            ]
-        },
-        {
-            label: 'Transaction History',
-            items: [
-                {label: 'Beverage', icon: 'pi pi-home', url: ['beverageTransaction'] },
-                {label: 'Subscription', icon: 'pi pi-home', url: ['viewSubsHistory'] }
-            ]
-        },
-        {
-            label: 'Other',
-            items: [
-                {label: 'Promotions', icon: 'pi pi-home', url: ['viewAllPromotions'] },
-				{label: 'Article', icon: 'pi pi-home', url: ['viewAllArticles'] }
             ]
         }];
 	}

@@ -26,7 +26,8 @@ export class HeaderComponent implements OnInit {
 
   customerLogin(): void {
     this.sessionService.setEmail(this.email);
-    this.sessionService.setPassword(this.password);
+	this.sessionService.setPassword(this.password);
+	console.log("I am at customerLogin() in header component");
     
     this.customerService.customerLogin(this.email, this.password).subscribe(
 			response => {										

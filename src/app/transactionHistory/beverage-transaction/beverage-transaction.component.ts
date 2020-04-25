@@ -13,6 +13,7 @@ import { BevTransaction } from '../../bev-transaction';
 export class BeverageTransactionComponent implements OnInit {
 
   bevTrans: BevTransaction[];
+  items: any[];
 
   constructor(private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -30,6 +31,13 @@ export class BeverageTransactionComponent implements OnInit {
 				console.log('********** BeverageTransactionComponent.ts: ' + error);
 			}
 		);
+
+		this.items = [
+			{icon: 'pi pi-home', routerLink:['/index']},
+			{label: 'My Profile', routerLink:['/viewMyProfile']},
+			{label: 'My Transaction History'},
+			{label: 'Beverage Transaction'}
+		  ];
   	}
 
   	parseDate(d: Date) {		

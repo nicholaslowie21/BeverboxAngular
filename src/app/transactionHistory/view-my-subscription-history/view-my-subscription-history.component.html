@@ -4,8 +4,9 @@
 
 <section id="content" class="content">
 
-    <app-breadcrumb [pageName]="'SubTransaction'"></app-breadcrumb>
-    <br/><br/>
+    <p-breadcrumb [model]="items"></p-breadcrumb>
+
+    <br/>
 
         <p-table #dt [value]="subTransactions" dataKey="id" styleClass="ui-table-customers" [rowHover]="true"
             [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading"
