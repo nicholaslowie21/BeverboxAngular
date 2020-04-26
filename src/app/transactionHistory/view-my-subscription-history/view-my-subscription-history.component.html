@@ -8,6 +8,41 @@
 
     <br/>
 
+    <p-panel header="Your Existing Subscriptions">
+        <p-table [value]="subscriptions">
+            <ng-template pTemplate = "header">
+                <tr>
+                    <th>Subscription ID</th>
+                    <th>Subscription Name</th>
+                    <th>Sharing Option</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Action</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate = "body" let-subscription>
+                <tr>
+                    <td>{{subscription.subscriptionId}}</td>
+                    <td>{{subscription.name}}</td>
+                    <td>{{subscription.sharing}}</td>
+                    <td>{{parseDate(subscription.startDate)}}</td>
+                    <td>{{parseDate(subscription.endDate)}}</td>
+                    <td><div *ngIf="checkRenewable(subscription.endDate) == true">
+                        <button pButton type="button" icon="pi pi-plus" (click)="renewSubscription(subscription.subscriptionId)" label="Renew"></button>
+                    </div></td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="6" style="text-align:left">No existing subscriptions found.</td>
+                </tr>
+            </ng-template>
+        </p-table>
+
+
+    </p-panel>
+    <br/><br/>
+
         <p-table #dt [value]="subTransactions" dataKey="id" styleClass="ui-table-customers" [rowHover]="true"
             [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading"
             [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"

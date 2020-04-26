@@ -10,12 +10,12 @@
 
     <div *ngIf="sessionService.getIsLogin() == true">
         <div style="display:inline-flex;">
-            <img src="../../assets/images/profilepic.png" style="width:200px; margin-right: 10px;" />
+            <img src="../../assets/images/profilepic.png" style="width:160px; margin-right: 10px;" />
             <div>
                 <h1>My Profile Features</h1>
-                <a href="/viewMyReviews">View My Reviews</a><br/>
-                <a href="/beverageTransaction">View Beverage Transaction History</a><br/>
-                <a href="/viewSubsHistory">View Subscription Transaction History</a>
+                <a href="/viewSubsHistory">View My Existing and Past Subscription</a><br/>
+                <a href="/beverageTransaction">View Beverage Transaction History</a><br/> 
+                <a href="/viewMyReviews">View My Reviews</a>
             </div>
         </div>
         <br/><br/>
@@ -146,42 +146,6 @@
             </form>
 
         </p-dialog>
-
-        <br/><br/>
-        <p-panel header="Your Existing Subscriptions">
-            <p-table [value]="subscriptions">
-                <ng-template pTemplate = "header">
-                    <tr>
-                        <th>Subscription ID</th>
-                        <th>Subscription Name</th>
-                        <th>Sharing Option</th>
-                        <th>Start Date</th>
-                        <th>End Date</th>
-                        <th>Action</th>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate = "body" let-subscription>
-                    <tr>
-                        <td>{{subscription.subscriptionId}}</td>
-                        <td>{{subscription.name}}</td>
-                        <td>{{subscription.sharing}}</td>
-                        <td>{{parseDate(subscription.startDate)}}</td>
-                        <td>{{parseDate(subscription.endDate)}}</td>
-                        <td><div>
-                            <button pButton type="button" icon="pi pi-plus" (click)="renewSubscription(subscription.subscriptionId)" label="Renew"></button>
-                        </div></td>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="emptymessage">
-                    <tr>
-                        <td colspan="6" style="text-align:left">No existing subscriptions found.</td>
-                    </tr>
-                </ng-template>
-            </p-table>
-
-
-        </p-panel>
-    <!-- </p-panel> -->
     </div>
 </section>
 

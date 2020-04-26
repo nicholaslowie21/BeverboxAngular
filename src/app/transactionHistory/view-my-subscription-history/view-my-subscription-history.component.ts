@@ -3,7 +3,8 @@ import { SubTransaction } from 'src/app/sub-transaction';
 import { SessionService } from '../../session.service';
 import { TransactionService } from '../../transaction.service';
 import { DatePipe } from '@angular/common';
-
+import { Subscription } from '../../subscription';
+import { SubscriptionService } from 'src/app/subscription.service';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { Table } from 'primeng/table';
@@ -18,6 +19,10 @@ export class ViewMySubscriptionHistoryComponent implements OnInit {
     subTransactions: SubTransaction[];
     loading: boolean = true;
     items:any[];
+    subscriptions: Subscription[];
+    resultSuccess: boolean;
+    resultError: boolean;
+    message: String;
 
     @ViewChild("dt", { static: false }) public table: Table;
 
@@ -25,7 +30,11 @@ export class ViewMySubscriptionHistoryComponent implements OnInit {
       private activatedRoute: ActivatedRoute,
       public sessionService: SessionService,
       private transactionService: TransactionService,
-      private datePipe: DatePipe) { }
+      private subscriptionService: SubscriptionService,
+      private datePipe: DatePipe) { 
+        this.resultSuccess = false;
+        this.resultError = false;
+      }
 
     ngOnInit() {
       this.checkAccessRight();
@@ -39,11 +48,19 @@ export class ViewMySubscriptionHistoryComponent implements OnInit {
         }
       );
 
+      this.subscriptionService.retrieveCustomerSubscriptions().subscribe (
+        response => {
+          this.subscriptions = response.subscriptions;
+        },
+        error => {
+          console.log('********** ViewMyProfileComponent.ts: ' + error);
+        }
+      )
+
       this.items = [
         {icon: 'pi pi-home', routerLink:['/index']},
         {label: 'My Profile', routerLink:['/viewMyProfile']},
-        {label: 'My Transaction History'},
-        {label: 'Subscription Transaction'}
+        {label: 'My Subscriptions'}
         ];
 
     }
@@ -92,7 +109,43 @@ export class ViewMySubscriptionHistoryComponent implements OnInit {
       let idx = temp.indexOf("T");
       temp = temp.substring(0,idx);
       return temp;
-	  }
+    }
+    
+    checkRenewable(d: Date): boolean {
+      let thisMonth = this.transformDate(new Date());
+      thisMonth = thisMonth.substring(5, 7);
+
+      let endDateMonth = this.parseDate(d);
+      endDateMonth = endDateMonth.substring(5, 7);
+
+      if (thisMonth == endDateMonth) {
+        console.log(true);
+        return true;
+      } else {
+        console.log(false);
+        return false;
+      }
+    }
+
+    renewSubscription(subsId: number){
+      console.log(subsId);
+      console.log("in the method");
+      this.subscriptionService.renewSubscription("", false, subsId).subscribe(
+        response => {
+          let newSubscriptionId: number = response.subsId;
+          this.message = "New subscription " + newSubscriptionId + " created successfully";
+          this.sessionService.updateCustomer();
+          this.router.navigate(["/viewSubsHistory/"]);
+        },
+        error => {
+          this.resultError = true;
+          this.resultSuccess = false;
+          this.message = "An error has occurred while creating the new product: " + error;
+          
+          console.log('********** RenewSubscriptionComponent.ts: ' + error);
+        }
+      );
+    }
 
     checkAccessRight() {
 		  if(!this.sessionService.checkAccessRight(this.router.url)) {
