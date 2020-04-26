@@ -17,7 +17,7 @@ export class IndexComponent implements OnInit {
 
   ngOnInit() {
     this.steps= [
-      {label: 'Register & Log In'},
+      {label: 'Register & Log In', routerLink: ["/createAccount"]},
       {label: 'Browse'},
       {label: 'Customise & Pay'},
       {label: 'Delivered at your doorstep'},
