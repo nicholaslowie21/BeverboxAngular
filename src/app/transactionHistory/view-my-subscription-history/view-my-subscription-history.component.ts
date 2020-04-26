@@ -5,6 +5,8 @@ import { TransactionService } from '../../transaction.service';
 import { DatePipe } from '@angular/common';
 import { Subscription } from '../../subscription';
 import { SubscriptionService } from 'src/app/subscription.service';
+import { OptionService } from 'src/app/option.service';
+import { Option } from '../../option';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { Table } from 'primeng/table';
@@ -20,7 +22,6 @@ export class ViewMySubscriptionHistoryComponent implements OnInit {
     loading: boolean = true;
     items:any[];
     subscriptions: Subscription[];
-    resultSuccess: boolean;
     resultError: boolean;
     message: String;
 
@@ -31,8 +32,8 @@ export class ViewMySubscriptionHistoryComponent implements OnInit {
       public sessionService: SessionService,
       private transactionService: TransactionService,
       private subscriptionService: SubscriptionService,
+      private optionService: OptionService,
       private datePipe: DatePipe) { 
-        this.resultSuccess = false;
         this.resultError = false;
       }
 
@@ -119,33 +120,114 @@ export class ViewMySubscriptionHistoryComponent implements OnInit {
       endDateMonth = endDateMonth.substring(5, 7);
 
       if (thisMonth == endDateMonth) {
-        console.log(true);
         return true;
       } else {
-        console.log(false);
         return false;
       }
     }
 
-    renewSubscription(subsId: number){
-      console.log(subsId);
-      console.log("in the method");
-      this.subscriptionService.renewSubscription("", false, subsId).subscribe(
+    renewSubscription(optionName: string){
+      console.log(optionName);
+      let activeOptions : Option[];
+      let optId1 = 0;
+      let optId2 = 0;
+      let optId1Exist = false;
+
+      // this.optionService.retrieveOptionByOptionId(optionId).subscribe(
+			// 	response => {
+      //     this.option = response.option;
+      //     optionName = this.option.name;
+			// 		console.log('Option' + this.option.name);
+			// 	},
+			// 	error => {
+			// 		console.log('********** ViewMySubscriptionHistoryComponent.ts: ' + error);
+			// 	}
+      // );
+
+      this.optionService.retrieveAllActiveOptions().subscribe(
         response => {
-          let newSubscriptionId: number = response.subsId;
-          this.message = "New subscription " + newSubscriptionId + " created successfully";
-          this.sessionService.updateCustomer();
-          this.router.navigate(["/viewSubsHistory/"]);
+          activeOptions = response.options;
+          
+          for(var i = 0; i< activeOptions.length; i++) {
+            if (activeOptions[i].name == optionName) {
+              if(!optId1Exist) {
+                optId1 = activeOptions[i].optionId;
+                optId1Exist = true;
+              } else {
+                optId2 = activeOptions[i].optionId;
+              }
+            }
+          }
+
+          if (optId1Exist) {
+            this.router.navigate(["/createSubscription/" + optId1 + "/" + optId2]);
+          } else {
+            this.resultError = true;
+            this.message = "The subscription option is no longer active. Do browse our updated subscription option from the main menu."
+          }
         },
         error => {
-          this.resultError = true;
-          this.resultSuccess = false;
-          this.message = "An error has occurred while creating the new product: " + error;
-          
-          console.log('********** RenewSubscriptionComponent.ts: ' + error);
+          console.log('********** ViewMySubscriptionHistoryComponent.ts: ' + error);
         }
       );
+
+
+      // if (optId1Exist) {
+      //   this.router.navigate(["/createSubscription/" + optId1 + "/" + optId2]);
+      // } else {
+      //   this.resultError = true;
+      //   this.message = "The subscription option is no longer active :( Do browse our updated subscription option from the main menu on the left"
+      // }
+
+      // for(var i = 0; i< this.activeOptions.length; i++) {
+      //   if (this.activeOptions[i].name == this.option.name) {
+      //     if(!optId1Exist) {
+      //       optId1 = this.activeOptions[i].optionId;
+      //       optId1Exist = true;
+      //     } else {
+      //       optId2 = this.activeOptions[i].optionId;
+      //     }
+      //   }
+      // }
+      // this.subscriptionService.renewSubscription("", false, subsId).subscribe(
+      //   response => {
+      //     let newSubscriptionId: number = response.subsId;
+      //     this.message = "New subscription " + newSubscriptionId + " created successfully";
+      //     this.sessionService.updateCustomer();
+      //     this.router.navigate(["/viewSubsHistory/"]);
+      //   },
+      //   error => {
+      //     this.resultError = true;
+      //     this.resultSuccess = false;
+      //     this.message = "An error has occurred while creating the new product: " + error;
+          
+      //     console.log('********** RenewSubscriptionComponent.ts: ' + error);
+      //   }
+      // );
     }
+
+    // loadOptions(optionId: number) {
+    //   this.optionService.retrieveOptionByOptionId(optionId).subscribe(
+		// 		response => {
+		// 			this.option = response.option;
+		// 			console.log('Option' + this.option.name);
+		// 		},
+		// 		error => {
+		// 			console.log('********** ViewMySubscriptionHistoryComponent.ts: ' + error);
+		// 		}
+    //   );
+
+    //   this.optionService.retrieveAllActiveOptions().subscribe(
+    //     response => {
+    //       this.activeOptions = response.options;
+    //       console.log('************* ViewMySubscriptionHistoryComponent.ts is loaded');
+    //     },
+    //     error => {
+    //       console.log('********** ViewMySubscriptionHistoryComponent.ts: ' + error);
+    //     }
+    //   );
+    // }
+
 
     checkAccessRight() {
 		  if(!this.sessionService.checkAccessRight(this.router.url)) {

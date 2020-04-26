@@ -8,6 +8,10 @@
 
     <br/>
 
+    <div *ngIf="resultError == true" style="color:red;">
+        {{message}}
+    </div>
+
     <p-panel header="Your Existing Subscriptions">
         <p-table [value]="subscriptions">
             <ng-template pTemplate = "header">
@@ -28,7 +32,7 @@
                     <td>{{parseDate(subscription.startDate)}}</td>
                     <td>{{parseDate(subscription.endDate)}}</td>
                     <td><div *ngIf="checkRenewable(subscription.endDate) == true">
-                        <button pButton type="button" icon="pi pi-plus" (click)="renewSubscription(subscription.subscriptionId)" label="Renew"></button>
+                        <button pButton type="button" icon="pi pi-plus" (click)="renewSubscription(subscription.name)" label="Renew"></button>
                     </div></td>
                 </tr>
             </ng-template>

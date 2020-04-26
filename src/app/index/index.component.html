@@ -3,13 +3,16 @@
 <section id="content" class="content">
 			
 	<p-panel header="Home">
-	<div>
-		(will be moved to a diff segment) Beverbox is a beverage subscription box introducing local beverages from different regions around the world every month. Here in Beverbox, we believe cultures of the world are most accessible through cuisines, and beverage is the best packaged medium where authenticity is preserved. Lovingly and thoughtfully curated with our customers in mind, Beverbox delivers a box that strives to capture the key essence of a culture with our selection of uniquely traditional and local favorite drinks. We also include tidbits of knowledge in the form of description cards about the origin of the beverages, fun facts, along with ingredients, nutrition and the best way to enjoy the drink. Not having the chance to travel is no longer a barrier to experience and explore the world! 
-		<br><br>
-		<p style="font-weight: bold;">"Beverages from around the world, now at your doorstep" has never been more easy!</p>
-		<p-steps [model]="steps"></p-steps>
-
+	<div style="display:inline-flex;">
+		<img src="../../assets/images/Beverbox Logo (square).png" style="height: 150px; ">
+		<div>
+			<h3>About Beverbox</h3>
+			Beverbox is a beverage subscription box introducing local beverages from different regions around the world every month. Here in Beverbox, we believe cultures of the world are most accessible through cuisines, and beverage is the best packaged medium where authenticity is preserved. Lovingly and thoughtfully curated with our customers in mind, Beverbox delivers a box that strives to capture the key essence of a culture with our selection of uniquely traditional and local favorite drinks. We also include tidbits of knowledge in the form of description cards about the origin of the beverages, fun facts, along with ingredients, nutrition and the best way to enjoy the drink. Not having the chance to travel is no longer a barrier to experience and explore the world! 
+		</div>
 	</div>
+
+	<p style="font-weight: bold;">"Beverages from around the world, now at your doorstep" has never been more easy!</p>
+	<p-steps [model]="steps"></p-steps>
 	
 	<article *ngIf="sessionService.getIsLogin() == false">
 		<p>
