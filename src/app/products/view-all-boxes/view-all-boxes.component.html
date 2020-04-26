@@ -39,6 +39,10 @@
             <p-dialog *ngIf="display" header="View Reviews" modal="true" (visibleChange)="clear(reviewForm)" [(visible)]="display"  [style]="{width: '50vw'}">
                 <p-messages [(value)]="msgs"></p-messages>
 
+                <div *ngIf="boxToView.reviews.length == 0">
+                    <p>There are currently no reviews for this box.</p>
+                </div>
+
                 <div *ngFor="let review of boxToView.reviews">
                     <p-card>
                         <div style="font-weight:bold;">
