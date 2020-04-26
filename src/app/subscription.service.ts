@@ -20,7 +20,8 @@ export class SubscriptionService {
   constructor(private httpClient: HttpClient, private sessionService: SessionService) { }
 
   retrieveCustomerSubscriptions(): Observable<any> {
-    return this.httpClient.get<any>(this.baseUrl).pipe
+	//   console.log(email + "  " + password);
+    return this.httpClient.get<any>(this.baseUrl +"/?email=" + this.sessionService.getEmail() + "&password=" + this.sessionService.getPassword()).pipe
     (
       catchError(this.handleError)
     );
@@ -39,6 +40,23 @@ export class SubscriptionService {
 	
 		console.log(createSubReq);
 		return this.httpClient.put<any>(this.baseUrl + "/createSubscription", createSubReq, httpOptions).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
+	renewSubscription(promoCode: string, cashback: boolean, subsId: number): Observable<any> {
+		let renewSubReq = {
+			"email": this.sessionService.getEmail(),
+			"password": this.sessionService.getPassword(),
+      		"promoCode": promoCode,
+      		"cashback": cashback,
+			"subsId": subsId,
+      		"custId": this.sessionService.getCurrentCustomer().customerId
+		}
+
+		console.log(renewSubReq);
+		return this.httpClient.put<any>(this.baseUrl + "/renewSubscription", renewSubReq, httpOptions).pipe
 		(
 			catchError(this.handleError)
 		);

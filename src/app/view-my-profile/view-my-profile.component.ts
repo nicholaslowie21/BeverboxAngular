@@ -3,6 +3,8 @@ import { SessionService } from '../session.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerService } from '../customer.service';
 import { Customer } from '../customer';
+import { SubscriptionService } from '../subscription.service';
+import { Subscription } from '../subscription';
 import { NgForm } from '@angular/forms';
 
 
@@ -20,9 +22,10 @@ export class ViewMyProfileComponent implements OnInit {
   resultError: boolean;
   message: String;
   items:any[];
+  subscriptions: Subscription[];
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, public sessionService: SessionService,
-    private customerService: CustomerService) {
+    private customerService: CustomerService, private subscriptionService: SubscriptionService) {
       this.display = false;
       this.submitted = false;
       this.resultSuccess = false;
@@ -39,6 +42,14 @@ export class ViewMyProfileComponent implements OnInit {
       {label: 'My Profile'},
     ];
 
+    this.subscriptionService.retrieveCustomerSubscriptions().subscribe (
+      response => {
+        this.subscriptions = response.subscriptions;
+      },
+      error => {
+        console.log('********** ViewMyProfileComponent.ts: ' + error);
+      }
+    )
   }
 
   showDialog() {
@@ -78,6 +89,34 @@ export class ViewMyProfileComponent implements OnInit {
       },
       error => {
         console.log('********** ViewMyProfile.ts: error updating customer' + error);
+      }
+    );
+  }
+
+  parseDate(d: Date)
+  {		
+    let temp = d.toString().replace('[UTC]', '');
+    let idx = temp.indexOf("T");
+    temp = temp.substring(0,idx);
+    return temp;
+  }
+
+  renewSubscription(subsId: number){
+    console.log(subsId);
+    console.log("in the method");
+    this.subscriptionService.renewSubscription("", false, subsId).subscribe(
+      response => {
+        let newSubscriptionId: number = response.subsId;
+        this.message = "New subscription " + newSubscriptionId + " created successfully";
+        this.sessionService.updateCustomer();
+        this.router.navigate(["/viewSubsHistory/"]);
+      },
+      error => {
+        this.resultError = true;
+        this.resultSuccess = false;
+        this.message = "An error has occurred while creating the new product: " + error;
+        
+        console.log('********** RenewSubscriptionComponent.ts: ' + error);
       }
     );
   }
