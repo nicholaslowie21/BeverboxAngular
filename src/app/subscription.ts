@@ -7,15 +7,22 @@ export class Subscription {
     startDate: Date;
     endDate: Date;
     active: boolean;
-    option: Option;
-    customer: Customer;
-    transaction: SubTransaction;
+    optionId: number;
+    name: string;
+    sharing: boolean;
+
+    // option: Option;
+    // customer: Customer;
+    // transaction: SubTransaction;
     // Not sure whether these entity attributes should be stored as entityId instead
 
-    constructor(subscriptionId?: number, startDate?: Date, endDate?: Date, active?: boolean){
+    constructor(subscriptionId?: number, startDate?: Date, endDate?: Date, active?: boolean, optionId?: number, name?: string, sharing?: boolean){
         this.subscriptionId = subscriptionId;
         this.startDate = startDate;
         this.endDate = endDate;
         this.active = active;
+        this.optionId = optionId;
+        this.name = name;
+        this.sharing = sharing;
     }
 }

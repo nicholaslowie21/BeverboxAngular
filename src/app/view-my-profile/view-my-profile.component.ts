@@ -20,6 +20,7 @@ export class ViewMyProfileComponent implements OnInit {
   resultError: boolean;
   message: String;
   items:any[];
+  // subscriptions: Subscription[];
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, public sessionService: SessionService,
     private customerService: CustomerService) {
@@ -38,7 +39,6 @@ export class ViewMyProfileComponent implements OnInit {
       {icon: 'pi pi-home', routerLink:['/index']},
       {label: 'My Profile'},
     ];
-
   }
 
   showDialog() {
@@ -81,7 +81,7 @@ export class ViewMyProfileComponent implements OnInit {
       }
     );
   }
-
+  
   checkAccessRight() {
   if(!this.sessionService.checkAccessRight(this.router.url))
   {
