@@ -60,7 +60,6 @@ export class ViewMySubscriptionHistoryComponent implements OnInit {
 
       this.items = [
         {icon: 'pi pi-home', routerLink:['/index']},
-        {label: 'My Profile', routerLink:['/viewMyProfile']},
         {label: 'My Subscriptions'}
         ];
 
