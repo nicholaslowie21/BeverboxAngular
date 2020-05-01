@@ -53,9 +53,7 @@
             [filterDelay]="0" [globalFilterFields]="['ccNum','transAmt','transId','subsId','monthDuration']">
             <ng-template pTemplate="caption">
                 My Subscription History
-                <div class="ui-table-globalfilter-container">
-                    <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Global Search" />
-                </div>
+                
             </ng-template>
             <ng-template pTemplate="header">
                 <tr>

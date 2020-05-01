@@ -56,7 +56,7 @@ export class ViewMyProfileComponent implements OnInit {
 					this.resultSuccess = true;
 					this.resultError = false;
           this.message = "Profile updated successfully";
-          //this.updateCustomer();
+          this.sessionService.updateCustomer();
 				},
 				error => {
 					this.resultError = true;
@@ -67,19 +67,6 @@ export class ViewMyProfileComponent implements OnInit {
 				}
 			);
     }
-  }
-
-  updateCustomer() {
-    this.customerService.updateCustomer(this.customer.customerEmail, this.customer.customerPassword).subscribe(
-      response => {
-        this.customer = response.customer;
-        this.sessionService.setCurrentCustomer(response.customer);
-        console.log('****** Customer Name: ' + this.customer.customerName);
-      },
-      error => {
-        console.log('********** ViewMyProfile.ts: error updating customer' + error);
-      }
-    );
   }
   
   checkAccessRight() {
