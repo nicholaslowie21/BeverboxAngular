@@ -34,9 +34,7 @@ export class BeverageTransactionComponent implements OnInit {
 
 		this.items = [
 			{icon: 'pi pi-home', routerLink:['/index']},
-			{label: 'My Profile', routerLink:['/viewMyProfile']},
-			{label: 'My Transaction History'},
-			{label: 'Beverage Transaction'}
+			{label: 'My Beverage History'}
 		  ];
   	}
 

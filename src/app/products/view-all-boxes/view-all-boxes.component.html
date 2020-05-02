@@ -17,7 +17,7 @@
                     <div class="p-grid p-nogutter">
                         <div class="p-col-12 car-data">
                             <div class="p-col-12">
-                                <img src="assets/images/{{box.boxId}}.png" />
+                                    <img src="assets/images/{{box.boxName}}.png" onerror="this.src='../../../assets/images/defaultBox.png';" alt="Image is missing" width="90%" height="20%" />    
                             </div>
                             Name: <div class="box-title">{{box.boxName}}</div><br>
                             Description: <div class="box-subtitle">{{box.boxDesc}}</div><br>
@@ -38,6 +38,10 @@
 		
             <p-dialog *ngIf="display" header="View Reviews" modal="true" (visibleChange)="clear(reviewForm)" [(visible)]="display"  [style]="{width: '50vw'}">
                 <p-messages [(value)]="msgs"></p-messages>
+
+                <div *ngIf="boxToView.reviews.length == 0">
+                    <p>There are currently no reviews for this box.</p>
+                </div>
 
                 <div *ngFor="let review of boxToView.reviews">
                     <p-card>

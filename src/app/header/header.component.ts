@@ -55,6 +55,11 @@ export class HeaderComponent implements OnInit {
 		);
   }
 
+  reset(): void {
+	this.email = "";
+	this.password = "";
+  }
+
   customerLogout(): void
 	{
 		this.sessionService.setIsLogin(false);

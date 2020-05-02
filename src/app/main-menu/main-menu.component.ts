@@ -29,18 +29,28 @@ export class MainMenuComponent implements OnInit
             label: 'Beverbox',
             items: [
                 {label: 'Home', icon: 'pi pi-home', url: ['index'] },
-                {label: 'Article', icon: 'pi pi-home', url: ['viewAllArticles'] },
-                {label: 'Promotions', icon: 'pi pi-home', url: ['viewAllPromotions'] },
+                {label: 'View My Profile', icon: 'pi pi-user', url: ['viewMyProfile'] },
+                {label: 'Article', icon: 'pi pi-file', url: ['viewAllArticles'] },
+                {label: 'Promotions', icon: 'pi pi-money-bill', url: ['viewAllPromotions'] },
             ]
         },
         {
             label: 'Product',
             items: [
-                {label: 'Subscription Options', icon: 'pi pi-home', url: ['viewAllOptions'] },
-                {label: 'Box', icon: 'pi pi-home', url: ['viewAllBoxes'] },
-                {label: 'Beverage', icon: 'pi pi-home', url: ['viewBeverage'] }
+                {label: 'Subscription', icon: 'pi pi-info-circle', url: ['viewAllOptions'] },
+                {label: 'Box', icon: 'pi pi-briefcase', url: ['viewAllBoxes'] },
+                {label: 'Beverage', icon: 'pi pi-tags', url: ['viewBeverage'] }
                 
             ]
-        }];
+        },
+        {
+            label: 'Transaction History',
+            items: [
+                {label: 'Subscription', icon: 'pi pi-info-circle', url: ['viewSubsHistory'] },
+                {label: 'Beverage', icon: 'pi pi-tags', url: ['beverageTransaction'] }
+                
+            ]
+        }
+    ];
 	}
 }
