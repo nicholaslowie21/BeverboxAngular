@@ -47,10 +47,9 @@ export class MainMenuComponent implements OnInit
             label: 'My Profile',
             items: [
                 {label: 'Update Profile', icon: 'pi pi-user', url: ['viewMyProfile'] },
+                {label: 'My Reviews', icon: 'pi pi-comment', url: ['viewMyReviews']},
                 {label: 'Subscription History', icon: 'pi pi-info-circle', url: ['viewSubsHistory'] },
                 {label: 'Beverage History', icon: 'pi pi-tags', url: ['beverageTransaction'] },
-                {label: 'My Reviews', icon: 'pi pi-comment', url: ['viewMyReviews']}
-
             ]
         }
     ];

@@ -48,7 +48,7 @@
         <p-table #dt [value]="subTransactions" dataKey="id" styleClass="ui-table-customers" [rowHover]="true"
             [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading"
             [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-            [filterDelay]="0" [globalFilterFields]="['ccNum','transAmt','transId','subsId','monthDuration']">
+            [filterDelay]="0" [globalFilterFields]="['transAmt','transId','subsId','monthDuration']">
             <ng-template pTemplate="caption">
                 My Subscription History
                 
@@ -57,7 +57,7 @@
                 <tr>
                     <th pSortableColumn="subsId" class="idColumn">Subs Id <p-sortIcon field="subsId"></p-sortIcon></th>
                     <th pSortableColumn="transId" class="idColumn">Trans Id <p-sortIcon field="transId"></p-sortIcon></th>
-                    <th pSortableColumn="ccNum">CC Number <p-sortIcon field="ccNum"></p-sortIcon></th>
+                    <!-- <th pSortableColumn="ccNum">CC Number <p-sortIcon field="ccNum"></p-sortIcon></th> -->
                     <th pSortableColumn="transDate">Trans Date <p-sortIcon field="transDate"></p-sortIcon></th>
                     <th pSortableColumn="startDate">Start Date <p-sortIcon field="startDate"></p-sortIcon></th>
                     <th pSortableColumn="endDate">End Date <p-sortIcon field="endDate"></p-sortIcon></th>
@@ -71,9 +71,9 @@
                     <th>
                         <input pInputText type="text" (input)="dt.filter($event.target.value, 'transId', 'contains')" placeholder="Search by Id" class="ui-column-filter">
                     </th>
-                    <th>
+                    <!-- <th>
                         <input pInputText type="text" (input)="dt.filter($event.target.value, 'ccNum', 'contains')" placeholder="Search by CCNum" class="ui-column-filter">
-                    </th>
+                    </th> -->
                     <th>
                         <p-calendar [inputStyle]="{'width':'100%'}" styleClass="ui-column-calendar" (onSelect)="onDateSelect($event)" (onClearClick)="dt.filter('', 'transDate', 'contains')" [showButtonBar]="true" class="date-input" placeholder="Trans Date" [readonlyInput]="true" dateFormat="yy-mm-dd"></p-calendar>
                     </th>
@@ -99,9 +99,9 @@
                     <td>
                         {{subTransaction.transId}}
                     </td>
-                    <td>
+                    <!-- <td>
                         {{subTransaction.ccNum}}
-                    </td>
+                    </td> -->
                     <td>
                         {{parseDate(subTransaction.transDate)}}
                     </td>
