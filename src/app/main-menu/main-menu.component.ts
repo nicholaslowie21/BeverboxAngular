@@ -32,6 +32,7 @@ export class MainMenuComponent implements OnInit
                 {label: 'View My Profile', icon: 'pi pi-user', url: ['viewMyProfile'] },
                 {label: 'Article', icon: 'pi pi-file', url: ['viewAllArticles'] },
                 {label: 'Promotions', icon: 'pi pi-money-bill', url: ['viewAllPromotions'] },
+                {label: 'About Us', icon: 'pi pi-money-bill', url: ['aboutUs'] }
             ]
         },
         {
