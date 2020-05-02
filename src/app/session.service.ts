@@ -73,8 +73,8 @@ export class SessionService {
 					
 					if(customer != null)
 					{
-						this.setCurrentCustomer(customer)
-						
+						this.setCurrentCustomer(customer);
+						console.log("sampe sini "+customer.customerPassword);	
 					}
 				},
 				error => {
