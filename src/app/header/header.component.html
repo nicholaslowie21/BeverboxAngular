@@ -25,7 +25,7 @@
 			<a href="/viewMyProfile">
 				<img src="../../assets/images/profilepic.png" style="width:50px; margin-right: 10px;" />
 			</a>
-			You are logged in as {{sessionService.getCurrentCustomer().customerEmail}}
+			<u>{{sessionService.getCurrentCustomer().customerEmail}}</u>
 			<button pButton type="button" label="Log Out" (click)="customerLogout()" style="margin-left: 10px;"></button>
 		</div>
 	</aside>

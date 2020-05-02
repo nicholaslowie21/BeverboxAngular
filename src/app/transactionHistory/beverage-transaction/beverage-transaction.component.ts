@@ -13,7 +13,6 @@ import { BevTransaction } from '../../bev-transaction';
 export class BeverageTransactionComponent implements OnInit {
 
   bevTrans: BevTransaction[];
-  items: any[];
 
   constructor(private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -32,10 +31,6 @@ export class BeverageTransactionComponent implements OnInit {
 			}
 		);
 
-		this.items = [
-			{icon: 'pi pi-home', routerLink:['/index']},
-			{label: 'My Beverage History'}
-		  ];
   	}
 
   	parseDate(d: Date) {		

@@ -5,10 +5,18 @@
 <section id="content" class="content">
 
     <p-card header="About us" [style]="{width: '100%'}">
-        <p>Beverbox is a beverage subscription box introducing local beverages from different regions around the world every month. With close to a total of 200 countries, travelling the whole world is a costly and time-consuming affair and few will ever have the chance to achieve it. Beverbox closes this gap by delivering the world’s most authentic beverages along with a nicely presented information card right at the customer’s doorstep to experience different culture’s cuisines. </p>
+        <div style="display:inline-flex;">
+            <img src="../../assets/images/Beverbox Logo (square).png" style="height: 150px; ">
+            <div style="text-align: justify;">
+                <b>Beverbox</b> is a beverage subscription box introducing local beverages from different regions around the world every month. Here in Beverbox, we believe cultures of the world are most accessible through cuisines, and beverage is the best packaged medium where authenticity is preserved. Lovingly and thoughtfully curated with our customers in mind, Beverbox delivers a box that strives to capture the key essence of a culture with our selection of uniquely traditional and local favorite drinks. We also include tidbits of knowledge in the form of description cards about the origin of the beverages, fun facts, along with ingredients, nutrition and the best way to enjoy the drink. Not having the chance to travel is no longer a barrier to experience and explore the world! 
+            </div>
+        </div>
     </p-card>
     <br>
-    <p-card header="Feedback" [style]="{width: '100%'}">
+    <p-card header="Contact Us" [style]="{width: '100%'}">
+        <p>
+            For feedback or enquiry, please complete and submit the following form:
+        </p>
     <form #feedbackForm="ngForm" (ngSubmit)="createFeedback(feedbackForm)" >
         <!-- <div *ngIf="resultSuccess == true" style="color:blue;">
             {{message}}
@@ -20,13 +28,13 @@
         <p-messages [(value)]="msgs"></p-messages>
         <div style="background-color: saddlebrown; color: white;float:left; line-height:1.7em; padding-right:.3em">
             <div style="background-color: saddlebrown;">
-                Title:<br>
-            </div>
-            <div style="background-color: sienna;">
                 Name:<br>
             </div>
-            <div style="background-color: saddlebrown;">
+            <div style="background-color: sienna;">
                 Email:<br>
+            </div>
+            <div style="background-color: saddlebrown;">
+                Title:<br>
             </div>
             <div style="background-color: sienna;">
                 Feedback:<br>

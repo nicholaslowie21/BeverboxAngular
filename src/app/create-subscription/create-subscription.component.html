@@ -50,7 +50,7 @@
 			<h4>You have an existing Logs Cashback of ${{currentLogs}}. Use it?</h4>
 			<p-inputSwitch name="cashback" [(ngModel)]="cashback"></p-inputSwitch><br><br>
 			
-			<button (click)="clear()">Clear</button>
+			<input type="button" (click)="clear()" value="Clear" />
 			&nbsp;
 			<input type="submit" value="Create New Subscription" />
 		
