@@ -63,6 +63,7 @@ export class ViewBeverageComponent implements OnInit {
   beverageToBuy: Beverage;
   display: Boolean;
   custCashback: number;
+  beverage: Beverage;
 
   constructor(private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -81,6 +82,7 @@ export class ViewBeverageComponent implements OnInit {
     this.beverageService.retrieveLimitedBeverage().subscribe(
       response => {
         this.beverages = response.beverages;
+        this.beverage = this.beverages[0];
       },
       error => {
         console.log('********** ViewBeverageComponent.ts: ' + error)
