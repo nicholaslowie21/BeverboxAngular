@@ -53,7 +53,7 @@ export class CreateAccountComponent implements OnInit {
 					this.resultError = true;
 					this.resultSuccess = false;
 					this.message = "An error has occurred while creating your account: " + error;
-          this.msgs.push({severity:'error', summary:'Error', detail:'Something went wrong'});
+          this.msgs.push({severity:'error', summary:'Error', detail:error});
 					console.log('********** CreateAccount.ts' + error);
 				}
       );
