@@ -5,15 +5,17 @@
 <section id="content" class="content">
 
 	<br/>
-	
+
+		
+	<p-panel header="Your Beverage Purchase History">
 		<p-table [value]="bevTrans">
 			<ng-template pTemplate="header">
 				<tr>
-					<th>Transaction Id</th>
-					<th>Beverage Name</th>
-					<th>Quantity</th>
-					<th>Cost</th>
-					<th>Date</th>
+					<th class="headerCol">Transaction Id</th>
+					<th class="headerCol">Beverage Name</th>
+					<th class="headerCol">Quantity</th>
+					<th class="headerCol">Cost</th>
+					<th class="headerCol">Date</th>
 					<!-- <th>CC Number</th>                 -->
     			</tr>
 			</ng-template>
@@ -28,6 +30,13 @@
                 </tr>
 			</ng-template>
 		</p-table>
+	
+		<div *ngIf="empty">
+			<br />
+			You have no beverage transaction history. <br /><br />
+			Purchase our beverage of the week <a href="/viewBeverage">here</a>!
+		</div>
+	</p-panel>
 </section>
 
 <app-sidebar></app-sidebar>
