@@ -96,6 +96,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
     RadioButtonModule,
     StepsModule,
     BreadcrumbModule,
+    ToastModule
 	],
   providers: [DatePipe],
   bootstrap: [AppComponent]
