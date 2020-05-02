@@ -11,8 +11,18 @@
     <div *ngIf="sessionService.getIsLogin() == true">
     
         <p-panel header="My Profile">
-            <img src="../../assets/images/profilepic.png" style="width:50px; margin-right: 10px;" />
             
+
+            <div style="display:inline-flex;">
+                <img src="../../assets/images/profilepic.png" style="width:160px; margin-right: 10px;" />
+                <div>
+                    <h1>My Profile Features</h1>
+                    <a href="/viewSubsHistory">View My Existing and Past Subscription</a><br/>
+                    <a href="/beverageTransaction">View Beverage Transaction History</a><br/> 
+                    <a href="/viewMyReviews">View My Reviews</a>
+                </div>
+            </div>
+            <br/><br/>
             <table width="100%">
                 <tr>
                     <td class="rowheader" width="30%">Customer ID:</td>
@@ -47,51 +57,7 @@
                     <td>{{customer.accumulatedCashback}}</td>
                 </tr>
             </table>
-
-        <div style="display:inline-flex;">
-            <img src="../../assets/images/profilepic.png" style="width:160px; margin-right: 10px;" />
-            <div>
-                <h1>My Profile Features</h1>
-                <a href="/viewSubsHistory">View My Existing and Past Subscription</a><br/>
-                <a href="/beverageTransaction">View Beverage Transaction History</a><br/> 
-                <a href="/viewMyReviews">View My Reviews</a>
-            </div>
-        </div>
-        <br/><br/>
-        <table width="100%">
-            <tr>
-                <td class="rowheader" width="30%">Customer ID:</td>
-                <td>{{customer.customerId}}</td>
-            </tr>
-            <tr>
-                <td class="rowheader">Name:</td>
-                <td>{{customer.customerName}}</td>
-            </tr>
-            <tr>
-                <td class="rowheader">Email:</td>
-                <td>{{customer.customerEmail}}</td>
-            </tr>
-            <tr>
-                <td class="rowheader">Password:</td>
-                <td>{{customer.customerPassword}}</td>
-            </tr>
-            <tr>
-                <td class="rowheader">Address:</td>
-                <td>{{customer.address}}</td>
-            </tr>
-            <tr>
-                <td class="rowheader">Credit Card Number:</td>
-                <td>{{customer.customerCCNum}}</td>
-            </tr>
-            <tr>
-                <td class="rowheader">Credit Card CVV:</td>
-                <td>{{customer.customerCVV}}</td>
-            </tr>
-            <tr>
-                <td class="rowheader">Accumulated Cashback:</td>
-                <td>{{customer.accumulatedCashback}}</td>
-            </tr>
-        </table>
+        </p-panel>
 
         <p-button label="Update My Particulars" (onClick)="showDialog()"></p-button>
 
