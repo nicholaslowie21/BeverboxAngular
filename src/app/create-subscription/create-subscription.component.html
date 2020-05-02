@@ -5,13 +5,7 @@
 <section id="content" class="content">
 
 		<p-panel header="Create Your New Subscription">
-		<div *ngIf="resultSuccess == true" style="color:blue;">
-			{{message}}
-		</div>
-		
-		<div *ngIf="resultError == true" style="color:red;">
-			{{message}}
-		</div>
+		<p-messages [(value)]="msgs"></p-messages>
 
     <form #createSubscriptionForm="ngForm" (ngSubmit)="create(createSubscriptionForm)" >
 		<h4>CHOOSE YOUR SUBSCRIPTION SHARING OPTION</h4>

@@ -7,11 +7,14 @@ import { SubscriptionService } from '../subscription.service';
 import { Subscription } from 'rxjs';
 import { Option } from '../option';
 import { OptionService } from '../option.service';
+import {Message} from 'primeng/api';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-create-subscription',
   templateUrl: './create-subscription.component.html',
-  styleUrls: ['./create-subscription.component.css']
+  styleUrls: ['./create-subscription.component.css'],
+  providers: [MessageService]
 })
 
 export class CreateSubscriptionComponent implements OnInit {
@@ -29,6 +32,7 @@ export class CreateSubscriptionComponent implements OnInit {
 	resultSuccess: boolean;
 	resultError: boolean;
 	message: string;
+	msgs: Message[] = [];
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
@@ -113,7 +117,9 @@ export class CreateSubscriptionComponent implements OnInit {
 					let newSubscriptionId: number = response.subsId;
 					this.resultSuccess = true;
 					this.resultError = false;
-					this.message = "New subscription " + newSubscriptionId + " created successfully";
+					this.msgs = [];
+          			this.message = "New subscription " + newSubscriptionId + " created successfully";
+					this.msgs.push({severity:'success', summary:'Success', detail:this.message});
 					this.sessionService.updateCustomer();
 					this.router.navigate(["/viewSubsHistory/"]);
         },
@@ -121,7 +127,8 @@ export class CreateSubscriptionComponent implements OnInit {
 					this.resultError = true;
 					this.resultSuccess = false;
 					this.message = "An error has occurred while creating the new product: " + error;
-					
+					this.msgs = [];
+					this.msgs.push({severity:'error', summary:'Error', detail:this.message});
 					console.log('********** CreateSubscriptionComponent.ts: ' + error);
 				}
 			);
