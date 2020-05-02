@@ -44,6 +44,7 @@ import { ViewMyReviewsComponent } from './view-my-reviews/view-my-reviews.compon
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ViewMyProfileComponent } from './view-my-profile/view-my-profile.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { CreateAccountComponent } from './create-account/create-account.componen
     SidebarComponent,
     ViewMyProfileComponent,
     CreateAccountComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,
