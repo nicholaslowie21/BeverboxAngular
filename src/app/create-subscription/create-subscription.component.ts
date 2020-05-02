@@ -95,7 +95,16 @@ export class CreateSubscriptionComponent implements OnInit {
 		this.submitted = false;
 		this.promoCode = "";
 		this.cashback = false;
-  	}
+		this.optId = 0;
+	}
+	  
+	  parseCashback(n: number)
+	  {		
+      let temp = n.toString();
+      let idx = temp.indexOf(".");
+      temp = temp.substring(0,idx + 3);
+      return temp;
+    }
   
   	create(createSubscriptionForm: NgForm)
 	{	
