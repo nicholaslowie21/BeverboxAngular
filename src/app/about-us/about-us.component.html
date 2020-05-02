@@ -10,13 +10,14 @@
     <br>
     <p-card header="Feedback" [style]="{width: '100%'}">
     <form #feedbackForm="ngForm" (ngSubmit)="createFeedback(feedbackForm)" >
-        <div *ngIf="resultSuccess == true" style="color:blue;">
+        <!-- <div *ngIf="resultSuccess == true" style="color:blue;">
             {{message}}
         </div>
         
         <div *ngIf="resultError == true" style="color:red;">
             {{message}}
-        </div>
+        </div> -->
+        <p-messages [(value)]="msgs"></p-messages>
         <div style="background-color: saddlebrown; color: white;float:left; line-height:1.7em; padding-right:.3em">
             <div style="background-color: saddlebrown;">
                 Title:<br>
