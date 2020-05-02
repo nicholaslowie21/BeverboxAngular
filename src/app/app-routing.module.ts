@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'viewMyReviews', component: ViewMyReviewsComponent},
   { path: 'viewMyProfile', component: ViewMyProfileComponent},
   { path: 'createAccount', component: CreateAccountComponent},
-  {path: 'aboutUs', component: AboutUsComponent}
+  { path: 'aboutUs', component: AboutUsComponent}
   
 ];
 
