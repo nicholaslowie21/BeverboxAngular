@@ -92,7 +92,7 @@ export class ViewBeverageComponent implements OnInit {
 
   clear()
 	{
-		this.submitted = false;
+    this.submitted = false;
   	}
 
   showDialog(beverageToBuy: Beverage) {
