@@ -4,12 +4,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerService } from '../customer.service';
 import { Customer } from '../customer';
 import { NgForm } from '@angular/forms';
+import {Message} from 'primeng/api';
+import {MessageService} from 'primeng/api';
 
 
 @Component({
   selector: 'app-view-my-profile',
   templateUrl: './view-my-profile.component.html',
-  styleUrls: ['./view-my-profile.component.css']
+  styleUrls: ['./view-my-profile.component.css'],
+  providers: [MessageService]
 })
 export class ViewMyProfileComponent implements OnInit {
 
@@ -20,10 +23,10 @@ export class ViewMyProfileComponent implements OnInit {
   resultError: boolean;
   message: String;
   items:any[];
-  // subscriptions: Subscription[];
+  msgs: Message[] = [];
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, public sessionService: SessionService,
-    private customerService: CustomerService) {
+    private customerService: CustomerService, private messageService: MessageService) {
       this.display = false;
       this.submitted = false;
       this.resultSuccess = false;
@@ -56,13 +59,14 @@ export class ViewMyProfileComponent implements OnInit {
 					this.resultSuccess = true;
 					this.resultError = false;
           this.message = "Profile updated successfully";
+          this.msgs.push({severity:'success', summary:'Success', detail:'Account Updated'});
           this.sessionService.updateCustomer();
 				},
 				error => {
 					this.resultError = true;
 					this.resultSuccess = false;
 					this.message = "An error has occurred while updating your profile: " + error;
-					
+          this.msgs.push({severity:'error', summary:'Error', detail:'Something went wrong'});
 					console.log('********** ViewMyProfile.ts: update profile error' + error);
 				}
 			);

@@ -5,11 +5,14 @@ import { CustomerService } from '../customer.service';
 import { Customer } from '../customer';
 import { NgForm } from '@angular/forms';
 import {TooltipModule} from 'primeng/tooltip';
+import {Message} from 'primeng/api';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-create-account',
   templateUrl: './create-account.component.html',
-  styleUrls: ['./create-account.component.css']
+  styleUrls: ['./create-account.component.css'],
+  providers: [MessageService]
 })
 export class CreateAccountComponent implements OnInit {
 
@@ -19,9 +22,10 @@ export class CreateAccountComponent implements OnInit {
   resultSuccess: boolean;
 	resultError: boolean;
 	message: string;
+  msgs: Message[] = [];
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, public sessionService: SessionService,
-    private customerService: CustomerService) { }
+    private customerService: CustomerService, private messageService: MessageService) { }
 
   ngOnInit() {
     this.submitted = false;
@@ -30,7 +34,7 @@ export class CreateAccountComponent implements OnInit {
     this.display = false;
 		this.resultSuccess = false;
 		this.resultError = false;
-
+    
   }
 
   createAccount(newAccountForm: NgForm) {
@@ -43,12 +47,13 @@ export class CreateAccountComponent implements OnInit {
 					this.resultSuccess = true;
 					this.resultError = false;
           this.message = "Account created successfully";
+          this.msgs.push({severity:'success', summary:'Success', detail:'Account Created'});
 				},
 				error => {
 					this.resultError = true;
 					this.resultSuccess = false;
 					this.message = "An error has occurred while creating your account: " + error;
-					
+          this.msgs.push({severity:'error', summary:'Error', detail:'Something went wrong'});
 					console.log('********** CreateAccount.ts' + error);
 				}
       );

@@ -19,9 +19,7 @@
 			<button pButton type="button" label="Log In" (click)="customerLogin()"></button>					
 		</div>
 		
-		<div *ngIf="loginError == true" style="text-align: right; color: red;">
-			{{errorMessage}}
-		</div>
+		<p-toast position="top-left"></p-toast>
 		
 		<div class="theInfo" *ngIf="sessionService.getIsLogin() == true" style="display:inline-flex; align-items:center; margin-top:0px;">
 			<a href="/viewMyProfile">
