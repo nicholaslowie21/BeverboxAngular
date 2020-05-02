@@ -4,11 +4,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FeedbackService } from '../feedback.service';
 import { Feedback } from '../feedback';
 import { NgForm } from '@angular/forms';
+import {Message} from 'primeng/api';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-about-us',
   templateUrl: './about-us.component.html',
-  styleUrls: ['./about-us.component.css']
+  styleUrls: ['./about-us.component.css'],
+  providers: [MessageService]
 })
 export class AboutUsComponent implements OnInit {
 
@@ -17,7 +20,9 @@ export class AboutUsComponent implements OnInit {
   display: boolean;
   resultSuccess: boolean;
 	resultError: boolean;
-	message: string;
+  message: string;
+  msgs: Message[] = [];
+
   constructor(private router: Router, private activatedRoute: ActivatedRoute, public sessionService: SessionService, private feedbackService: FeedbackService) { }
 
   ngOnInit() {
@@ -40,12 +45,13 @@ export class AboutUsComponent implements OnInit {
 					this.resultSuccess = true;
 					this.resultError = false;
           this.message = "Feedback submitted successfully";
+          this.msgs.push({severity:'success', summary:'Success', detail:'Feedback submitted!'});
 				},
 				error => {
 					this.resultError = true;
 					this.resultSuccess = false;
 					this.message = "An error has occurred while creating your feedback: " + error;
-					
+          this.msgs.push({severity:'error', summary:'Error', detail:error});
 					console.log('********** CreateFeedback.ts' + error);
 				}
       );

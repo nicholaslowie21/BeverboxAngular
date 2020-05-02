@@ -32,13 +32,13 @@ export class MainMenuComponent implements OnInit
                 {label: 'View My Profile', icon: 'pi pi-user', url: ['viewMyProfile'] },
                 {label: 'Article', icon: 'pi pi-file', url: ['viewAllArticles'] },
                 {label: 'Promotions', icon: 'pi pi-money-bill', url: ['viewAllPromotions'] },
-                {label: 'About Us', icon: 'pi pi-money-bill', url: ['aboutUs'] }
+                {label: 'About Us', icon: 'pi pi-info-circle', url: ['aboutUs'] }
             ]
         },
         {
             label: 'Product',
             items: [
-                {label: 'Subscription', icon: 'pi pi-info-circle', url: ['viewAllOptions'] },
+                {label: 'Subscription', icon: 'pi pi-bell', url: ['viewAllOptions'] },
                 {label: 'Box', icon: 'pi pi-briefcase', url: ['viewAllBoxes'] },
                 {label: 'Beverage', icon: 'pi pi-tags', url: ['viewBeverage'] }
                 
@@ -47,7 +47,7 @@ export class MainMenuComponent implements OnInit
         {
             label: 'Transaction History',
             items: [
-                {label: 'Subscription', icon: 'pi pi-info-circle', url: ['viewSubsHistory'] },
+                {label: 'Subscription', icon: 'pi pi-bell', url: ['viewSubsHistory'] },
                 {label: 'Beverage', icon: 'pi pi-tags', url: ['beverageTransaction'] }
                 
             ]
