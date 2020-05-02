@@ -29,10 +29,9 @@ export class MainMenuComponent implements OnInit
             label: 'Beverbox',
             items: [
                 {label: 'Home', icon: 'pi pi-home', url: ['index'] },
-                {label: 'View My Profile', icon: 'pi pi-user', url: ['viewMyProfile'] },
+                {label: 'About Us', icon: 'pi pi-question', url: ['aboutUs'] },
                 {label: 'Article', icon: 'pi pi-file', url: ['viewAllArticles'] },
                 {label: 'Promotions', icon: 'pi pi-money-bill', url: ['viewAllPromotions'] },
-                {label: 'About Us', icon: 'pi pi-info-circle', url: ['aboutUs'] }
             ]
         },
         {
@@ -45,11 +44,12 @@ export class MainMenuComponent implements OnInit
             ]
         },
         {
-            label: 'Transaction History',
+            label: 'My Profile',
             items: [
-                {label: 'Subscription', icon: 'pi pi-bell', url: ['viewSubsHistory'] },
-                {label: 'Beverage', icon: 'pi pi-tags', url: ['beverageTransaction'] }
-                
+                {label: 'Update Profile', icon: 'pi pi-user', url: ['viewMyProfile'] },
+                {label: 'My Reviews', icon: 'pi pi-comment', url: ['viewMyReviews']},
+                {label: 'Subscription History', icon: 'pi pi-info-circle', url: ['viewSubsHistory'] },
+                {label: 'Beverage History', icon: 'pi pi-tags', url: ['beverageTransaction'] },
             ]
         }
     ];

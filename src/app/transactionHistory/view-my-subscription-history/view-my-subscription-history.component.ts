@@ -20,7 +20,6 @@ export class ViewMySubscriptionHistoryComponent implements OnInit {
 
     subTransactions: SubTransaction[];
     loading: boolean = true;
-    items:any[];
     subscriptions: Subscription[];
     resultError: boolean;
     message: String;
@@ -57,11 +56,6 @@ export class ViewMySubscriptionHistoryComponent implements OnInit {
           console.log('********** ViewMyProfileComponent.ts: ' + error);
         }
       )
-
-      this.items = [
-        {icon: 'pi pi-home', routerLink:['/index']},
-        {label: 'My Subscriptions'}
-        ];
 
     }
 

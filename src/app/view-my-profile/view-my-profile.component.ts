@@ -22,7 +22,6 @@ export class ViewMyProfileComponent implements OnInit {
   resultSuccess: boolean;
   resultError: boolean;
   message: String;
-  items:any[];
   msgs: Message[] = [];
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, public sessionService: SessionService,
@@ -38,10 +37,6 @@ export class ViewMyProfileComponent implements OnInit {
     
     this.customer = this.sessionService.getCurrentCustomer();
 
-    this.items = [
-      {icon: 'pi pi-home', routerLink:['/index']},
-      {label: 'My Profile'},
-    ];
   }
 
   showDialog() {

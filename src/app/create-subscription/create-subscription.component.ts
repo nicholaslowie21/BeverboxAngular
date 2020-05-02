@@ -89,6 +89,8 @@ export class CreateSubscriptionComponent implements OnInit {
 	clear()
 	{
 		this.submitted = false;
+		this.promoCode = "";
+		this.cashback = false;
   	}
   
   	create(createSubscriptionForm: NgForm)

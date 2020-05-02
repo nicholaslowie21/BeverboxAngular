@@ -74,7 +74,8 @@ export class SessionService {
 					if(customer != null)
 					{
 						this.setCurrentCustomer(customer);
-						console.log("sampe sini "+customer.customerPassword);	
+						this.setEmail(customer.customerEmail);
+						this.setPassword(customer.customerPassword);
 					}
 				},
 				error => {
