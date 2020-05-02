@@ -13,6 +13,7 @@ import { BevTransaction } from '../../bev-transaction';
 export class BeverageTransactionComponent implements OnInit {
 
   bevTrans: BevTransaction[];
+  empty: boolean;
 
   constructor(private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -25,6 +26,12 @@ export class BeverageTransactionComponent implements OnInit {
 		this.transactionService.getBevTransactions().subscribe(
 			response => {
 				this.bevTrans = response.bevTransactions;
+				if(this.bevTrans.length == 0) {
+					this.empty = true;
+				}
+				else {
+					this.empty = false;
+				}
 			},
 			error => {
 				console.log('********** BeverageTransactionComponent.ts: ' + error);

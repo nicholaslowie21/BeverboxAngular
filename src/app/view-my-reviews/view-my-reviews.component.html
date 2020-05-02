@@ -8,6 +8,11 @@
 
 	<p-messages [(value)]="msgs"></p-messages>
 
+		<div *ngIf="empty">
+			You have no review <br /><br />
+			To leave a review, go to <a href="/viewAllBoxes">view all boxes</a> page.
+		</div>
+
 		<div *ngFor="let review of reviews">
 		<p-panel header="Review #{{review.reviewId}}" [toggleable]="true" [style]="{'margin-bottom':'20px'}">
 			<div class="boxDetails">Box ID #{{review.boxId}} {{review.boxName}}</div>

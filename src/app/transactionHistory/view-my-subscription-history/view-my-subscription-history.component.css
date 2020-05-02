@@ -28,3 +28,8 @@
  .ui-table-globalfilter-container{
      float: right;
  }
+
+ .headerCol {
+    background-color:gainsboro !important;
+    border-color: black !important;
+}

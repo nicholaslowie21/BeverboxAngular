@@ -9,7 +9,7 @@
 	<div *ngFor="let article of articles" class="block-div">
 	<p-card header={{article.articleTitle}} class="cardStyle" styleClass="ui-card-shadow">
 		<p-header>
-			<img src="assets/images/drink1.jpg" class="coverImg">
+			<img src="assets/images/image.png" class="coverImg">
 		</p-header>
 		<!--<div [innerHTML]="article.articleContent | safe: 'html'"></div>-->
 		{{parseDate(article.articleDate) | date:'EEEE, MMMM dd y'}}
