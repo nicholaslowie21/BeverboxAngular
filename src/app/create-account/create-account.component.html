@@ -1,5 +1,5 @@
 <h3>Create Account</h3>
-
+<p-messages [(value)]="msgs"></p-messages>
 <form #newAccountForm="ngForm" (ngSubmit)="createAccount(newAccountForm)">
     
     <table width="100%">
@@ -83,16 +83,5 @@
         The CVV is a 3-digit code found on the back of your credit card.
     </p-dialog>
     -->
-
-    <div *ngIf="resultSuccess == true" style="color:blue;">
-        {{message}} <br />
-        Do sign in in the header!
-        <!-- You will be redirected to the home page. Login there to begin shopping!
-        <p-button label="Ok" (onClick)="redirect()"></p-button> -->
-    </div>
-    
-    <div *ngIf="resultError == true" style="color:red;">
-        {{message}}
-    </div>
 
 </form>

@@ -23,6 +23,7 @@ import {InputSwitchModule} from 'primeng/inputswitch';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {StepsModule} from 'primeng/steps';
 import {BreadcrumbModule} from 'primeng/breadcrumb';
+import {ToastModule} from 'primeng/toast';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -95,6 +96,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
     RadioButtonModule,
     StepsModule,
     BreadcrumbModule,
+    ToastModule
 	],
   providers: [DatePipe],
   bootstrap: [AppComponent]

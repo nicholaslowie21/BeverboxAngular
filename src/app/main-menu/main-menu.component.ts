@@ -37,7 +37,7 @@ export class MainMenuComponent implements OnInit
         {
             label: 'Product',
             items: [
-                {label: 'Subscription', icon: 'pi pi-info-circle', url: ['viewAllOptions'] },
+                {label: 'Subscription', icon: 'pi pi-bell', url: ['viewAllOptions'] },
                 {label: 'Box', icon: 'pi pi-briefcase', url: ['viewAllBoxes'] },
                 {label: 'Beverage', icon: 'pi pi-tags', url: ['viewBeverage'] }
                 
@@ -50,7 +50,7 @@ export class MainMenuComponent implements OnInit
                 {label: 'Subscription History', icon: 'pi pi-info-circle', url: ['viewSubsHistory'] },
                 {label: 'Beverage History', icon: 'pi pi-tags', url: ['beverageTransaction'] },
                 {label: 'My Reviews', icon: 'pi pi-comment', url: ['viewMyReviews']}
-                
+
             ]
         }
     ];

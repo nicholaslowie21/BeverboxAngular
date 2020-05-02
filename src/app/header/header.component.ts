@@ -3,11 +3,14 @@ import { SessionService } from '../session.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerService } from '../customer.service';
 import { Customer } from '../customer';
+import {Message} from 'primeng/api';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+  providers: [MessageService]
 })
 export class HeaderComponent implements OnInit {
 
@@ -15,9 +18,10 @@ export class HeaderComponent implements OnInit {
 	password: string;
 	loginError: boolean;
 	errorMessage: string;
+	msgs: Message[] = [];
   
   constructor(private router: Router, private activatedRoute: ActivatedRoute, public sessionService: SessionService,
-    private customerService: CustomerService) {
+    private customerService: CustomerService, private messageService: MessageService) {
       this.loginError = false;
   }
 
@@ -38,8 +42,7 @@ export class HeaderComponent implements OnInit {
 					this.sessionService.setIsLogin(true);
 					this.sessionService.setCurrentCustomer(customer);					
 					this.loginError = false;
-					
-					//this.childEvent.emit();
+					this.messageService.add({severity:'success', summary: 'Success', detail:'You are now logged in!'});
 					
 					this.router.navigate(["/index"]);
 				}
@@ -51,6 +54,7 @@ export class HeaderComponent implements OnInit {
 			error => {
 				this.loginError = true;
 				this.errorMessage = error
+				this.messageService.add({severity:'error', summary: 'Error', detail:this.errorMessage});
 			}
 		);
   }
