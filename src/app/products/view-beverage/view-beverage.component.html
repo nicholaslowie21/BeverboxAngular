@@ -72,7 +72,7 @@
                         <tr>
                             <td width="20%" style="font-weight: bold;background-color: #f4f4f4;">My Cashback</td>
                             <td>
-                                {{getCashback()}}
+                                {{parseCashback(getCashback())}}
                             </td>
                         </tr>
                         <tr>
@@ -87,9 +87,9 @@
                         </tr>
                         <tr>
                             <td colspan="3">
-                                <button pButton type="reset" style="float: left;" class="ui-button-rounded ui-button-secondary" label="Clear"></button>
-                                &nbsp;
-                                <input type="submit" value="Buy" />
+                                <button pButton type="reset" style="float: left; margin-right:10px;" class="ui-button-rounded ui-button-secondary" label="Clear"></button>
+                                &nbsp; 
+                                <button pButton type="submit" class="ui-button-rounded ui-button-secondary" style="float: left;" label="Buy"></button>
                             </td>
 
                         </tr>

@@ -2,7 +2,8 @@
 <app-main-menu></app-main-menu>
 <section id="content" class="content">
 			
-	<p-panel header="Home">
+	<!-- <p-panel header="Home"> -->
+		<p-card header="Home" [style]="{width: '100%'}">
 	<p style="font-weight: bold;">"Beverages from around the world, now at your doorstep" has never been more easy!</p>
 	<p-steps [model]="steps"></p-steps>
 	
@@ -21,7 +22,8 @@
 			OR <b>check out your profile page</b>, by clicking on the person icon in the header!
 		</p>
 	</article>
-	</p-panel>
+	<!-- </p-panel>-->
+</p-card> 
 </section>
 
 <app-sidebar></app-sidebar>

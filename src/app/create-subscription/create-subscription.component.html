@@ -46,12 +46,15 @@
 			<label for="promoCode">Promo Code: </label>
 			<input name="promoCode" type="text" [(ngModel)]="promoCode" size="32"/> <br><br>
 			
-			<h4>You have an existing Logs Cashback of ${{currentLogs}}. Use it?</h4>
+			<h4>You have an existing Logs Cashback of ${{parseCashback(currentLogs)}}. Use it?</h4>
 			<p-inputSwitch name="cashback" [(ngModel)]="cashback"></p-inputSwitch><br><br>
 			
-			<input type="button" (click)="clear()" value="Clear" />
+			<button pButton type="reset" style="float: left; margin-right:10px;" class="ui-button-rounded ui-button-secondary" label="Clear"></button>
+			&nbsp; 
+			<button pButton type="submit" class="ui-button-rounded ui-button-secondary" style="float: left;" label="Buy"></button>
+			<!-- <input type="button" (click)="clear()" value="Clear" />
 			&nbsp;
-			<input type="submit" value="Create New Subscription" />
+			<input type="submit" value="Create New Subscription" /> -->
 		
 		
 	</form>

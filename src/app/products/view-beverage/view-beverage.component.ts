@@ -108,6 +108,14 @@ export class ViewBeverageComponent implements OnInit {
     return this.custCashback;
   }
 
+  parseCashback(n: number)
+  {		
+    let temp = n.toString();
+    let idx = temp.indexOf(".");
+    temp = temp.substring(0,idx + 3);
+    return temp;
+  }
+
   create(buyBevForm: NgForm) {
     this.submitted = true;
     console.log(buyBevForm.valid);

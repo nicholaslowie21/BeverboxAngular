@@ -67,6 +67,14 @@ export class ViewMyProfileComponent implements OnInit {
 			);
     }
   }
+
+  parseCashback(n: number)
+  {		
+    let temp = n.toString();
+    let idx = temp.indexOf(".");
+    temp = temp.substring(0,idx + 3);
+    return temp;
+  }
   
   checkAccessRight() {
   if(!this.sessionService.checkAccessRight(this.router.url))
