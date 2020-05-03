@@ -35,20 +35,26 @@
 				</p-card>
 			</div>
 		</div>
-			
-			<h4>Enter Promotion Code to accumulate your Logs Cashback!</h4>
-			<label for="promoCode">Promo Code: </label>
-			<input name="promoCode" type="text" [(ngModel)]="promoCode" size="32"/> <br><br>
-			
-			<h4>You have an existing Logs Cashback of ${{parseCashback(currentLogs)}}. Use it?</h4>
-			<p-inputSwitch name="cashback" [(ngModel)]="cashback"></p-inputSwitch><br><br>
-			
-			<button pButton type="reset" style="float: left; margin-right:10px;" class="ui-button-rounded ui-button-secondary" label="Clear"></button>
-			&nbsp; 
-			<button pButton type="submit" class="ui-button-rounded ui-button-secondary" style="float: left;" label="Buy"></button>
-			<!-- <input type="button" (click)="clear()" value="Clear" />
-			&nbsp;
-			<input type="submit" value="Create New Subscription" /> -->
+
+		<div>
+			<b>Note to Beaveys:</b> We send out our Beverboxes every <b style="color: red">2nd day</b> of the month, so if you subscribe after that, your first box will arrive on the 2nd of the <b>following</b> month.
+		</div>
+		<br>
+				
+		<h4>You have an existing Logs Cashback of ${{parseCashback(currentLogs)}}. Use it now?</h4>
+		<p-inputSwitch name="cashback" [(ngModel)]="cashback"></p-inputSwitch><br><br>
+
+		<h4>Enter Promotion Code to accumulate your Logs Cashback for future use!</h4>
+		<label for="promoCode">Promo Code: </label>
+		<input name="promoCode" type="text" [(ngModel)]="promoCode" size="32"/> <br><br>
+
+		
+		<button pButton type="reset" style="float: left; margin-right:10px;" class="ui-button-rounded ui-button-secondary" label="Clear"></button>
+		&nbsp; 
+		<button pButton type="submit" class="ui-button-rounded ui-button-secondary" style="float: left;" label="Buy"></button>
+		<!-- <input type="button" (click)="clear()" value="Clear" />
+		&nbsp;
+		<input type="submit" value="Create New Subscription" /> -->
 		
 		
 	</form>

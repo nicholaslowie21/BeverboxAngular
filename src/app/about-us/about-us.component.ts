@@ -58,4 +58,16 @@ export class AboutUsComponent implements OnInit {
     }
   }
 
+  redirectToOptions(): void {
+      this.router.navigate(["/viewAllOptions"]);
+  }
+
+  redirectToBoxes(): void {
+      this.router.navigate(["/viewAllBoxes"]);
+  }
+
+  redirectToBeverages(): void {
+      this.router.navigate(["/viewBeverage"]);
+  }
+
 }
