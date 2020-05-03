@@ -5,73 +5,97 @@
 <section id="content" class="content">
 
     <p-card header="About us" [style]="{width: '100%'}">
-        <p>Beverbox is a beverage subscription box introducing local beverages from different regions around the world every month. With close to a total of 200 countries, travelling the whole world is a costly and time-consuming affair and few will ever have the chance to achieve it. Beverbox closes this gap by delivering the world’s most authentic beverages along with a nicely presented information card right at the customer’s doorstep to experience different culture’s cuisines. </p>
+        <div style="display:inline-flex;">
+            <img src="../../assets/images/Beverbox Logo (square).png" style="height: 150px; ">
+            <div style="text-align: justify;">
+                <b>Beverbox</b> is a beverage subscription box introducing local beverages from different regions around the world every month. Here in Beverbox, we believe cultures of the world are most accessible through cuisines, and beverage is the best packaged medium where authenticity is preserved. Lovingly and thoughtfully curated with our customers in mind, Beverbox delivers a box that strives to capture the key essence of a culture with our selection of uniquely traditional and local favorite drinks. We also include tidbits of knowledge in the form of description cards about the origin of the beverages, fun facts, along with ingredients, nutrition and the best way to enjoy the drink. Not having the chance to travel is no longer a barrier to experience and explore the world! 
+            </div>
+        </div>
     </p-card>
     <br>
-    <p-card header="Feedback" [style]="{width: '100%'}">
-    <form #feedbackForm="ngForm" (ngSubmit)="createFeedback(feedbackForm)" >
-        <!-- <div *ngIf="resultSuccess == true" style="color:blue;">
-            {{message}}
+    <p-card header="Browse Our Products and Subscriptions" [style]="{width: '100%'}">
+        <button pButton label="Subscription Options" (click)="redirectToOptions();"></button>&nbsp;
+        <button pButton label="Past Boxes" (click)="redirectToBoxes();"></button>&nbsp;
+        <button pButton label="Beverages" (click)="redirectToBeverages();"></button><br><br>
+        <div>
+            <b>Note to Beaveys:</b> We send out our Beverboxes every <b style="color: red">2nd day</b> of the month, so if you subscribe after that, your first box will arrive on the 2nd of the <b>following</b> month.
         </div>
-        
-        <div *ngIf="resultError == true" style="color:red;">
-            {{message}}
-        </div> -->
-        <p-messages [(value)]="msgs"></p-messages>
-        <div style="background-color: saddlebrown; color: white;float:left; line-height:1.7em; padding-right:.3em">
-            <div style="background-color: saddlebrown;">
-                Title:<br>
+    </p-card>
+    <br>
+    <p-card header="Contact Us" [style]="{width: '100%'}">
+        <p>
+            For feedback or enquiry, please complete and submit the following form:
+        </p>
+        <form #feedbackForm="ngForm" (ngSubmit)="createFeedback(feedbackForm)" >
+            <!-- <div *ngIf="resultSuccess == true" style="color:blue;">
+                {{message}}
             </div>
-            <div style="background-color: sienna;">
-                Name:<br>
-            </div>
-            <div style="background-color: saddlebrown;">
-                Email:<br>
-            </div>
-            <div style="background-color: sienna;">
-                Feedback:<br>
-            </div>
-        </div>
-        <div style = "line-height:1.7em;">
-            <div style="background-color: saddlebrown;">
-                <input id="feedbackTitle" style="size: 20;" name="feedbackTitle" #feedbackTitle="ngModel" type="text" [(ngModel)]="newFeedback.feedbackTitle" required="true" /><br>
+            
+            <div *ngIf="resultError == true" style="color:red;">
+                {{message}}
+            </div> -->
+            <p-messages [(value)]="msgs"></p-messages>
+            <div>
                 <div *ngIf="feedbackTitle.invalid && (feedbackTitle.dirty || feedbackTitle.touched || submitted)" class="errorText">
-                    <div *ngIf="feedBackTitle.errors.required">
+                    <div *ngIf="feedbackTitle.errors.required">
                         Title is required.
                     </div>
                 </div>
-            </div>
-            <div style="background-color: sienna;">
-                <input id="name" style="size: 20;" name="name" #name="ngModel" type="text" [(ngModel)]="newFeedback.name" required="true" /><br>
                 <div *ngIf="name.invalid && (name.dirty || name.touched || submitted)" class="errorText">
                     <div *ngIf="name.errors.required">
                         Name is required.
                     </div>
                 </div>
-            </div>
-            <div style="background-color: saddlebrown;">
-                <input id="email" style="size: 20;" name="email" #email="ngModel" type="text" [(ngModel)]="newFeedback.email" required="true" /><br>
                 <div *ngIf="email.invalid && (email.dirty || email.touched || submitted)" class="errorText">
                     <div *ngIf="email.errors.required">
                         Email is required.
                     </div>
                 </div>
             </div>
-            <div style="background-color: sienna; color: white;">
-
-            <textarea [rows]="1" [cols]="30" style="width: 50%; height: 100%;" autoResize="autoResize" pInputTextarea 
-                #reviewContent="ngModel" [(ngModel)]="newFeedback.feedbackText" id="feedbackText" name="feedbackText" placeholder="Leave Feedback"></textarea><br>
+            <div style="background-color: saddlebrown; color: white;float:left; line-height:1.7em; padding-right:.3em">
+                
+                <div style="background-color: saddlebrown;">
+                    Title:<br>
+                </div>
+                <div style="background-color: sienna;">
+                    Name:<br>
+                </div>
+                <div style="background-color: saddlebrown;">
+                    Email:<br>
+                </div>
+                <div style="background-color: sienna;">
+                    Feedback:<br>
+                </div>
             </div>
+            <div style = "line-height:1.7em;">
+                <div style="background-color: saddlebrown;">
+                    <input id="feedbackTitle" style="size: 20;" name="feedbackTitle" #feedbackTitle="ngModel" type="text" [(ngModel)]="newFeedback.feedbackTitle" required="true" /><br>
+                    
+                </div>
+                <div style="background-color: sienna;">
+                    <input id="name" style="size: 20;" name="name" #name="ngModel" type="text" [(ngModel)]="newFeedback.name" required="true" /><br>
+                    
+                </div>
+                <div style="background-color: saddlebrown;">
+                    <input id="email" style="size: 20;" name="email" #email="ngModel" type="text" [(ngModel)]="newFeedback.email" required="true" /><br>
+                    
+                </div>
+                <div style="background-color: sienna; color: white;">
+
+                <textarea [rows]="1" [cols]="30" style="width: 50%; height: 100%;" autoResize="autoResize" pInputTextarea 
+                    #reviewContent="ngModel" [(ngModel)]="newFeedback.feedbackText" id="feedbackText" name="feedbackText" placeholder="Leave Feedback"></textarea><br>
+                </div>
+               
             
-        </div>
-        <div style="background-color: saddlebrown; height: 40px; padding-top: 7px;" >
-            <button pButton type="reset" style="float: left;" class="ui-button-rounded ui-button-secondary" label="Clear"></button>
-            &nbsp;
-            &nbsp;
-            <button pButton type="submit" class="ui-button-rounded ui-button-secondary" label="Submit"></button>
-        </div>
-    </form>
-</p-card>
+            </div>
+            <div style="background-color: saddlebrown; height: 40px; padding-top: 7px;" >
+                <button pButton type="reset" style="float: left;" class="ui-button-rounded ui-button-secondary" label="Clear"></button>
+                &nbsp;
+                &nbsp;
+                <button pButton type="submit" class="ui-button-rounded ui-button-secondary" label="Submit"></button>
+            </div>
+        </form>
+    </p-card>
 
 </section>
 

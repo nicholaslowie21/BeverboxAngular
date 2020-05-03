@@ -22,7 +22,6 @@ export class ViewMyProfileComponent implements OnInit {
   resultSuccess: boolean;
   resultError: boolean;
   message: String;
-  items:any[];
   msgs: Message[] = [];
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, public sessionService: SessionService,
@@ -38,10 +37,6 @@ export class ViewMyProfileComponent implements OnInit {
     
     this.customer = this.sessionService.getCurrentCustomer();
 
-    this.items = [
-      {icon: 'pi pi-home', routerLink:['/index']},
-      {label: 'My Profile'},
-    ];
   }
 
   showDialog() {
@@ -59,18 +54,30 @@ export class ViewMyProfileComponent implements OnInit {
 					this.resultSuccess = true;
 					this.resultError = false;
           this.message = "Profile updated successfully";
+          this.msgs = [];
           this.msgs.push({severity:'success', summary:'Success', detail:'Account Updated'});
+          this.sessionService.setPassword(this.customer.customerPassword);
+          this.sessionService.setEmail(this.customer.customerEmail);
           this.sessionService.updateCustomer();
 				},
 				error => {
 					this.resultError = true;
-					this.resultSuccess = false;
+          this.resultSuccess = false;
+          this.msgs = [];
 					this.message = "An error has occurred while updating your profile: " + error;
           this.msgs.push({severity:'error', summary:'Error', detail:'Something went wrong'});
 					console.log('********** ViewMyProfile.ts: update profile error' + error);
 				}
 			);
     }
+  }
+
+  parseCashback(n: number)
+  {		
+    let temp = n.toString();
+    let idx = temp.indexOf(".");
+    temp = temp.substring(0,idx + 3);
+    return temp;
   }
   
   checkAccessRight() {

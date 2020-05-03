@@ -9,14 +9,14 @@
 	<div *ngFor="let article of articles" class="block-div">
 	<p-card header={{article.articleTitle}} class="cardStyle" styleClass="ui-card-shadow">
 		<p-header>
-			<img src="assets/images/drink1.jpg">
+			<img src="assets/images/image.png" class="coverImg">
 		</p-header>
 		<!--<div [innerHTML]="article.articleContent | safe: 'html'"></div>-->
 		{{parseDate(article.articleDate) | date:'EEEE, MMMM dd y'}}
 		<p-footer>
 			<button type="button" (click)="showDialog(article.articleId)" pButton label="See more"></button>
-			<p-dialog header={{articleToView.articleTitle}} [draggable]="false" [maximizable]="true" [(visible)]="displayDialog" [style]="{width: '50vw'}" [baseZIndex]="10000">
-				<div [innerHTML]="articleToView.articleContent | safe: 'html'"></div>
+			<p-dialog header={{articleToView.articleTitle}} [draggable]="false" [maximizable]="true" [blockScroll]="true" [(visible)]="displayDialog" [style]="{width: '50vw'}" [baseZIndex]="10000">
+				<div class="articleContent" [innerHTML]="articleToView.articleContent | safe: 'html'"></div>
 				<p-footer>
 					<button type="button" pButton icon="pi pi-times" (click)="displayDialog=false" label="Close"></button>
 				</p-footer>

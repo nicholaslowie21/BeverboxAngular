@@ -4,32 +4,39 @@
 
 <section id="content" class="content">
 
-	<p-breadcrumb [model]="items"></p-breadcrumb>
-
 	<br/>
-	
+
+		
+	<p-panel header="Your Beverage Purchase History">
 		<p-table [value]="bevTrans">
 			<ng-template pTemplate="header">
 				<tr>
-					<th>Transaction Id</th>
-					<th>Beverage Name</th>
-					<th>Quantity</th>
-					<th>Cost</th>
-					<th>Date</th>
-					<th>CC Number</th>                
+					<th class="headerCol">Transaction Id</th>
+					<th class="headerCol">Beverage Name</th>
+					<th class="headerCol">Quantity</th>
+					<th class="headerCol">Cost</th>
+					<th class="headerCol">Date</th>
+					<!-- <th>CC Number</th>                 -->
     			</tr>
 			</ng-template>
 			<ng-template pTemplate="body" let-bevTran>
 				<tr>
-					<td>{{bevTran.transId}}</td>
-					<td>{{bevTran.bevName}}</td>				
-					<td class="cellnumber">{{bevTran.qty}}</td>
-					<td class="cellnumber">{{bevTran.transAmt | currency}}</td>
-					<td>{{parseDate(bevTran.transDate)}}</td>
-					<td>{{bevTran.ccNum}}</td>
+					<td class="column">{{bevTran.transId}}</td>
+					<td class="column">{{bevTran.bevName}}</td>				
+					<td class="column">{{bevTran.qty}}</td>
+					<td class="column">{{bevTran.transAmt | currency}}</td>
+					<td class="column">{{parseDate(bevTran.transDate)}}</td>
+					<!-- <td>{{bevTran.ccNum}}</td> -->
                 </tr>
 			</ng-template>
 		</p-table>
+	
+		<div *ngIf="empty">
+			<br />
+			You have no beverage transaction history. <br /><br />
+			Purchase our beverage of the week <a href="/viewBeverage">here</a>!
+		</div>
+	</p-panel>
 </section>
 
 <app-sidebar></app-sidebar>

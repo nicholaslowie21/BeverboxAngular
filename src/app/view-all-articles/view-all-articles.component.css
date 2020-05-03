@@ -1,8 +1,21 @@
  .block-div {
    display: inline-flex;
  }
+
+ .coverImg {
+	height: 250px;
+ }
  
  .cardStyle {
-	width: 314px;
 	margin: 0 10px 10px 10px;
+ }
+
+ .articleContent {
+	 padding: 10px 24px 0 24px;
+	 text-align: justify;
+ }
+
+ .coverImg {
+	 height: 250px;
+	 object-fit: cover;
  }

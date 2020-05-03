@@ -24,7 +24,6 @@ const routes: Routes = [
   { path: 'viewAllBoxes', component: ViewAllBoxesComponent},
   { path: 'viewAllPromotions', component: ViewAllPromotionsComponent},
   { path: 'viewSubsHistory', component: ViewMySubscriptionHistoryComponent},
-  { path: 'viewAllBoxes', component: ViewAllBoxesComponent},
   { path: 'viewBeverage', component: ViewBeverageComponent},
   { path: 'viewAllArticles', component: ViewAllArticlesComponent},
   { path: 'viewAllOptions', component: ViewAllOptionsComponent},

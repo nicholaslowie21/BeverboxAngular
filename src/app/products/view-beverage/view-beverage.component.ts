@@ -8,6 +8,7 @@ import { BeverageService } from '../../beverage.service';
 import { Beverage } from '../../beverage';
 import { BevTransaction } from 'src/app/bev-transaction';
 
+import { Message } from 'primeng/api';
 
 @Component({
   selector: 'app-view-beverage',
@@ -64,6 +65,7 @@ export class ViewBeverageComponent implements OnInit {
   display: Boolean;
   custCashback: number;
   beverage: Beverage;
+  msgs: Message[] = [];
 
   constructor(private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -92,7 +94,8 @@ export class ViewBeverageComponent implements OnInit {
 
   clear()
 	{
-		this.submitted = false;
+    this.msgs = [];
+    this.submitted = false;
   	}
 
   showDialog(beverageToBuy: Beverage) {
@@ -108,25 +111,35 @@ export class ViewBeverageComponent implements OnInit {
     return this.custCashback;
   }
 
+  parseCashback(n: number)
+  {		
+    let temp = n.toString();
+    let idx = temp.indexOf(".");
+    temp = temp.substring(0,idx + 3);
+    return temp;
+  }
+
   create(buyBevForm: NgForm) {
     this.submitted = true;
     console.log(buyBevForm.valid);
     if(buyBevForm.valid) {
-      console.log(this.beverageToBuy.beverageId);
+
       this.transactionService.createBevTransaction(this.beverageToBuy.beverageId, this.promoCode, this.newBevTransaction.qty, this.cashback).subscribe(
         response => {
             this.newBevTransaction.transId = response.bevTransactionId;
             this.resultSuccess = true;
             this.resultError = false;
-            this.message = "New Beverage Transaction " + response.bevTransactionId + " created successfully";
+            this.message = "Beverage has been purchased successfully(Beverage Transaction ID: " + response.bevTransactionId + ")";
+            this.msgs.push({severity:'success', summary:'Success', detail:this.message});
             this.sessionService.updateCustomer();
           },
           
           error => {
             this.resultError = true;
 					  this.resultSuccess = false;
-					  this.message = error;
-					
+					  this.message = "An error has occurred while buying the beverage: " + error;
+            this.msgs = [];
+					  this.msgs.push({severity:'error', summary:'Error', detail:this.message});
 					console.log('********** (Buy beverage)ViewBeverageComponent.ts: ' + error);
           }
       )

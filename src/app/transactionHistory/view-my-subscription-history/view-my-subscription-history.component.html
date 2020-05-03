@@ -4,24 +4,22 @@
 
 <section id="content" class="content">
 
-    <p-breadcrumb [model]="items"></p-breadcrumb>
-
     <br/>
 
     <div *ngIf="resultError == true" style="color:red;">
         {{message}}
     </div>
 
-    <p-panel header="Your Existing Subscriptions">
+    <p-panel header="Your Current and Upcoming Subscriptions">
         <p-table [value]="subscriptions">
             <ng-template pTemplate = "header">
                 <tr>
-                    <th>Subscription ID</th>
-                    <th>Subscription Name</th>
-                    <th>Sharing Option</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th>Action</th>
+                    <th class="headerCol">Subscription ID</th>
+                    <th class="headerCol">Subscription Name</th>
+                    <th class="headerCol">Sharing Option</th>
+                    <th class="headerCol">Start Date</th>
+                    <th class="headerCol">End Date</th>
+                    <th class="headerCol">Action</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate = "body" let-subscription>
@@ -47,24 +45,22 @@
     </p-panel>
     <br/><br/>
 
+    <p-panel header="Your Subscription History">
         <p-table #dt [value]="subTransactions" dataKey="id" styleClass="ui-table-customers" [rowHover]="true"
             [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading"
             [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-            [filterDelay]="0" [globalFilterFields]="['ccNum','transAmt','transId','subsId','monthDuration']">
-            <ng-template pTemplate="caption">
-                My Subscription History
-                
-            </ng-template>
+            [filterDelay]="0" [globalFilterFields]="['transAmt','transId','subsId','monthDuration']">
+            
             <ng-template pTemplate="header">
                 <tr>
-                    <th pSortableColumn="subsId" class="idColumn">Subs Id <p-sortIcon field="subsId"></p-sortIcon></th>
-                    <th pSortableColumn="transId" class="idColumn">Trans Id <p-sortIcon field="transId"></p-sortIcon></th>
-                    <th pSortableColumn="ccNum">CC Number <p-sortIcon field="ccNum"></p-sortIcon></th>
-                    <th pSortableColumn="transDate">Trans Date <p-sortIcon field="transDate"></p-sortIcon></th>
-                    <th pSortableColumn="startDate">Start Date <p-sortIcon field="startDate"></p-sortIcon></th>
-                    <th pSortableColumn="endDate">End Date <p-sortIcon field="endDate"></p-sortIcon></th>
-                    <th pSortableColumn="transAmt" class="cost">Cost <p-sortIcon field="transAmt"></p-sortIcon></th>
-                    <th pSortableColumn="monthDuration" class="duration">Duration (months) <p-sortIcon field="monthDuration"></p-sortIcon></th>
+                    <th pSortableColumn="subsId" class="idColumn headerCol">Subs Id <p-sortIcon field="subsId"></p-sortIcon></th>
+                    <th pSortableColumn="transId" class="idColumn headerCol">Trans Id <p-sortIcon field="transId"></p-sortIcon></th>
+                    <!-- <th pSortableColumn="ccNum">CC Number <p-sortIcon field="ccNum"></p-sortIcon></th> -->
+                    <th pSortableColumn="transDate" class="headerCol">Trans Date <p-sortIcon field="transDate"></p-sortIcon></th>
+                    <th pSortableColumn="startDate" class="headerCol">Start Date <p-sortIcon field="startDate"></p-sortIcon></th>
+                    <th pSortableColumn="endDate" class="headerCol">End Date <p-sortIcon field="endDate"></p-sortIcon></th>
+                    <th pSortableColumn="transAmt" class="cost headerCol">Cost <p-sortIcon field="transAmt"></p-sortIcon></th>
+                    <th pSortableColumn="monthDuration" class="duration headerCol">Duration (months) <p-sortIcon field="monthDuration"></p-sortIcon></th>
                 </tr>
                 <tr>
                     <th>
@@ -73,9 +69,9 @@
                     <th>
                         <input pInputText type="text" (input)="dt.filter($event.target.value, 'transId', 'contains')" placeholder="Search by Id" class="ui-column-filter">
                     </th>
-                    <th>
+                    <!-- <th>
                         <input pInputText type="text" (input)="dt.filter($event.target.value, 'ccNum', 'contains')" placeholder="Search by CCNum" class="ui-column-filter">
-                    </th>
+                    </th> -->
                     <th>
                         <p-calendar [inputStyle]="{'width':'100%'}" styleClass="ui-column-calendar" (onSelect)="onDateSelect($event)" (onClearClick)="dt.filter('', 'transDate', 'contains')" [showButtonBar]="true" class="date-input" placeholder="Trans Date" [readonlyInput]="true" dateFormat="yy-mm-dd"></p-calendar>
                     </th>
@@ -101,9 +97,9 @@
                     <td>
                         {{subTransaction.transId}}
                     </td>
-                    <td>
+                    <!-- <td>
                         {{subTransaction.ccNum}}
-                    </td>
+                    </td> -->
                     <td>
                         {{parseDate(subTransaction.transDate)}}
                     </td>
@@ -127,7 +123,7 @@
                 </tr>
             </ng-template>
         </p-table>
-      
+    </p-panel> 
 </section>
 
 <app-sidebar></app-sidebar>

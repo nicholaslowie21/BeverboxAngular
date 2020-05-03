@@ -20,8 +20,7 @@ export class ViewMyReviewsComponent implements OnInit {
 	
 	reviews: Review[];
 	msgs: Message[] = [];
-	items: any[];
-
+	empty: boolean;
 
 	constructor(private router: Router,
 				private activatedRoute: ActivatedRoute,
@@ -39,17 +38,18 @@ export class ViewMyReviewsComponent implements OnInit {
 		this.reviewService.getReviewsByEmail().subscribe(
 			response => {
 				this.reviews = response.reviews;
+				if(this.reviews.length == 0) {
+					this.empty = true;
+				}
+				else {
+					this.empty = false;
+				}
 			},
 			error => {
 				console.log('********** ViewMyReviewsComponent.ts: ' + error);
 			}
 		);
 
-		this.items = [
-			{icon: 'pi pi-home', routerLink:['/index']},
-			{label: 'My Profile', routerLink:['/viewMyProfile']},
-			{label: 'My Reviews'}
-		  ];
 	}
 
 
