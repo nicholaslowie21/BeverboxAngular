@@ -126,7 +126,7 @@ export class CreateSubscriptionComponent implements OnInit {
 				error => {
 					this.resultError = true;
 					this.resultSuccess = false;
-					this.message = "An error has occurred while creating the new product: " + error;
+					this.message = "An error has occurred while creating the new subscription: " + error;
 					this.msgs = [];
 					this.msgs.push({severity:'error', summary:'Error', detail:this.message});
 					console.log('********** CreateSubscriptionComponent.ts: ' + error);
