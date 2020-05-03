@@ -10,7 +10,7 @@
     <form #createSubscriptionForm="ngForm" (ngSubmit)="create(createSubscriptionForm)" >
 		<h4>CHOOSE YOUR SUBSCRIPTION SHARING OPTION</h4>
         <div class="block-div">
-			<p-radioButton name="option1" value={{optId1}} label="" [(ngModel)]="optId"></p-radioButton>
+			<p-radioButton name="option" value={{optId1}} label="" [(ngModel)]="optId"></p-radioButton>
             <p-card header={{option1.name}} subheader={{option1.description}} class="cardStyle" styleClass="ui-card-shadow" (onclick)="clickTest(option1)">
                 <p-header>
                     <img src="../../assets/images/{{option1.type}}.jpg">
@@ -22,7 +22,7 @@
                 </div>
 			</p-card>
 			<div *ngIf="checkOption2() == true" class="block-div">
-				<p-radioButton name="option2" value={{optId2}} label="" [(ngModel)]="optId"></p-radioButton>
+				<p-radioButton name="option" value={{optId2}} label="" [(ngModel)]="optId"></p-radioButton>
 				<p-card header={{option2.name}} subheader={{option2.description}} class="cardStyle" styleClass="ui-card-shadow">
 					<p-header>
 						<img src="../../assets/images/{{option2.type}}.jpg">
