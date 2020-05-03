@@ -30,7 +30,7 @@ export class MainMenuComponent implements OnInit
             items: [
                 {label: 'Home', icon: 'pi pi-home', url: ['index'] },
                 {label: 'About Us', icon: 'pi pi-question', url: ['aboutUs'] },
-                {label: 'Article', icon: 'pi pi-file', url: ['viewAllArticles'] },
+                {label: 'Articles', icon: 'pi pi-file', url: ['viewAllArticles'] },
                 {label: 'Promotions', icon: 'pi pi-money-bill', url: ['viewAllPromotions'] },
             ]
         },
@@ -46,7 +46,7 @@ export class MainMenuComponent implements OnInit
         {
             label: 'My Profile',
             items: [
-                {label: 'Update Profile', icon: 'pi pi-user', url: ['viewMyProfile'] },
+                {label: 'View Profile', icon: 'pi pi-user', url: ['viewMyProfile'] },
                 {label: 'My Reviews', icon: 'pi pi-comment', url: ['viewMyReviews']},
                 {label: 'Subscription History', icon: 'pi pi-info-circle', url: ['viewSubsHistory'] },
                 {label: 'Beverage History', icon: 'pi pi-tags', url: ['beverageTransaction'] },
