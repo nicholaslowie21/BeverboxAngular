@@ -5,13 +5,6 @@
 <section id="content" class="content">
 
     <p-panel header="Beverage of the Week">
-        <div *ngIf="resultSuccess == true" style="color:blue;">
-            {{message}}
-        </div>
-        
-        <div *ngIf="resultError == true" style="color:red;">
-            {{message}}
-        </div>
         <p-card [style]="{width: '100%'}" >
    
                     <div class="beverage-details">   
@@ -36,6 +29,7 @@
 
             <p-dialog *ngIf="display" header="Buy Beverage of the Week" modal="true" [(visible)]="display"  [style]="{width: '50vw'}">
                 <form #buyBevForm="ngForm" (ngSubmit)="create(buyBevForm)">
+                    <p-messages [(value)]="msgs"></p-messages>
                     <table width="100%">
                         <tr>
                         <td width="20%" style="font-weight: bold;background-color: #f4f4f4;">Beverage Name</td>

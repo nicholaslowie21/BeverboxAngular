@@ -35,15 +35,33 @@
                 {{message}}
             </div> -->
             <p-messages [(value)]="msgs"></p-messages>
+            <div>
+                <div *ngIf="feedbackTitle.invalid && (feedbackTitle.dirty || feedbackTitle.touched || submitted)" class="errorText">
+                    <div *ngIf="feedbackTitle.errors.required">
+                        Title is required.
+                    </div>
+                </div>
+                <div *ngIf="name.invalid && (name.dirty || name.touched || submitted)" class="errorText">
+                    <div *ngIf="name.errors.required">
+                        Name is required.
+                    </div>
+                </div>
+                <div *ngIf="email.invalid && (email.dirty || email.touched || submitted)" class="errorText">
+                    <div *ngIf="email.errors.required">
+                        Email is required.
+                    </div>
+                </div>
+            </div>
             <div style="background-color: saddlebrown; color: white;float:left; line-height:1.7em; padding-right:.3em">
-                <div style="background-color: saddlebrown;">
-                    Name:<br>
-                </div>
-                <div style="background-color: sienna;">
-                    Email:<br>
-                </div>
+                
                 <div style="background-color: saddlebrown;">
                     Title:<br>
+                </div>
+                <div style="background-color: sienna;">
+                    Name:<br>
+                </div>
+                <div style="background-color: saddlebrown;">
+                    Email:<br>
                 </div>
                 <div style="background-color: sienna;">
                     Feedback:<br>
@@ -52,34 +70,23 @@
             <div style = "line-height:1.7em;">
                 <div style="background-color: saddlebrown;">
                     <input id="feedbackTitle" style="size: 20;" name="feedbackTitle" #feedbackTitle="ngModel" type="text" [(ngModel)]="newFeedback.feedbackTitle" required="true" /><br>
-                    <div *ngIf="feedbackTitle.invalid && (feedbackTitle.dirty || feedbackTitle.touched || submitted)" class="errorText">
-                        <div *ngIf="feedBackTitle.errors.required">
-                            Title is required.
-                        </div>
-                    </div>
+                    
                 </div>
                 <div style="background-color: sienna;">
                     <input id="name" style="size: 20;" name="name" #name="ngModel" type="text" [(ngModel)]="newFeedback.name" required="true" /><br>
-                    <div *ngIf="name.invalid && (name.dirty || name.touched || submitted)" class="errorText">
-                        <div *ngIf="name.errors.required">
-                            Name is required.
-                        </div>
-                    </div>
+                    
                 </div>
                 <div style="background-color: saddlebrown;">
                     <input id="email" style="size: 20;" name="email" #email="ngModel" type="text" [(ngModel)]="newFeedback.email" required="true" /><br>
-                    <div *ngIf="email.invalid && (email.dirty || email.touched || submitted)" class="errorText">
-                        <div *ngIf="email.errors.required">
-                            Email is required.
-                        </div>
-                    </div>
+                    
                 </div>
                 <div style="background-color: sienna; color: white;">
 
                 <textarea [rows]="1" [cols]="30" style="width: 50%; height: 100%;" autoResize="autoResize" pInputTextarea 
                     #reviewContent="ngModel" [(ngModel)]="newFeedback.feedbackText" id="feedbackText" name="feedbackText" placeholder="Leave Feedback"></textarea><br>
                 </div>
-                
+               
+            
             </div>
             <div style="background-color: saddlebrown; height: 40px; padding-top: 7px;" >
                 <button pButton type="reset" style="float: left;" class="ui-button-rounded ui-button-secondary" label="Clear"></button>
