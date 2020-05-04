@@ -1,28 +1,49 @@
 # BeverboxAngular
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
-
-## Development server
-
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+### Introduction
+Beverbox is a beverage subscription box introducing local beverages from different regions around the world every month. With close to a total of 200 countries in the world, travelling the whole world is a costly and time-consuming affair and few will ever have the chance to achieve it. Beverbox closes this gap by delivering the world’s most authentic beverages along with a nicely presented information card right at the customer’s doorstep to experience different culture’s cuisines. It is also an exciting way to spruce up mealtimes and strengthen our global citizenry, especially amidst the COVID-19 pandemic. 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Value proposition
+“Beverages from around the world, now at your doorstep”. Beverbox sources a wide selection of uniquely traditional and local favorite drinks from different regions every month. We believe cultures of the world are most accessible through cuisines, and beverage is the best packaged medium with authenticity preserved. Lovingly and thoughtfully curated with our customers in mind, Beverbox delivers a box that strives to capture the key essence of a culture by including description cards with information about the origin of the beverages, fun facts, along with ingredients, nutrition details and the best way to enjoy the drink. These tidbits of knowledge are also shared through our Beverbox online articles. Not having the chance to travel is no longer a barrier to experience and explore the world. 
 
-## Build
+Our selling point is that Beverbox makes experiencing flavors of the world simple and convenient, but extremely customisable. Customers just need to opt for a subscription type,  which ranges from healthy to alcoholic drinks and their preferred duration of subscription, and simply pay the subscription fees online for the service to kick in. Beverbox also provides a competitively priced sharing option for those who want to have more drinks than the usual box quantities for families or friends to enjoy. If customers cannot commit to a whole box per month, Beverbox also sells interesting Beverages of the week, for customers who are more particular in their drinks. Beverbox is able to offer convenience to the customers without compromising on the quality and experience of the beverage box. 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Business Content
+1.	Revenue Model
 
-## Running unit tests
+The revenue model of Beverbox centers around a subscription model, where customers pay to receive a monthly beverage box consisting of unique local beverages from around the world. The prices for different beverage types (regular, healthy and alcohol) vary, and we further apply bundle pricing for longer subscription durations (from a range of 3, 6, 9, and 12 months) as well as the sharing option for an increased quantity of drinks in their box. This idea of paying just slightly more such that each individual item is cheaper and more “worth it” is hoped to incentivise the customer to invest in a longer subscription service and enjoy Beverbox’s curated variety to the fullest. Furthermore, the concept of small investment is also in play in terms of giving customers “Logs” (cashback) for every transaction which uses promotion code, by motivating customers to come back and purchase again. 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Beverbox is capitalising on our unique position to offer niche drinks from all over the world in our Beverages of the Week. Otherwise only available through the boxes, the Beverages of the Week caters to those unwilling to commit to the boxes and motivates those undecided on whether to subscribe to give Beverbox products a try. This limited edition aspect of Beverage of the Week can be leveraged as another source of revenue. 
 
-## Running end-to-end tests
+As our customer base grows, we hope to be able to achieve more cost savings through bulk ordering imports from our drink suppliers. A steady customer base also lends credibility to Beverbox in negotiating for better deals and sourcing for more authentic suppliers. 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+2.	Market Opportunity
 
-## Further help
+Subscription boxes are on the rise and consumers are eager to purchase these subscriptions for their needs. In a recent survey in First Insight, featured in USA Today, it showed that 25% of respondents (both men and women) are currently receiving a subscription box and another 32% plan to subscribe in the next six months. It is a growing market that has incredible potential that Beverbox is tapping into. By offering our services as a subscription-based system, we are simplifying the choices that consumers have to make with regards to their beverages and bring satisfaction and enjoyment when they receive our subscription boxes.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-"# BeverboxAngular" 
+In addition, most beverage subscription boxes that are currently on the market only offer one single type of beverage. Beverbox will stand out in the current market due to the wide variety of beverages that could potentially be included in the subscription boxes. This caters to a larger target audience and provides beverages for all ages. This makes our box one of the first subscription services that caters to every age group and stands out among our competitors in the market.
+
+3.	Competitive Environment
+
+Currently, the popularity of subscription boxes is on the rise in many countries, and Singapore is no exception. There are many different types of subscription boxes that exist in the market currently and these are the boxes that we have to compete with. Beverage subscription boxes are not uncommon as niche tea, coffee, and alcoholic drink boxes do exist, such as Gryphon Tea Company, Hook Coffee, and Sakemaru respectively. However, these companies target individuals who are fans of a particular type of beverage.
+Firstly, Gryphon Tea Company is a monthly subscription service for tea that is specially curated for the subscriber. It provides a convenient way to save money and time and to enjoy a variety of teas at discounted rates and is delivered to the doorstep of subscribers every month. Gryphon Tea Company offers a choice of two curated box sets: Artisan and Gourmet to cater to different tea drinkers. Tea lovers can select from 17 tea selections to add to their box and they will receive a box monthly for either 1, 3, 6 or 12 months, depending on the subscription plan.
+
+Another competitor, Hook Coffee provides a subscription service for their freshly roasted coffee that they send on a fixed schedule to their consumers. It promises to save money and costs about $14 for 200g of coffee.
+
+Lastly, Sakemaru is a sake subscription service that promises to deliver fresh sake right to one’s doorsteps. It also has honorary sake sommeliers to select seasonal sake that is chilled all the way to Singapore. This encourages experimentation of new types of Sake. Sakemaru also focuses on educating consumers to become Sake Savvy by providing guides to the world of sake which includes materials (like drinking glasses) to add on to the experience. 
+
+4.	Competitive Advantage
+
+Of all the beverage subscription boxes available on the market currently, we are the only subscription service offering to bring local beverages that are unique to every country right to the doorsteps of our consumers. While most beverage subscription boxes focus on niche beverage types like coffee, tea or alcoholic drinks, Beverbox brings to our consumers all types of beverages that are suitable for all ages. We are offering something truly innovative into the current market and providing fun beverages to satisfy any type of customers. 
+
+Beverbox also educates about the beverages that consumers receive monthly by including interesting cultural facts. Not only do we offer a variety of beverage options from varying country origins, we also want to increase our consumers’ knowledge about the origins of the beverage and heritage of its culture.
+
+Beverbox is customer-centric by offering different levels of customisation for all our consumers. Besides the regular box, we provide boxes that contain healthier drink options for our health-conscious customers, while our alcohol lovers are offered a full alcoholic option. We put our customers first and cater to their needs as we care deeply about the quality of experience each time they unfold their Beverbox box. 
+
+In contrast to the three competitors listed above, we offer a new and unique set of beverages every month. We aim to keep our boxes affordable, simple and accessible as the beverages will be packaged in ready-to-drink bottles and customers will not need to brew/make the drinks themselves. Additionally, we are open to suggestions from our consumers on the beverages they desire in future boxes, as suggested by our review and feedback feature. Similar to Sakemaru, we include information and fun facts about our beverages in our subscription box. While Sakemaru specialises in sake, Beverbox introduces a variety of unique local drinks from around the world, making our drinks friendlier to people of all ages and all backgrounds. Furthermore, Beverbox simplifies the process of obtaining local beverages from different regions, by expertly sourcing our beverages and conveniently delivering it as a charming box on the customer’s doorstep. Beverbox successfully reduces the hassle of travelling to another country and creates a whole new experience of a country through their local unique beverages.
+
+5.	Marketing and Advertising Strategies
+
+Ultimately, Beverbox’s competitive advantages will only shine with marketing and advertising strategy working in tandem. We believe that our main beverage subscription boxes should be emphasised, thus prospective customers can browse the variety of what our previous boxes have offered. Customers can also leave honest reviews to these boxes as testament to the quality of our boxes, and advertise the credibility of our main product. The descriptions and origin story of each beverage is also published in accessible articles which are easily shareable. This advertises our educational value and whet the appetite of prospective customers to experience consuming the beverage first-hand. Ultimately, since our Beverage of the Week changes every week, it is a versatile feature product that warrants real-life marketing, which keeps customers on their toes as the Beverage of the Week can be a beverage that features in upcoming boxes, thus giving customers a “sneak peek” of the upcoming box, or a previous crowd favorite. 
