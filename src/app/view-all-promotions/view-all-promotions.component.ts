@@ -45,7 +45,7 @@ export class ViewAllPromotionsComponent implements OnInit {
             const activity = parseInt(value);
 
             if (!isNaN(activity)) {
-                this.table.filter(activity, 'percentage', 'gte');
+                this.table.filter(activity, 'promoPercentage', 'gte');
             }
         }
       }

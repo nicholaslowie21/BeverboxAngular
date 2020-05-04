@@ -7,7 +7,7 @@
     <p-table #dt [value]="promotions" dataKey="id" styleClass="ui-table-customers" [rowHover]="true"
             [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading"
             [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-            [filterDelay]="0" [globalFilterFields]="['promoName','promoType','promoCode']">
+            [filterDelay]="0" [globalFilterFields]="['promoName','promoType','promoCode', 'promoPercentage']">
             <ng-template pTemplate="caption">
                 <h2>All Promotions</h2>
                     <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Global Search" />
