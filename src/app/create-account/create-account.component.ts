@@ -23,6 +23,7 @@ export class CreateAccountComponent implements OnInit {
 	resultError: boolean;
 	message: string;
   msgs: Message[] = [];
+  confirmPassword: string;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, public sessionService: SessionService,
     private customerService: CustomerService, private messageService: MessageService) { }
@@ -33,30 +34,36 @@ export class CreateAccountComponent implements OnInit {
     
     this.display = false;
 		this.resultSuccess = false;
-		this.resultError = false;
-    
+    this.resultError = false;
+    this.confirmPassword = "";
   }
 
   createAccount(newAccountForm: NgForm) {
 
     this.submitted = true;
-
-    if (newAccountForm.valid) {
-      this.customerService.createNewCustomer(this.newCustomer).subscribe(
-        response => {					
-					this.resultSuccess = true;
-					this.resultError = false;
-          this.message = "Account created successfully";
-          this.msgs.push({severity:'success', summary:'Success', detail:'Account Created'});
-				},
-				error => {
-					this.resultError = true;
-					this.resultSuccess = false;
-					this.message = "An error has occurred while creating your account: " + error;
-          this.msgs.push({severity:'error', summary:'Error', detail:error});
-					console.log('********** CreateAccount.ts' + error);
-				}
-      );
+    if(this.confirmPassword == this.newCustomer.customerPassword){
+      if (newAccountForm.valid) {
+        this.customerService.createNewCustomer(this.newCustomer).subscribe(
+          response => {					
+            this.resultSuccess = true;
+            this.resultError = false;
+            this.message = "Account created successfully";
+            this.msgs = [];
+            this.msgs.push({severity:'success', summary:'Success', detail:'Account Created'});
+          },
+          error => {
+            this.resultError = true;
+            this.resultSuccess = false;
+            this.message = "An error has occurred while creating your account: " + error;
+            this.msgs = [];
+            this.msgs.push({severity:'error', summary:'Error', detail:error});
+            console.log('********** CreateAccount.ts' + error);
+          }
+        );
+      }
+    } else {
+      this.msgs = [];
+      this.msgs.push({severity:'error', summary:'Error', detail:'Password and Confirmation Password are mismatched'});
     }
   }
 

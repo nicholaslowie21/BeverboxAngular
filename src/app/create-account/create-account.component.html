@@ -27,11 +27,22 @@
         </tr>
         <tr>
             <td width="20%" class="rowheader">Password</td>
-            <td><input id="password" name="password" #password="ngModel" type="text" [(ngModel)]="newCustomer.customerPassword" required="true" /></td>
+            <td><input id="password" type="password" name="password" #password="ngModel" [(ngModel)]="newCustomer.customerPassword" required="true" /></td>
             <td>
                 <div *ngIf="password.invalid && (password.dirty || password.touched || submitted)" class="errorText">
                     <div *ngIf="password.errors.required">
                         Password is required.
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="20%" class="rowheader">Confirm Password</td>
+            <td><input id="confirmpassword" type="password" name="confirmpassword" #confirmpassword="ngModel" [(ngModel)]="confirmPassword" required="true" /></td>
+            <td>
+                <div *ngIf="confirmpassword.invalid && (confirmpassword.dirty || confirmpassword.touched || submitted)" class="errorText">
+                    <div *ngIf="confirmpassword.errors.required">
+                        Confirm Password is required.
                     </div>
                 </div>
             </td>
