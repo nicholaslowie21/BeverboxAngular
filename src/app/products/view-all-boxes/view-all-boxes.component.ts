@@ -123,6 +123,8 @@ export class ViewAllBoxesComponent implements OnInit {
   
 	createReview(reviewForm: NgForm)
 	{
+    this.checkAccessRight();
+
     if(this.sessionService.getCurrentCustomer() == null) {
       this.msgs = [];
       this.msgs.push({severity:'error', summary:'Error Message: ', detail:'Login is required to leave a review!'});
@@ -150,6 +152,14 @@ export class ViewAllBoxesComponent implements OnInit {
 				console.log('Error creating new review');
 			}
 		);	
-	}
-
+  
+    }
+  checkAccessRight() {
+    if(!this.sessionService.checkAccessRight(this.router.url))
+    {
+      this.msgs = [];
+      this.msgs.push({severity:'error', summary:'Error Message: ', detail:'Login is required to leave a review!'});
+    }
+  }
+  
 }
